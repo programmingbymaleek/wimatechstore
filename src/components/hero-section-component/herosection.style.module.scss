@@ -1,0 +1,24 @@
+.hero-section {
+  // margin-top: 10rem;
+  width: 100%;
+  background-image: url(../../assets/images/hero-background.png);
+  background-size: 60% 85%;
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  background-color: #cbd2de;
+}
+.hero-section-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+
+@media screen and (max-width: 1800px) {
+  .hero-section {
+    // margin-top: 10rem;
+    width: 100%;
+    background-image: url(../../assets/images/hero-background.png);
+    background-size: 60% 85%;
+    background-position: right center;
+  }
+}
