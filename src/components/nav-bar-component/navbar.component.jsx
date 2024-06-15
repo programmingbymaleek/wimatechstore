@@ -19,7 +19,7 @@ const Navbar = () => {
             <img alt="company logo" />
           </li>
           <CustomList liststyle="flex-row gap-4 items-center">
-            <Link to={"/"}>
+            <Link to={"/wimatechstore"}>
               <NavItem item="Home" />
             </Link>
             <NavItem item="Shop" />
@@ -28,12 +28,12 @@ const Navbar = () => {
           </CustomList>
         </CustomList>
         <CustomList liststyle="flex-row gap-4 items-center w-fit">
-          <Link to={"/login"}>
+          <Link to={"/wimatechstore/login"}>
             {" "}
             <NavItem item="Login" />
           </Link>
           <span>/</span>
-          <Link to={"/signup"}>
+          <Link to={"/wimatechstore/signup"}>
             {" "}
             <NavItem item="Register" />
           </Link>

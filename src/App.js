@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Navigation />}>
+        <Route path="/wimatechstore" element={<Navigation />}>
           <Route index element={<LandingPage />} />
           <Route path="login" element={<LoginSection />} />
           <Route path="signup" element={<SignupSection />} />
