@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/wimatechstore/static/css/main.d5faecbf.css",
-    "main.js": "/wimatechstore/static/js/main.91d01566.js",
+    "main.js": "/wimatechstore/static/js/main.fd3b7605.js",
     "static/js/453.0459dc41.chunk.js": "/wimatechstore/static/js/453.0459dc41.chunk.js",
     "static/media/form-image.png": "/wimatechstore/static/media/form-image.821a79fe7ca676870902.png",
     "static/media/hero-background.png": "/wimatechstore/static/media/hero-background.d360737e25bde482c821.png",
@@ -16,11 +16,11 @@
     "static/media/youtube.svg": "/wimatechstore/static/media/youtube.eaf909477123659bb1e702f79cd29a69.svg",
     "index.html": "/wimatechstore/index.html",
     "main.d5faecbf.css.map": "/wimatechstore/static/css/main.d5faecbf.css.map",
-    "main.91d01566.js.map": "/wimatechstore/static/js/main.91d01566.js.map",
+    "main.fd3b7605.js.map": "/wimatechstore/static/js/main.fd3b7605.js.map",
     "453.0459dc41.chunk.js.map": "/wimatechstore/static/js/453.0459dc41.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d5faecbf.css",
-    "static/js/main.91d01566.js"
+    "static/js/main.fd3b7605.js"
   ]
 }
