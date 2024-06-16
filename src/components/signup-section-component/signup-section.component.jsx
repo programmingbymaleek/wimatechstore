@@ -10,7 +10,12 @@ import TextSlideshowContainer from "../text-slideshow-container/text-slideshow-c
 import { signInWithGooglePopUp } from "../../utilis/firebase.utils";
 import google_logo from "../../assets/images/google_logo.png";
 import OrDivider from "../or-divider-component/or-divider.component";
+import {
+  createAuthUserWithEmailAndPassword,
+  createUserDocumentFromAuth,
+} from "../../utilis/firebase.utils";
 import { useState } from "react";
+import { async } from "@firebase/util";
 
 const SignupSection = () => {
   const signUpWithGoogle = async () => {
@@ -34,11 +39,29 @@ const SignupSection = () => {
     const { name, value } = event.target;
     setFormFields({ ...formFields, [name]: value });
   };
-  console.log(formFields);
+
+  const submitFormHandler = async (event) => {
+    event.preventDefault();
+    if (password === confirmPassword) {
+      try {
+        const user = await createAuthUserWithEmailAndPassword(
+          email,
+          password,
+          displayName
+        );
+        if (user) {
+          createUserDocumentFromAuth(user);
+        }
+        console.log(user);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
   return (
     <AuthContainer>
       {" "}
-      <FormComponent formstyle="flex  flex-col w-5/12">
+      <form formstyle="flex  flex-col w-5/12" onSubmit={submitFormHandler}>
         <Text texttype="heading-md">Sign Up</Text>
         <Text texttype="text-normal" textstyles="text-[#3a3a3a]/70 pt-1 pb-8">
           Please fill in the required fields
@@ -50,11 +73,13 @@ const SignupSection = () => {
           labelstyle="capitalize font-medium"
           inputstyle="w-full px-6 p-4 mt-3 mb-8 text-base"
           value={displayName}
+          required
           onChange={onChangeHandler}
         />
         <FormInput
           type="email"
           name="email"
+          required
           placeholder="Enter email address"
           labelstyle="capitalize font-medium"
           inputstyle="w-full px-6 p-4 mt-3 mb-8 text-base"
@@ -65,6 +90,7 @@ const SignupSection = () => {
           type="password"
           name="password"
           value={password}
+          required
           onChange={onChangeHandler}
           placeholder="....."
           labelstyle="capitalize font-medium"
@@ -74,6 +100,7 @@ const SignupSection = () => {
           type="password"
           name="confirmPassword"
           value={confirmPassword}
+          required
           onChange={onChangeHandler}
           placeholder="....."
           labelstyle="capitalize font-medium"
@@ -92,6 +119,7 @@ const SignupSection = () => {
         <Button
           buttonstyles="py-4 flex flex-row items-center gap-5 capitalize"
           buttontype="image-button"
+          type="button"
           buttonFunc={signUpWithGoogle}
         >
           <img src={google_logo} alt="google_logo" className="w-7 h-7" />
@@ -101,7 +129,7 @@ const SignupSection = () => {
           Already have an account?{" "}
           <Text textstyles="text-[#0000a3] font-semibold">Log In</Text>
         </Text>
-      </FormComponent>
+      </form>
       <TextSlideshowContainer />
     </AuthContainer>
   );

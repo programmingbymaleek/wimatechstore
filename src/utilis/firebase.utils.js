@@ -1,4 +1,3 @@
-import { async } from "@firebase/util";
 import { initializeApp } from "firebase/app";
 import {
   GoogleAuthProvider,
@@ -47,17 +46,27 @@ export const signInWithGooglePopUp = () =>
 
 export const db = getFirestore();
 //add category to firestore.. ie build category with json objects..
-export const createUserDocumentFromAuth = async (userAuth) => {
+export const createUserDocumentFromAuth = async (
+  userAuth,
+  additionalInformantion = {}
+) => {
+  console.log(userAuth);
   if (!userAuth) return;
   //create a snapshot for refrence.
   const userDocRef = doc(db, "users", userAuth.uid);
   const userSnapShot = await getDoc(userDocRef);
+  console.log(userDocRef);
 
   if (!userSnapShot.exists()) {
     const { displayName, email } = userAuth;
     const createdAt = new Date();
     try {
-      await setDoc(userDocRef, { displayName, email, createdAt });
+      await setDoc(userDocRef, {
+        displayName,
+        email,
+        createdAt,
+        ...additionalInformantion,
+      });
     } catch (error) {
       console.log("There was an error creating this user::", error.message);
     }
@@ -80,10 +89,28 @@ export const createAuthUserWithEmailAndPassword = async (
 };
 
 export const signInUserWithEmailAndPassword = async (email, password) => {
-  if (!email || !password) {
-    return await signInWithEmailAndPassword(auth, email, password);
+  if (!email || !password) return;
+  return await signInWithEmailAndPassword(auth, email, password);
+};
+
+export const getUserDocumentFromFireBase = async (uid) => {
+  if (!uid) return null;
+  // Get a reference to the 'users' collection
+  const collectionRef = collection(db, "users");
+  // Get a reference to the specific document within the 'users' collection
+  const userDocRef = doc(collectionRef, uid);
+  // Fetch the document
+  const userDocSnap = await getDoc(userDocRef);
+  // Check if the document exists and return the data, otherwise return null
+  if (userDocSnap.exists()) {
+    return userDocSnap.data();
+  } else {
+    console.log("No such user");
+    return null;
   }
 };
 
 export const onAuthStateChangedListener = (callback) =>
   onAuthStateChanged(auth, callback);
+
+export const SignOutUser = async () => await signOut(auth);

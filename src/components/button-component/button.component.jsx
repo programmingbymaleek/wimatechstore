@@ -1,15 +1,28 @@
 import React from "react";
 import classes from "./button.style.module.scss";
-const Button = ({ children, buttontype, buttonstyles, buttonFunc }) => {
+const Button = ({ children, buttontype, buttonstyles, buttonFunc, type }) => {
   return (
-    <div
-      className={`flex items-center justify-center cursor-pointer ${buttonstyles} ${
-        classes[`${buttontype}`]
-      } ${classes[`button`]}`}
-      onClick={() => buttonFunc()}
-    >
-      {children}
-    </div>
+    <>
+      {buttonFunc ? (
+        <div
+          className={`flex items-center justify-center cursor-pointer ${buttonstyles} ${
+            classes[`${buttontype}`]
+          } ${classes[`button`]}`}
+          onClick={() => buttonFunc()}
+        >
+          {children}
+        </div>
+      ) : (
+        <button
+          className={`flex items-center justify-center cursor-pointer ${buttonstyles} ${
+            classes[`${buttontype}`]
+          } ${classes[`button`]}`}
+          type={type}
+        >
+          {children}
+        </button>
+      )}
+    </>
   );
 };
 
