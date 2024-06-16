@@ -52,7 +52,6 @@ const SignupSection = () => {
         if (user) {
           createUserDocumentFromAuth(user);
         }
-        console.log(user);
       } catch (error) {
         console.log(error);
       }

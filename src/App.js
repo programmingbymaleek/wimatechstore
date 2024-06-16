@@ -30,7 +30,6 @@ function App() {
       if (user) {
         await createUserDocumentFromAuth(user);
         const userData = await fetchUserData(user.uid);
-        console.log("This is the user data", userData);
         const { displayName, email } = userData;
         dispatch(setCurrentUser({ displayName, email }));
       } else {

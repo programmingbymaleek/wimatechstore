@@ -36,17 +36,13 @@ const LoginSection = () => {
 
   const onChangeHandler = (event) => {
     const { name, value } = event.target;
-    console.log(event.target.value);
     setFormFields({ ...formFields, [name]: value });
   };
-
-  console.log(formFields);
 
   const submitFormHandler = async (event) => {
     event.preventDefault();
     try {
-      const userData = await signInUserWithEmailAndPassword(email, password);
-      console.log(userData);
+      await signInUserWithEmailAndPassword(email, password);
       resetFormFields();
     } catch (error) {
       console.log(error.code);
