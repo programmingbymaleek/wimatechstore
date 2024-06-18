@@ -2,13 +2,15 @@ on:
   push:
     branches:
       - main
+      - gh-pages
+      - feature/*
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2  # This step checks out your code from the repository
+        uses: actions/checkout@v2 # This step checks out your code from the repository
       - name: Set up Git
         run: |
           git config user.name "wisdom"
