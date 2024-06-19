@@ -1,5 +1,4 @@
 import React from "react";
-import CategoryItem from "../category-item/categoryitem.component";
 import classes from "./list.style.module.scss";
 const CustomList = ({ children, liststyle }) => {
   return (

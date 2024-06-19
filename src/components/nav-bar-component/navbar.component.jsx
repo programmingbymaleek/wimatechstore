@@ -9,6 +9,7 @@ import { ReactComponent as CartIcon } from "../../assets/icons/shopping_cart.svg
 import { useSelector } from "react-redux";
 import { SignOutUser } from "../../utilis/firebase.utils";
 import { useNavigate } from "react-router-dom";
+import Text from "../text-component/text.component";
 
 const Navbar = () => {
   const currentUser = useSelector((state) => state.user.currentUser);
@@ -20,26 +21,46 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`py-10 ${classes[`navigation`]}`}>
+    <nav className={`py-8 ${classes[`navigation`]}`}>
       <CustomList
         liststyle={`flex flex-row justify-between w-full items-center  ${
           classes[`navigation-list`]
         }`}
       >
-        <CustomList liststyle="flex-row gap-10 items-center">
+        <CustomList liststyle="flex-row gap-12 items-center">
           <li>
             <img alt="company logo" />
           </li>
-          <CustomList liststyle="flex-row gap-4 items-center">
+          <CustomList liststyle="flex-row gap-8 items-center">
             <Link to={"/wimatechstore"}>
-              <NavItem item="Home" />
+              <Text
+                texttype="text-normal"
+                textstyles=" hover:text-blue-800 text-gray-700 font-medium"
+              >
+                Home
+              </Text>
             </Link>
-            <NavItem item="Shop" />
-            <NavItem item="Categories" />
-            <NavItem item="Contact Us" />
+            <Text
+              texttype="text-normal"
+              textstyles=" hover:text-blue-800 text-gray-700 font-medium"
+            >
+              Shop
+            </Text>
+            <Text
+              texttype="text-normal"
+              textstyles=" hover:text-blue-800 text-gray-700 font-medium"
+            >
+              Categories
+            </Text>
+            <Text
+              texttype="text-normal"
+              textstyles=" hover:text-blue-800 text-gray-700 font-medium"
+            >
+              Contact Us
+            </Text>
           </CustomList>
         </CustomList>
-        <CustomList liststyle="flex-row gap-4 items-center w-fit">
+        <CustomList liststyle="flex-row gap-8 items-center w-fit">
           {currentUser ? (
             <>
               <span>{currentUser.displayName}</span>
@@ -48,18 +69,21 @@ const Navbar = () => {
               </button>
             </>
           ) : (
-            <>
-              {" "}
-              <Link to={"/wimatechstore/login"}>
-                {" "}
-                <NavItem item="Login" />
+            <div className="flex flex-row gap-4 ">
+              <Link
+                to={"/wimatechstore/login"}
+                className="hover:text-blue-800 font-hover:text-blue-800 text-gray-700 font-medium"
+              >
+                <Text texttype="text-normal">Login</Text>
               </Link>
               <span>/</span>
-              <Link to={"/wimatechstore/signup"}>
-                {" "}
-                <NavItem item="Register" />
+              <Link
+                to={"/wimatechstore/signup"}
+                className="hover:text-blue-800 font-hover:text-blue-800 text-gray-700 font-medium"
+              >
+                <Text texttype="text-normal">Register</Text>
               </Link>
-            </>
+            </div>
           )}
           <SearchIcon className="w-5 h-5" />
           <CartIcon className="w-5 h-5" />

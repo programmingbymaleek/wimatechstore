@@ -14,20 +14,20 @@ const ContactUsSection = () => {
         >
           Do you have any questions?
         </Text>
-        <Text texttype="text-normal" textstyles="w-6/12">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-          fermentum mi sed luctus blandit.
+        <Text texttype="text-normal" textstyles="w-6/12 text-gray-700">
+          We're here to help! Reach out to us with any questions, feedback, or
+          inquiries—we're eager to assist you.
         </Text>
-        <CustomList liststyle="flex-row gap-4 h-14">
+        <CustomList liststyle="flex-row gap-3 h-12 mt-4">
           <InputBox
             type="email"
             placeholder="Enter your email"
             name="email"
-            inputstyles="w-8/12 h-full px-6 py-auto "
+            inputstyles="w-8/12 h-full px-4 py-auto"
           />
           <Button
             buttontype="primary-button"
-            buttonstyles="px-8 py-auto h-full"
+            buttonstyles="px-6 py-auto h-full"
           >
             Get Started
           </Button>

@@ -1,10 +1,11 @@
 import React from "react";
 import form_image from "../../assets/images/form-image.png";
-const BackgroundImageContainer = ({ containerstyle, children }) => {
+
+const BackgroundImageContainer = ({ containerstyle, children, image }) => {
   return (
     <div
-      className={`${containerstyle} relative w-full h-full bg-cover bg-center flex items-end justify-center text-white p-4 rounded-lg`}
-      style={{ backgroundImage: `url(${form_image})` }}
+      className={`${containerstyle}`}
+      style={{ backgroundImage: `url(${image})` }}
     >
       {children}
     </div>

@@ -60,7 +60,7 @@ const SignupSection = () => {
   return (
     <AuthContainer>
       {" "}
-      <form formstyle="flex  flex-col w-5/12" onSubmit={submitFormHandler}>
+      <form className="flex  flex-col w-5/12" onSubmit={submitFormHandler}>
         <Text texttype="heading-md">Sign Up</Text>
         <Text texttype="text-normal" textstyles="text-[#3a3a3a]/70 pt-1 pb-8">
           Please fill in the required fields

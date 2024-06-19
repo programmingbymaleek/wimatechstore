@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import NavItem from "../nav-item-component/navitem.component";
+import Text from "../text-component/text.component";
 
 const SubNavbar = ({ navdata, children }) => {
   const [selected, setSelected] = useState(0);
@@ -9,16 +10,18 @@ const SubNavbar = ({ navdata, children }) => {
   };
 
   return (
-    <ul className="flex space-x-6 list-style-none w-full items-center justify-center my-10">
+    <ul className="flex space-x-6 list-style-none w-full items-center justify-center my-8">
       {navdata.map((item, index) => (
-        <NavItem
-          key={index}
-          itemstyles={`cursor-pointer py-2 ${
-            selected === index ? "border-b-2 border-blue-500" : ""
+        <div
+          className={`cursor-pointer border-b-[3px] px-1  py-2 ${
+            selected === index ? " border-blue-800" : "border-transparent"
           }`}
-          selectElement={selectElement}
-          item={item}
-        />
+          onClick={() => selectElement(index)}
+        >
+          <Text key={index} texttype="text-normal">
+            {item}
+          </Text>
+        </div>
       ))}
     </ul>
   );

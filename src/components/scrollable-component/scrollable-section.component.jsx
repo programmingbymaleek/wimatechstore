@@ -47,7 +47,7 @@ const ScrollableSection = ({ scrollstyles, children }) => {
       </div>
       {showPrevButton && (
         <button
-          className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800 text-white p-2"
+          className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800/60 text-white p-2 rounded-full w-8 h-8 flex items-center justify-center text-2xl border border-white/70 pb-3"
           onClick={scrollLeft}
         >
           ‹
@@ -55,7 +55,7 @@ const ScrollableSection = ({ scrollstyles, children }) => {
       )}
       {showNextButton && (
         <button
-          className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-800 text-white p-2"
+          className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-800/60 text-white p-2 rounded-full w-8 h-8 flex items-center justify-center text-2xl border border-white/70 pb-3"
           onClick={scrollRight}
         >
           ›
