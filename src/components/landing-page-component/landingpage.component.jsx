@@ -103,9 +103,9 @@ const LandingPage = () => {
       <HeroSection />
       <CategorySection />
       <ProductSection navItems={navItems} data={productData} />
-      <div className="grid w-full max-w-[1280px] px-16 mx-auto my-20 grid-cols-12 gap-4 large:h-96 h-[23rem]">
+      <div className="grid w-full max-w-[1280px] px-6 large:px-16 mx-auto my-20 grid-cols-12 gap-4  large:h-96 medium:h-[23rem] h-[30rem]">
         <BackgroundImageContainer
-          containerstyle={`large:col-span-8 col-span-6 flex flex-col items-start justify-center large:pl-8 pl-12 gap-7 bg-no-repeat bg-cover bg-center rounded-lg
+          containerstyle={`large:col-span-8 medium:col-span-6 col-span-12 flex flex-col items-start justify-center large:pl-8 pl-12 gap-4 medium:gap-7 bg-no-repeat bg-cover bg-center rounded-lg
       `}
           image={backgroundimg1}
         >
@@ -120,7 +120,7 @@ const LandingPage = () => {
           </Button>
         </BackgroundImageContainer>
         <BackgroundImageContainer
-          containerstyle={` large:col-span-4 col-span-6 flex flex-col items-start justify-center pl-8 gap-7 bg-no-repeat bg-cover bg-center rounded-lg
+          containerstyle={` large:col-span-4 medium:col-span-6 col-span-12 flex flex-col items-start justify-center pl-8 gap-7 bg-no-repeat bg-cover bg-center rounded-lg
           `}
           image={backgroundimg2}
         >

@@ -10,20 +10,20 @@ import { ReactComponent as TwitterIcon } from "../../assets/icons/twitter.svg";
 const FooterSection = () => {
   return (
     <footer className={`mt-20 bg-slate-500/10 w-full`}>
-      <CustomList liststyle="max-w-[1280px] px-16 w-full mx-auto py-24 flex-row justify-between gap-32">
-        <li className="w-72 flex flex-col gap-3">
+      <CustomList liststyle="flex max-w-[1280px] medium:px-16 px-8 w-full mx-auto py-24 flex-col large:flex-row justify-between large:gap-32 px-6 large:px-16">
+        <li className="w-7/12 large:w-72 flex flex-col gap-3  mr-20 large:mr-0 pb-10 ">
           <img alt="company logo" />
-          <Text texttype="text-normal" textstyles="w-full">
+          <Text texttype="text-normal" textstyles="w-full ">
             Our Company is committed to providing quality products and
             exceptional service to our customers.
           </Text>
         </li>
-        <li className="flex flex-row justify-between flex-1">
-          <CustomList liststyle="flex-col gap-3">
+        <li className="flex flex-col large:flex-row justify-between flex-1 gap-7">
+          <CustomList liststyle="flex flex-col gap-3">
             <Text textstyles="uppercase font-medium" texttype="text-normal">
               Navigation
             </Text>
-            <CustomList liststyle="flex-col gap-1">
+            <CustomList liststyle="flex flex-col gap-1">
               <li>
                 <Text
                   texttype="text-normal"
@@ -50,11 +50,11 @@ const FooterSection = () => {
               </li>
             </CustomList>
           </CustomList>
-          <CustomList liststyle="flex-col gap-3">
+          <CustomList liststyle="flex flex-col gap-3">
             <Text textstyles="uppercase font-medium" texttype="text-normal">
               Categories
             </Text>
-            <CustomList liststyle="flex-col gap-1">
+            <CustomList liststyle="flex flex-col gap-1">
               <li>
                 <Text
                   texttype="text-normal"
@@ -89,11 +89,11 @@ const FooterSection = () => {
               </li>
             </CustomList>
           </CustomList>
-          <CustomList liststyle="flex-col gap-3">
+          <CustomList liststyle="flex flex-col gap-3">
             <Text textstyles="uppercase font-medium" texttype="text-normal">
               Customer Service
             </Text>
-            <CustomList liststyle="flex-col gap-1">
+            <CustomList liststyle="flex flex-col gap-1">
               <li>
                 <Text
                   texttype="text-normal"
@@ -130,16 +130,16 @@ const FooterSection = () => {
           </CustomList>
         </li>
       </CustomList>
-      <div className="max-w-[1280px] px-16 w-full flex flex-row justify-between items-center mx-auto my-18">
-        <div className="w-3/12 flex flex-row justify-between my-10">
-          <Text texttype="text-sm">© 2022 Company Inc.</Text>
+      <div className="max-w-[1280px] medium:px-16 px-8 w-full flex flex-col-reverse justify-start xsmall:justify-between xsmall:items-center mx-auto my-18 xsmall:flex-row">
+        <div className="medium:w-3/12 w-4/12 flex tablet:flex-row flex-col tablet:justify-between my-10 gap-4">
+          <Text texttype="text-sm">© 2024 Company Inc.</Text>
           <Text texttype="text-sm">English</Text>
         </div>
-        <CustomList liststyle="flex-row gap-5">
-          <FacebookIcon className="bg-white hover:bg-blue-50/50 rounded-full drop-shadow-md p-1.5 box-content h-5 w-5 cursor-pointer" />
-          <InstagramIcon className="bg-white rounded-full drop-shadow-md p-1.5 box-content h-5 w-5 cursor-pointer" />
-          <YoutubeIcon className="bg-white rounded-full drop-shadow-md p-1.5 box-content h-5 w-5 cursor-pointer" />
-          <TwitterIcon className="bg-white rounded-full drop-shadow-md p-1.5 box-content h-5 w-5 cursor-pointer" />
+        <CustomList liststyle="flex flex-row gap-5">
+          <FacebookIcon className="bg-white hover:bg-blue-50/50 rounded-full drop-shadow-md p-1.5 box-content medium:h-5 medium:w-5 w-4 h-4 cursor-pointer" />
+          <InstagramIcon className="bg-white rounded-full drop-shadow-md p-1.5 box-content medium:h-5 medium:w-5 w-4 h-4 cursor-pointer" />
+          <YoutubeIcon className="bg-white rounded-full drop-shadow-md p-1.5 box-content medium:h-5 medium:w-5 w-4 h-4 cursor-pointer" />
+          <TwitterIcon className="bg-white rounded-full drop-shadow-md p-1.5 box-content medium:h-5 medium:w-5 w-4 h-4 cursor-pointer" />
         </CustomList>
       </div>
     </footer>

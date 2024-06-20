@@ -44,3 +44,85 @@
     font-size: 3.5rem;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .heading-xl {
+    font-weight: 700;
+    font-size: 2.7rem;
+  }
+  .heading-lg {
+    font-weight: 700;
+    font-size: 2rem;
+  }
+  .heading-md {
+    font-weight: 600;
+    font-size: 1.5rem;
+  }
+  .heading-base {
+    font-weight: 700;
+    font-size: 1.2rem;
+  }
+  .heading-sm {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  .heading-xs {
+    font-weight: 600;
+    font-size: .9rem;
+  }
+  .heading-xxs {
+    font-weight: 600;
+    font-size: .85rem;
+  }
+  
+  .text-md {
+    font-size: .95rem;
+  }
+  .text-normal {
+    font-size: .85rem;
+  }
+  .text-sm {
+    font-size: 0.75rem;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .heading-xl {
+    font-weight: 700;
+    font-size: 2.2rem;
+  }
+  .heading-lg {
+    font-weight: 700;
+    font-size: 1.5rem;
+  }
+  .heading-md {
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+  .heading-base {
+    font-weight: 700;
+    font-size: 1rem;
+  }
+  .heading-sm {
+    font-weight: 600;
+    font-size: .9rem;
+  }
+  .heading-xs {
+    font-weight: 600;
+    font-size: .85rem;
+  }
+  .heading-xxs {
+    font-weight: 600;
+    font-size: .85rem;
+  }
+  
+  .text-md {
+    font-size: .9rem;
+  }
+  .text-normal {
+    font-size: .8rem;
+  }
+  .text-sm {
+    font-size: 0.7rem;
+  }
+}

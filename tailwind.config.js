@@ -16,10 +16,12 @@ module.exports = {
     screens: {
       xlarge: "1280px",
       large: "1024px",
+      xmedium: "900px",
       medium: "768px",
       tablet: "660px",
       small: "550px",
-      xsmall: "378px",
+      xsmall: "440px",
+      xxsmall: "378px",
     },
   },
   plugins: [],

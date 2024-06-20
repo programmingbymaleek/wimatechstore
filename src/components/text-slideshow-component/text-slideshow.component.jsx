@@ -40,8 +40,8 @@ const TextSlideshow = () => {
   }, [texts.length, 5000]);
 
   return (
-    <div>
-      <BlurContainer containerstyle="animate-fade-in flex flex-col gap-8 justify-between p-4 min-h-48 h-fit">
+    <div className="">
+      <BlurContainer containerstyle="animate-fade-in flex flex-col gap-8 justify-between p-4 min-h-48 h-max">
         <Text texttype="text-normal" textstyles="text-[#ffffff] leading-6">
           {texts[currentTextIndex].quote}
         </Text>

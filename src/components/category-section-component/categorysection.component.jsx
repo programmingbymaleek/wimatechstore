@@ -7,8 +7,8 @@ import watch from "../../assets/icons/watch.svg";
 
 const CategorySection = () => {
   return (
-    <div className={`${classes[`category`]}`}>
-      <ScrollableSection scrollstyles="w-full gap-8 justify-between">
+    <div className={`${classes[`category`]} px-6 large:px-16 pt-8 pb-16`}>
+      <ScrollableSection scrollstyles="w-full gap-4 medium:gap-8 justify-between">
         <ItemComponent item="bags" type="category" image={bag} />
         <ItemComponent item="jewelries" type="category" image={watch} />
         <ItemComponent item="jewelries" type="category" image={watch} />

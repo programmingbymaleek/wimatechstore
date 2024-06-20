@@ -4,18 +4,18 @@ import Text from "../text-component/text.component";
 import dummy from "../../assets/images/product-image.png";
 const ItemComponent = ({ type, ...rest }) => {
   return (
-    <div>
+    <>
       {type == "product" && (
         <div className="w-max">
           <img
             src={dummy}
             alt="product image"
-            className="w-40 h-48 object-cover "
+            className="medium:w-40 medium:h-48 object-cover w-32 h-40"
           />
-          <CustomList liststyle="flex-col justify-center items-center pt-4 gap-1">
+          <CustomList liststyle="flex flex-col justify-center items-center pt-4 gap-1">
             <Text
               texttype="text-normal"
-              textstyles="w-40 overflow-hidden text-ellipsis whitespace-nowrap"
+              textstyles="medium:w-40 w-32 overflow-hidden text-ellipsis whitespace-nowrap"
             >
               {rest.data.name}
             </Text>
@@ -30,8 +30,12 @@ const ItemComponent = ({ type, ...rest }) => {
       )}
       {type == "category" && (
         <div className=" flex items-center  flex-col">
-          <div className="w-32 h-32 bg-[#f4f4f4] text-gray-300 flex items-center justify-center rounded-full">
-            <img src={rest.image} alt="category item" className="w-14 h-auto" />
+          <div className="w-24 h-24 medium:w-32 medium:h-32 bg-[#f4f4f4] text-gray-300 flex items-center justify-center rounded-full">
+            <img
+              src={rest.image}
+              alt="category item"
+              className="w-10 h-auto medium:w-14"
+            />
           </div>
           <Text texttype="heading-xxs" textstyles="capitalize pt-3">
             {rest.item}
@@ -39,15 +43,15 @@ const ItemComponent = ({ type, ...rest }) => {
         </div>
       )}
       {type == "feature" && (
-        <div className="flex xlarge:flex-row gap-4 py-4 items-center flex-col xlarge:justify-start justify-center">
+        <div className="flex xlarge:flex-row gap-4 py-4 items-center flex-col xlarge:justify-start justify-center w-full">
           <div className="text-blue-500">
             <img
               src={rest.data.image}
               alt="feature image"
-              className=" h-auto w-20 fill-[#3a3a3a]/30"
+              className=" h-auto medium:w-20 w-[3.5rem] fill-[#3a3a3a]/30"
             />
           </div>
-          <CustomList liststyle="flex-col gap-1">
+          <CustomList liststyle="flex flex-col gap-1 tablet:items-start items-center">
             <Text
               texttype="heading-xs"
               textstyles="font-bold text-center xlarge:text-left"
@@ -56,14 +60,14 @@ const ItemComponent = ({ type, ...rest }) => {
             </Text>
             <Text
               texttype="text-normal"
-              textstyles="text-center xlarge:text-left w-11/12"
+              textstyles="text-center xlarge:text-left tablet:w-11/12 medium:block tablet:hidden w-11/12 "
             >
               {rest.data.description}
             </Text>
           </CustomList>
         </div>
       )}
-    </div>
+    </>
   );
 };
 

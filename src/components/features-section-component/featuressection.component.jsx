@@ -33,14 +33,14 @@ const FeaturesSection = () => {
   ];
   return (
     <div className="bg-slate-500/10 flex items-center justify-center my-20">
-      <div className="max-w-[1280px] px-16 mx-auto w-full">
+      <div className="max-w-[1280px] medium:px-16 px-8 mx-auto w-full">
         <Text
           texttype="heading-base"
           textstyles="leading-6 uppercase w-full text-center pt-12 block"
         >
           Features
         </Text>
-        <CustomList liststyle="flex-row justify-between items-center py-12 pt-4 gap-4 w-full">
+        <CustomList liststyle=" tablet:flex-row tablet:justify-between tablet:flex tablet:items-center py-12 pt-4 gap-4 w-full grid xsmall:grid-cols-2 grid-cols-1 justify-items-center">
           {featureData.map((item) => (
             <ItemComponent type="feature" data={item} />
           ))}

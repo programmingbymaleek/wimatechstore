@@ -60,17 +60,25 @@ const SignupSection = () => {
   return (
     <AuthContainer>
       {" "}
-      <form className="flex  flex-col w-5/12" onSubmit={submitFormHandler}>
-        <Text texttype="heading-md">Sign Up</Text>
-        <Text texttype="text-normal" textstyles="text-[#3a3a3a]/70 pt-1 pb-8">
+      <form
+        className="flex flex-col xmedium:w-[40%] small:w-[28rem] xxsmall:w-11/12 w-full xmedium:pb-0 pb-8 pt-24"
+        onSubmit={submitFormHandler}
+      >
+        <Text texttype="heading-md" textstyles="text-center xmedium:text-left">
+          Sign Up
+        </Text>
+        <Text
+          texttype="text-normal"
+          textstyles="text-[#3a3a3a]/70 pt-1 pb-8 text-center xmedium:text-left"
+        >
           Please fill in the required fields
         </Text>
         <FormInput
           type="displayName"
-          name="displayName"
+          name="display Name"
           placeholder="Enter your username"
           labelstyle="capitalize font-medium"
-          inputstyle="w-full px-6 p-4 mt-3 mb-8 text-base"
+          inputstyle="w-full xsmall:px-6 xsmall:py-3 px-5 py-2.5 xsmall:mt-3 mt-2 xsmall:mb-5 mb-5"
           value={displayName}
           required
           onChange={onChangeHandler}
@@ -81,7 +89,7 @@ const SignupSection = () => {
           required
           placeholder="Enter email address"
           labelstyle="capitalize font-medium"
-          inputstyle="w-full px-6 p-4 mt-3 mb-8 text-base"
+          inputstyle="w-full xsmall:px-6 xsmall:py-3 px-5 py-2.5 xsmall:mt-3 mt-2 xsmall:mb-5 mb-5"
           value={email}
           onChange={onChangeHandler}
         />
@@ -93,7 +101,7 @@ const SignupSection = () => {
           onChange={onChangeHandler}
           placeholder="....."
           labelstyle="capitalize font-medium"
-          inputstyle="w-full px-6 py-4 mt-3 mb-8 text-base"
+          inputstyle="w-full xsmall:px-6 xsmall:py-3 px-5 py-2.5 xsmall:mt-3 mt-2 xsmall:mb-5 mb-5"
         />
         <FormInput
           type="password"
@@ -103,10 +111,10 @@ const SignupSection = () => {
           onChange={onChangeHandler}
           placeholder="....."
           labelstyle="capitalize font-medium"
-          inputstyle="w-full px-6 py-4 mt-3 mb-8 text-base"
+          inputstyle="w-full xsmall:px-6 xsmall:py-3 px-5 py-2.5 xsmall:mt-3 mt-2 xsmall:mb-5 mb-5"
         />
         <Button
-          buttonstyles="py-4 capitalize pt-6"
+          buttonstyles="xsmall:py-3.5 py-2.5 capitalize pt-4 "
           buttontype="primary-button"
           type="submit"
         >
@@ -116,12 +124,16 @@ const SignupSection = () => {
           Or
         </Text>
         <Button
-          buttonstyles="py-4 flex flex-row items-center gap-5 capitalize"
+          buttonstyles="xsmall:py-3.5 py-2.5  flex flex-row items-center gap-5 capitalize"
           buttontype="image-button"
           type="button"
           buttonFunc={signUpWithGoogle}
         >
-          <img src={google_logo} alt="google_logo" className="w-7 h-7" />
+          <img
+            src={google_logo}
+            alt="google_logo"
+            className="w-5 h-5 small:w-4 small:h-4"
+          />
           Continue with Google
         </Button>
         <Text texttype="text-normal" textstyles=" w-full text-center py-5">

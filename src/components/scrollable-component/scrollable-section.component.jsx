@@ -17,7 +17,7 @@ const ScrollableSection = ({ scrollstyles, children }) => {
       left: elementWidth,
       behavior: "smooth",
     });
-    setTimeout(updateButtons, 300); // Timeout to allow smooth scroll to finish
+    setTimeout(updateButtons, 300);
   };
 
   const scrollLeft = () => {
@@ -26,7 +26,7 @@ const ScrollableSection = ({ scrollstyles, children }) => {
       left: -elementWidth,
       behavior: "smooth",
     });
-    setTimeout(updateButtons, 300); // Timeout to allow smooth scroll to finish
+    setTimeout(updateButtons, 300);
   };
 
   const updateButtons = () => {
@@ -36,10 +36,10 @@ const ScrollableSection = ({ scrollstyles, children }) => {
   };
 
   return (
-    <div className="relative w-full h-fit overflow-hidden">
+    <div className="relative w-full h-fit  overflow-hidden">
       <div
         ref={contentRef}
-        className={`h-full flex flex-row overflow-hidden whitespace-nowrap ${scrollstyles} ${
+        className={`h-full flex flex-row small:overflow-hidden overflow-scroll whitespace-nowrap ${scrollstyles} ${
           classes[`hide-scrollbar`]
         }`}
       >
@@ -47,7 +47,7 @@ const ScrollableSection = ({ scrollstyles, children }) => {
       </div>
       {showPrevButton && (
         <button
-          className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800/60 text-white p-2 rounded-full w-8 h-8 flex items-center justify-center text-2xl border border-white/70 pb-3"
+          className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800/60 text-white p-2 rounded-full w-8 h-8 small:flex hidden items-center justify-center text-2xl border border-white/70 pb-3 "
           onClick={scrollLeft}
         >
           ‹
@@ -55,7 +55,7 @@ const ScrollableSection = ({ scrollstyles, children }) => {
       )}
       {showNextButton && (
         <button
-          className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-800/60 text-white p-2 rounded-full w-8 h-8 flex items-center justify-center text-2xl border border-white/70 pb-3"
+          className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-800/60 text-white p-2 rounded-full w-8 h-8 small:flex hidden items-center justify-center text-2xl border border-white/70 pb-3"
           onClick={scrollRight}
         >
           ›
