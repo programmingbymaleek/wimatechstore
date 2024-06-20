@@ -8,6 +8,7 @@ import { ReactComponent as SearchIcon } from "../../assets/icons/search.svg";
 import { ReactComponent as CartIcon } from "../../assets/icons/shopping_cart.svg";
 import { ReactComponent as MenuIcon } from "../../assets/icons/bars.svg";
 import { ReactComponent as CloseIcon } from "../../assets/icons/close.svg";
+import { ReactComponent as LogoIcon } from "../../assets/icons/logo.svg";
 
 import { useSelector } from "react-redux";
 import { SignOutUser } from "../../utilis/firebase.utils";
@@ -37,7 +38,7 @@ const Navbar = () => {
       >
         <CustomList liststyle="flex flex-row gap-12 items-center">
           <li>
-            <img alt="company logo" />
+            <LogoIcon className="w-20 h-auto" />
           </li>
           <CustomList liststyle="flex flex-row gap-8 items-center">
             <Link to={"/wimatechstore"}>
@@ -48,24 +49,30 @@ const Navbar = () => {
                 Home
               </Text>
             </Link>
-            <Text
-              texttype="text-normal"
-              textstyles=" hover:text-blue-800 text-gray-700 font-medium"
-            >
-              Shop
-            </Text>
-            <Text
-              texttype="text-normal"
-              textstyles=" hover:text-blue-800 text-gray-700 font-medium"
-            >
-              Categories
-            </Text>
-            <Text
-              texttype="text-normal"
-              textstyles=" hover:text-blue-800 text-gray-700 font-medium"
-            >
-              Contact Us
-            </Text>
+            <Link to={"/wimatechstore"}>
+              <Text
+                texttype="text-normal"
+                textstyles=" hover:text-blue-800 text-gray-700 font-medium"
+              >
+                Shop
+              </Text>
+            </Link>
+            <Link to={"/wimatechstore"}>
+              <Text
+                texttype="text-normal"
+                textstyles=" hover:text-blue-800 text-gray-700 font-medium"
+              >
+                Categories
+              </Text>
+            </Link>
+            <Link to={"/wimatechstore"}>
+              <Text
+                texttype="text-normal"
+                textstyles=" hover:text-blue-800 text-gray-700 font-medium"
+              >
+                Contact Us
+              </Text>
+            </Link>
           </CustomList>
         </CustomList>
         <CustomList liststyle="flex flex-row gap-8 items-center w-fit">
@@ -122,7 +129,7 @@ const Navbar = () => {
         <CustomList liststyle="flex flex-row gap-12 items-center w-full">
           <div className="w-full flex flex-row justify-between items-center">
             <li>
-              <img alt="company logo" />
+              <LogoIcon className="w-20 h-auto" />
             </li>
             <MenuIcon
               className="w-5 h-5 cursor-pointer"
@@ -131,8 +138,8 @@ const Navbar = () => {
           </div>
           {showMenu && (
             <div className="w-[100vw] bg-black/50 z-80 absolute top-0 right-0 h-screen flex justify-end">
-              <CustomList liststyle="flex flex-col gap-8 items-start   w-[40vw] bg-white h-[full]  pl-8 pt-8">
-                <div className="w-full flex justify-end pr-8">
+              <CustomList liststyle="flex flex-col gap-8 items-start   xsmall:w-[18rem] w-10/12  bg-white h-[full]  xsmall:pl-8 pl-4 xsmall:pt-8 pt-6">
+                <div className="w-full flex justify-end xsmall:pr-8 pr-4">
                   <CloseIcon
                     className="w-5 h-5 cursor-pointer"
                     onClick={() => setShowMenu(false)}
@@ -146,24 +153,30 @@ const Navbar = () => {
                     Home
                   </Text>
                 </Link>
-                <Text
-                  texttype="text-normal"
-                  textstyles=" hover:text-blue-800 text-gray-700 font-medium"
-                >
-                  Shop
-                </Text>
-                <Text
-                  texttype="text-normal"
-                  textstyles=" hover:text-blue-800 text-gray-700 font-medium"
-                >
-                  Categories
-                </Text>
-                <Text
-                  texttype="text-normal"
-                  textstyles=" hover:text-blue-800 text-gray-700 font-medium"
-                >
-                  Contact Us
-                </Text>
+                <Link to={"/wimatechstore"}>
+                  <Text
+                    texttype="text-normal"
+                    textstyles=" hover:text-blue-800 text-gray-700 font-medium"
+                  >
+                    Shop
+                  </Text>
+                </Link>
+                <Link to={"/wimatechstore"}>
+                  <Text
+                    texttype="text-normal"
+                    textstyles=" hover:text-blue-800 text-gray-700 font-medium"
+                  >
+                    Categories
+                  </Text>
+                </Link>
+                <Link to={"/wimatechstore"}>
+                  <Text
+                    texttype="text-normal"
+                    textstyles=" hover:text-blue-800 text-gray-700 font-medium"
+                  >
+                    Contact Us
+                  </Text>
+                </Link>
                 <CustomList liststyle="flex flex-col gap-8 items-start w-fit pt-5">
                   {currentUser ? (
                     <>

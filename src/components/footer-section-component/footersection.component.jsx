@@ -6,19 +6,20 @@ import { ReactComponent as YoutubeIcon } from "../../assets/icons/youtube.svg";
 import { ReactComponent as FacebookIcon } from "../../assets/icons/facebook.svg";
 import { ReactComponent as InstagramIcon } from "../../assets/icons/instagram.svg";
 import { ReactComponent as TwitterIcon } from "../../assets/icons/twitter.svg";
+import { ReactComponent as LogoIcon } from "../../assets/icons/logo.svg";
 
 const FooterSection = () => {
   return (
     <footer className={`mt-20 bg-slate-500/10 w-full`}>
-      <CustomList liststyle="flex max-w-[1280px] medium:px-16 px-8 w-full mx-auto py-24 flex-col large:flex-row justify-between large:gap-32 px-6 large:px-16">
-        <li className="w-7/12 large:w-72 flex flex-col gap-3  mr-20 large:mr-0 pb-10 ">
-          <img alt="company logo" />
+      <CustomList liststyle="flex max-w-[1280px] medium:px-16 px-8 w-full mx-auto pb-24 pt-2 flex-col large:flex-row justify-between large:gap-32 px-6 large:px-16">
+        <li className="w-7/12 large:w-72 flex flex-col  mr-20 large:mr-0 pb-10 large:pt-10 pt-0">
+          <LogoIcon className="w-48 h-auto"/>
           <Text texttype="text-normal" textstyles="w-full ">
             Our Company is committed to providing quality products and
             exceptional service to our customers.
           </Text>
         </li>
-        <li className="flex flex-col large:flex-row justify-between flex-1 gap-7">
+        <li className="flex flex-col large:flex-row justify-between flex-1 gap-7 pt-0 large:pt-24">
           <CustomList liststyle="flex flex-col gap-3">
             <Text textstyles="uppercase font-medium" texttype="text-normal">
               Navigation

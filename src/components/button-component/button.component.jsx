@@ -4,14 +4,14 @@ const Button = ({ children, buttontype, buttonstyles, buttonFunc, type }) => {
   return (
     <>
       {buttonFunc ? (
-        <div
+        <button
           className={`flex items-center justify-center cursor-pointer ${buttonstyles} ${
             classes[`${buttontype}`]
           } ${classes[`button`]}`}
           onClick={() => buttonFunc()}
         >
           {children}
-        </div>
+        </button>
       ) : (
         <button
           className={`flex items-center justify-center cursor-pointer ${buttonstyles} ${
