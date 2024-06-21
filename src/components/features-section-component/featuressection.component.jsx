@@ -1,4 +1,5 @@
 import React from "react";
+import CustomList from "../list-component/list.component";
 import Text from "../text-component/text.component";
 import ItemComponent from "../item-component/item.component";
 import truck from "../../assets/icons/truck.svg";
@@ -39,11 +40,11 @@ const FeaturesSection = () => {
         >
           Features
         </Text>
-        <div className="list-style-none m-0 p-0 tablet:flex-row tablet:justify-between tablet:flex tablet:items-center py-12 pt-4 gap-4 w-full grid xsmall:grid-cols-2 grid-cols-1 justify-items-center">
+        <CustomList liststyle=" tablet:flex-row tablet:justify-between tablet:flex tablet:items-center py-12 pt-4 gap-4 w-full grid xsmall:grid-cols-2 grid-cols-1 justify-items-center">
           {featureData.map((item) => (
             <ItemComponent type="feature" data={item} />
           ))}
-        </div>
+        </CustomList>
       </div>
     </div>
   );

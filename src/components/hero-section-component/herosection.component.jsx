@@ -13,7 +13,9 @@ const HeroSection = () => {
         image={backgroundimg}
       >
         <div
-          className='w-full flex flex-col px-6 h-full bg-[#00183a9c]  tablet:bg-transparent large:px-16 tablet:items-start items-center tablet:justify-star justify-center mx-auto max-w-[1280px]'
+          className={`w-full flex flex-col px-6 h-full bg-[#00183a9c]  tablet:bg-transparent large:px-16 tablet:items-start items-center tablet:justify-star justify-center ${
+            classes[`hero-section-content`]
+          }`}
         >
           <Text
             texttype="heading-xl"
@@ -21,7 +23,7 @@ const HeroSection = () => {
           >
             20% sale off
           </Text>
-          <Text 
+          <Text
             texttype="text-normal"
             textstyles="tablet:w-5/12 block pb-8 pt-3 tablet:text-left text-center w-full text-white tablet:text-gray-800"
           >

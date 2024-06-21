@@ -3,6 +3,7 @@ import Button from "../button-component/button.component";
 import CategorySection from "../category-section-component/categorysection.component";
 import HeroSection from "../hero-section-component/herosection.component";
 import ProductSection from "../product-section-component/productsection.component";
+import classes from "./landingpage.style.module.scss";
 import Text from "../text-component/text.component";
 import FeaturesSection from "../features-section-component/featuressection.component";
 import ContactUsSection from "../contactus-section-component/contactus-section.component";
@@ -10,7 +11,6 @@ import FooterSection from "../footer-section-component/footersection.component";
 import backgroundimg1 from "../../assets/images/dummy3.png";
 import backgroundimg2 from "../../assets/images/dummy2.png";
 import BackgroundImageContainer from "../backgroundimage-container-component/backgroundimage-container.component";
-import ShopProduct from "../../shop_data_file";
 
 const LandingPage = () => {
   const navItems = [
@@ -102,7 +102,7 @@ const LandingPage = () => {
     <div className={`w-full`}>
       <HeroSection />
       <CategorySection />
-      <ProductSection navItems={navItems} data={ShopProduct[0].items} />
+      <ProductSection navItems={navItems} data={productData} />
       <div className="grid w-full max-w-[1280px] px-6 large:px-16 mx-auto my-20 grid-cols-12 gap-4  large:h-96 medium:h-[23rem] h-[30rem]">
         <BackgroundImageContainer
           containerstyle={`large:col-span-8 medium:col-span-6 col-span-12 flex flex-col items-start justify-center large:pl-8 pl-12 gap-4 medium:gap-7 bg-no-repeat bg-cover bg-center rounded-lg
@@ -135,7 +135,7 @@ const LandingPage = () => {
           </Button>
         </BackgroundImageContainer>
       </div>
-      <ProductSection navItems={navItems}  data={ShopProduct[1].items}  />
+      <ProductSection navItems={navItems} data={productData} />
 
       <FeaturesSection />
       <ContactUsSection />

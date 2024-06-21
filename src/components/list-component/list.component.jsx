@@ -1,8 +1,8 @@
 import React from "react";
-
+import classes from "./list.style.module.scss";
 const CustomList = ({ children, liststyle }) => {
   return (
-    <div className={` list-style-none m-0 p-0 ${liststyle}`}>{children}</div>
+    <ul className={` list-style-none m-0 p-0 ${liststyle}`}>{children}</ul>
   );
 };
 

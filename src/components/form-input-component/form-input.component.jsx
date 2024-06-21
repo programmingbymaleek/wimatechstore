@@ -14,7 +14,7 @@ const FormInput = ({ type, ...data }) => {
         type={type}
         placeholder={data.placeholder}
         name={data.name}
-        inputstyles={`${data.inputstyle} border border-[#3a3a3a]/20 shadow-sm focus:outline-none focus:border-blue-400 focus:ring-blue-700 focus:ring-1 `}
+        inputstyles={`${data.inputstyle}`}
         {...data}
       />
     </div>
