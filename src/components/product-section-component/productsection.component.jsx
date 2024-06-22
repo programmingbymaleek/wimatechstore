@@ -30,8 +30,8 @@ const ProductSection = ({ navItems, ...rest }) => {
       </CustomList>
       <SubNavbar navdata={navItems} />
       <ScrollableSection scrollstyles="w-full gap-4 medium:gap-8 justify-between">
-        {rest.data.map((item) => (
-          <ItemComponent type="product" data={item} key={item.id} />
+        {rest.data.map((item, index) => (
+          <ItemComponent type="product" data={item} key={index} />
         ))}
       </ScrollableSection>
     </div>

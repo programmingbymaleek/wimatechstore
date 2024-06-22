@@ -6,6 +6,7 @@ import Navigation from "./components/navigation-section-component/navigation.com
 import { setCurrentUser } from "./reduxtoolkit/features/user/userSlice";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
+
 import {
   createUserDocumentFromAuth,
   onAuthStateChangedListener,

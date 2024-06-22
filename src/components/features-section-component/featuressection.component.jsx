@@ -41,8 +41,8 @@ const FeaturesSection = () => {
           Features
         </Text>
         <CustomList liststyle=" tablet:flex-row tablet:justify-between tablet:flex tablet:items-center py-12 pt-4 gap-4 w-full grid xsmall:grid-cols-2 grid-cols-1 justify-items-center">
-          {featureData.map((item) => (
-            <ItemComponent type="feature" data={item} />
+          {featureData.map((item, index) => (
+            <ItemComponent type="feature" data={item} key={index} />
           ))}
         </CustomList>
       </div>

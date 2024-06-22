@@ -16,9 +16,14 @@ import { useNavigate } from "react-router-dom";
 import Text from "../text-component/text.component";
 import InputBox from "../inputbox-component/inputbox.component.jsx";
 import Button from "../button-component/button.component.jsx";
+import CartDropDown from "../cart-drop-down-component/cartDropDown";
+import { setToogleCart } from "../../reduxtoolkit/features/cart/cartSlice";
+import { useDispatch } from "react-redux";
 
 const Navbar = () => {
+  const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.user.currentUser);
+  const { toggleCart } = useSelector((state) => state.cart);
   const [showMenu, setShowMenu] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
 
@@ -27,6 +32,10 @@ const Navbar = () => {
     SignOutUser();
     console.log("signed user out");
     navigate("/wimatechstore");
+  };
+
+  const toogleCart = () => {
+    dispatch(setToogleCart(!toggleCart));
   };
 
   return (
@@ -114,7 +123,7 @@ const Navbar = () => {
               onClick={() => setShowSearch(true)}
             />
           )}
-          <CartIcon className="w-5 h-5" />
+          <CartIcon className="w-5 h-5" onClick={toogleCart} />
           {/* <NavIcon></NavIcon>
           <NavIcon></NavIcon> */}
         </CustomList>
@@ -222,6 +231,7 @@ const Navbar = () => {
           )}
         </CustomList>
       </CustomList>
+      {toggleCart && <CartDropDown />}
     </nav>
   );
 };
