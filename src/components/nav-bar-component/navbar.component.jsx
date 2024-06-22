@@ -59,12 +59,13 @@ const Navbar = () => {
               </Text>
             </Link>
             <Link to={"/wimatechstore"}>
-              <Text
+              <Link
+                to={"/wimatechstore/shop"}
                 texttype="text-normal"
                 textstyles=" hover:text-blue-800 text-gray-700 font-medium"
               >
                 Shop
-              </Text>
+              </Link>
             </Link>
             <Link to={"/wimatechstore"}>
               <Text

@@ -6,6 +6,14 @@ import Navigation from "./components/navigation-section-component/navigation.com
 import { setCurrentUser } from "./reduxtoolkit/features/user/userSlice";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
+import Shop from "./components/shop/shopComponent";
+import {
+  addCollectionAndDocuments,
+  getCategoriesAndDocumentFromFireBase,
+} from "./utilis/firebase.utils";
+import ShopProduct from "./shop_data_file";
+// import { setProducts } from "./reduxtookit/features/products";
+import { setProducts } from "./reduxtoolkit/features/products/productSlice";
 
 import {
   createUserDocumentFromAuth,
@@ -15,6 +23,13 @@ import {
 
 function App() {
   const dispatch = useDispatch();
+  //getting shoe collections from fire base
+  const getShoeGroups = async () => {
+    const groupMaps = await getCategoriesAndDocumentFromFireBase();
+    console.log(groupMaps);
+    dispatch(setProducts(groupMaps));
+  };
+  getShoeGroups();
 
   const fetchUserData = async (uid) => {
     try {
@@ -27,6 +42,11 @@ function App() {
   };
 
   useEffect(() => {
+    // const dataToAdd = async () => {
+    //   await addCollectionAndDocuments("categories", ShopProduct);
+    // };
+    // dataToAdd();
+
     const unSubscribe = onAuthStateChangedListener(async (user) => {
       if (user) {
         await createUserDocumentFromAuth(user);
@@ -45,6 +65,7 @@ function App() {
       <Routes>
         <Route path="/wimatechstore" element={<Navigation />}>
           <Route index element={<LandingPage />} />
+          <Route path="shop/*" element={<Shop />} />
           <Route path="login" element={<LoginSection />} />
           <Route path="signup" element={<SignupSection />} />
         </Route>
