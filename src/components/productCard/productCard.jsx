@@ -7,9 +7,7 @@ import { ProductQuickViewContext } from "../contexts/product-quick-view-context"
 function ProductCard({ product }) {
   const { addItemToCart } = useContext(ProductQuickViewContext);
   const { name, price, imageUrl } = product;
-
   const { setProductToView } = useContext(ProductQuickViewContext);
-
   // const addProductCartHandler = () => {
   //   return addItemToCart(product);
   // };

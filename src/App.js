@@ -26,7 +26,6 @@ function App() {
   //getting shoe collections from fire base
   const getShoeGroups = async () => {
     const groupMaps = await getCategoriesAndDocumentFromFireBase();
-    console.log(groupMaps);
     dispatch(setProducts(groupMaps));
   };
   getShoeGroups();
