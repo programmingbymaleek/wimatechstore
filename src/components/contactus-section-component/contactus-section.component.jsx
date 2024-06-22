@@ -1,13 +1,12 @@
 import React from "react";
 import Button from "../button-component/button.component";
 import InputBox from "../inputbox-component/inputbox.component";
-import CustomList from "../list-component/list.component";
 import Text from "../text-component/text.component";
-import classes from "./contactus-section.style.module.scss";
+
 const ContactUsSection = () => {
   return (
-    <div className={`${classes[`contact-us-section`]} px-6 large:px-16 tablet:pb-0 pb-8`}>
-      <CustomList liststyle="flex flex-col gap-3">
+    <div className=" px-6 large:px-16 tablet:pb-0 pb-8 mx-auto max-w-[1280px]">
+      <div className="flex flex-col gap-3 list-style-none m-0 p-0">
         <Text
           texttype="heading-base"
           textstyles="leading-6 uppercase w-full text-left pt-2 block"
@@ -21,7 +20,8 @@ const ContactUsSection = () => {
           We're here to help! Reach out to us with any questions, feedback, or
           inquiries—we're eager to assist you.
         </Text>
-        <CustomList liststyle="flex tablet:flex-row flex-col gap-3 h-12 mt-4">
+        <div className="flex tablet:flex-row flex-col gap-3 h-12 mt-4 list-style-none m-0 p-0">
+          {" "}
           <InputBox
             type="email"
             placeholder="Enter your email"
@@ -34,8 +34,8 @@ const ContactUsSection = () => {
           >
             Get Started
           </Button>
-        </CustomList>
-      </CustomList>
+        </div>
+      </div>
     </div>
   );
 };
