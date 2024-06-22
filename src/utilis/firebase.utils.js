@@ -54,9 +54,12 @@ export const addCollectionAndDocuments = async (
 ) => {
   const collectionRef = collection(db, collectionKey);
   const batch = writeBatch(db);
+  console.log("testing doc");
+  console.log(collectionRef);
 
   jsonObjectToAdd.forEach((object) => {
-    const docRef = doc(collectionRef, object.title);
+    console.log(object);
+    const docRef = doc(collectionRef, object.productType);
     batch.set(docRef, object);
   });
   await batch.commit(); //commit batch.
@@ -122,8 +125,8 @@ export const getCategoriesAndDocumentFromFireBase = async () => {
   const categoryMap = querySnapShot.docs.reduce((acc, docSnapshot) => {
     // console.log(docSnapshot.data())
 
-    const { title, items } = docSnapshot.data();
-    acc[title.toLowerCase()] = items;
+    const { productType, items } = docSnapshot.data();
+    acc[productType.toLowerCase()] = items;
     return acc;
   }, {});
   return categoryMap;
