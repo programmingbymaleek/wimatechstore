@@ -42,14 +42,14 @@ const TextSlideshow = () => {
   return (
     <div className="">
       <BlurContainer containerstyle="animate-fade-in flex flex-col gap-8 justify-between p-4 min-h-48 h-max">
-        <Text texttype="text-normal" textstyles="text-[#ffffff] leading-6">
+        <Text texttype="text-sm" textstyles="text-[#ffffff] leading-6">
           {texts[currentTextIndex].quote}
         </Text>
         <Text textstyles="flex flex-col gap-1">
-          <Text texttype="heading-sm" textstyles="leading-6">
+          <Text texttype="heading-xs" textstyles="leading-6">
             {texts[currentTextIndex].name}
           </Text>
-          <Text texttype="text-normal">{texts[currentTextIndex].title}</Text>
+          <Text texttype="text-sm">{texts[currentTextIndex].title}</Text>
         </Text>
       </BlurContainer>
     </div>
