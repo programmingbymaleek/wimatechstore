@@ -12,9 +12,7 @@ import {
   getCategoriesAndDocumentFromFireBase,
 } from "./utilis/firebase.utils";
 import ShopProduct from "./shop_data_file";
-// import { setProducts } from "./reduxtookit/features/products";
 import { setProducts } from "./reduxtoolkit/features/products/productSlice";
-
 import {
   createUserDocumentFromAuth,
   onAuthStateChangedListener,
@@ -23,12 +21,16 @@ import {
 
 function App() {
   const dispatch = useDispatch();
-  //getting shoe collections from fire base
-  const getShoeGroups = async () => {
-    const groupMaps = await getCategoriesAndDocumentFromFireBase();
-    dispatch(setProducts(groupMaps));
-  };
-  getShoeGroups();
+
+  // Fetching shoe collections from Firebase
+  useEffect(() => {
+    const getShoeGroups = async () => {
+      const groupMaps = await getCategoriesAndDocumentFromFireBase();
+      dispatch(setProducts(groupMaps));
+    };
+
+    getShoeGroups();
+  }, [dispatch]);
 
   const fetchUserData = async (uid) => {
     try {
@@ -41,22 +43,23 @@ function App() {
   };
 
   useEffect(() => {
-    // const dataToAdd = async () => {
-    //   await addCollectionAndDocuments("categories", ShopProduct);
-    // };
-    // dataToAdd();
-
     const unSubscribe = onAuthStateChangedListener(async (user) => {
       if (user) {
         await createUserDocumentFromAuth(user);
         const userData = await fetchUserData(user.uid);
-        const { displayName, email } = userData;
-        dispatch(setCurrentUser({ displayName, email }));
+        if (userData) {
+          const { displayName, email } = userData;
+          dispatch(setCurrentUser({ displayName, email }));
+        }
       } else {
         dispatch(setCurrentUser(null));
       }
     });
-    return unSubscribe;
+
+    // Cleanup subscription on unmount
+    return () => {
+      unSubscribe();
+    };
   }, [dispatch]);
 
   return (
