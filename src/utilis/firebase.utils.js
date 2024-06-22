@@ -45,7 +45,122 @@ export const signInWithGooglePopUp = () =>
 //creating the database..
 
 export const db = getFirestore();
-//add category to firestore.. ie build category with json objects..
+//add category to firestore.. ie build category with json objects.
+
+//add category to firestore.. ie build the category database with the json
+export const addCollectionAndDocuments = async (
+  collectionKey,
+  jsonObjectToAdd
+) => {
+  const collectionRef = collection(db, collectionKey);
+  const batch = writeBatch(db);
+
+  jsonObjectToAdd.forEach((object) => {
+    const docRef = doc(collectionRef, object.title);
+    batch.set(docRef, object);
+  });
+  await batch.commit(); //commit batch.
+  console.log("done");
+};
+
+export const addCompletedOrders = async (userId, ordersToAdd) => {
+  const userOrdersRef = collection(db, "orders", userId, "userOrders");
+  const batch = writeBatch(db);
+
+  try {
+    // Check if the user document exists
+    const userDocRef = doc(db, "orders", userId);
+    const userDoc = await getDoc(userDocRef);
+
+    if (userDoc.exists()) {
+      // If the user exists, get their existing orders
+      const existingOrdersSnapshot = await getDocs(userOrdersRef);
+      const existingOrders = existingOrdersSnapshot.docs.reduce((acc, doc) => {
+        acc[doc.id] = doc.data();
+        return acc;
+      }, {});
+
+      // Combine existing orders with new orders
+      ordersToAdd.forEach((order) => {
+        const orderId = order.date; // Ensure date is a string
+        existingOrders[orderId] = order;
+      });
+
+      // Update the user's orders with the combined list
+      Object.entries(existingOrders).forEach(([orderId, orderData]) => {
+        const orderRef = doc(userOrdersRef, orderId);
+        batch.set(orderRef, orderData);
+      });
+    } else {
+      // If the user doesn't exist, create a new user document with the orders
+      ordersToAdd.forEach((order) => {
+        const orderId = order.date.toISOString(); // Ensure date is a string
+        const orderRef = doc(userOrdersRef, orderId);
+        batch.set(orderRef, order);
+      });
+
+      const documentPath = `orders/${userId}`; // Example path
+      const documentRef = doc(db, documentPath);
+      await setDoc(documentRef, { orderId: `order_${userId}` });
+    }
+
+    // Commit the batch write operation
+    await batch.commit();
+    console.log("Orders successfully added for user", userId);
+  } catch (error) {
+    console.error("Error adding orders:", error);
+    throw error;
+  }
+};
+
+//get category collection from  fireBase store..
+export const getCategoriesAndDocumentFromFireBase = async () => {
+  const collectionRef = collection(db, "categories");
+  const q = query(collectionRef);
+
+  const querySnapShot = await getDocs(q);
+  const categoryMap = querySnapShot.docs.reduce((acc, docSnapshot) => {
+    // console.log(docSnapshot.data())
+
+    const { title, items } = docSnapshot.data();
+    acc[title.toLowerCase()] = items;
+    return acc;
+  }, {});
+  return categoryMap;
+};
+
+export const getOrderHistoryFromFireBase = async (uid) => {
+  const dataTest = [];
+  const collectionRef = collection(db, "orders", uid, "userOrders");
+  const q = query(collectionRef);
+  const querySnapShot = await getDocs(q);
+
+  querySnapShot.docs.forEach((docSnapshot) => {
+    const { items } = docSnapshot.data();
+    dataTest.push(...items);
+  });
+
+  console.log("data test", dataTest);
+  return dataTest;
+};
+
+export const getUserDocumentFromFireBase = async (uid) => {
+  if (!uid) return null;
+  // Get a reference to the 'users' collection
+  const collectionRef = collection(db, "users");
+  // Get a reference to the specific document within the 'users' collection
+  const userDocRef = doc(collectionRef, uid);
+  // Fetch the document
+  const userDocSnap = await getDoc(userDocRef);
+  // Check if the document exists and return the data, otherwise return null
+  if (userDocSnap.exists()) {
+    return userDocSnap.data();
+  } else {
+    console.log("No such document!");
+    return null;
+  }
+};
+
 export const createUserDocumentFromAuth = async (
   userAuth,
   additionalInformantion = {}
@@ -89,23 +204,6 @@ export const createAuthUserWithEmailAndPassword = async (
 export const signInUserWithEmailAndPassword = async (email, password) => {
   if (!email || !password) return;
   return await signInWithEmailAndPassword(auth, email, password);
-};
-
-export const getUserDocumentFromFireBase = async (uid) => {
-  if (!uid) return null;
-  // Get a reference to the 'users' collection
-  const collectionRef = collection(db, "users");
-  // Get a reference to the specific document within the 'users' collection
-  const userDocRef = doc(collectionRef, uid);
-  // Fetch the document
-  const userDocSnap = await getDoc(userDocRef);
-  // Check if the document exists and return the data, otherwise return null
-  if (userDocSnap.exists()) {
-    return userDocSnap.data();
-  } else {
-    console.log("No such user");
-    return null;
-  }
 };
 
 export const onAuthStateChangedListener = (callback) =>

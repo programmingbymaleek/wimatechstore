@@ -1,5 +1,8 @@
 import React, { useState } from "react";
+import NavIcon from "../nav-icon-component/navicon.component";
 import NavItem from "../nav-item-component/navitem.component";
+import classes from "./navbar.style.module.scss";
+import CustomList from "../list-component/list.component";
 import { Link } from "react-router-dom";
 import { ReactComponent as SearchIcon } from "../../assets/icons/search.svg";
 import { ReactComponent as CartIcon } from "../../assets/icons/shopping_cart.svg";
@@ -13,9 +16,14 @@ import { useNavigate } from "react-router-dom";
 import Text from "../text-component/text.component";
 import InputBox from "../inputbox-component/inputbox.component.jsx";
 import Button from "../button-component/button.component.jsx";
+import CartDropDown from "../cart-drop-down-component/cartDropDown";
+import { setToogleCart } from "../../reduxtoolkit/features/cart/cartSlice";
+import { useDispatch } from "react-redux";
 
 const Navbar = () => {
+  const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.user.currentUser);
+  const { toggleCart } = useSelector((state) => state.cart);
   const [showMenu, setShowMenu] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
 
@@ -26,14 +34,22 @@ const Navbar = () => {
     navigate("/wimatechstore");
   };
 
+  const toogleCart = () => {
+    dispatch(setToogleCart(!toggleCart));
+  };
+
   return (
-    <nav className="py-8 flex flex-row justify-center w-full border-b border-gray-300/50 fixed h-12 bg-white m-0 z-50">
-      <div className="list-style-none m-0 p-0 hidden flex-row justify-between w-full items-center px-4 large:px-8  large:flex gap-4 mx-auto  max-w-[1280px]">
-        <div className="list-style-none m-0 p-0 flex flex-row gap-12 items-center">
-          <div>
+    <nav className={`py-8 ${classes[`navigation`]}`}>
+      <CustomList
+        liststyle={`hidden flex-row justify-between w-full items-center px-4 large:px-8  large:flex ${
+          classes[`navigation-list`]
+        }`}
+      >
+        <CustomList liststyle="flex flex-row gap-12 items-center">
+          <li>
             <LogoIcon className="w-20 h-auto" />
-          </div>
-          <div className="list-style-none m-0 p-0 flex flex-row gap-8 items-center">
+          </li>
+          <CustomList liststyle="flex flex-row gap-8 items-center">
             <Link to={"/wimatechstore"}>
               <Text
                 texttype="text-normal"
@@ -66,9 +82,9 @@ const Navbar = () => {
                 Contact Us
               </Text>
             </Link>
-          </div>
-        </div>
-        <div className="list-style-none m-0 p-0 flex flex-row gap-8 items-center w-fit">
+          </CustomList>
+        </CustomList>
+        <CustomList liststyle="flex flex-row gap-8 items-center w-fit">
           {currentUser ? (
             <>
               <span>{currentUser.displayName}</span>
@@ -97,7 +113,7 @@ const Navbar = () => {
             <Text textstyles="flex flex-row border border-gray-300 rounded-lg py-2 px-4 gap-2">
               <SearchIcon className="w-5 h-5" />
               <InputBox
-                inputstyles="border-0 focus:border-0 focus:ring-0 shadow-none	focus:outline-none"
+                inputstyles="border-0 focus:border-0 focus:ring-0"
                 placeholder="Search..."
               />
             </Text>
@@ -107,19 +123,23 @@ const Navbar = () => {
               onClick={() => setShowSearch(true)}
             />
           )}
-          <CartIcon className="w-5 h-5" />
+          <CartIcon className="w-5 h-5" onClick={toogleCart} />
           {/* <NavIcon></NavIcon>
           <NavIcon></NavIcon> */}
-        </div>
-      </div>
+        </CustomList>
+      </CustomList>
 
       {/* mobile navigation */}
-      <div className="list-style-none m-0 p-0 flex flex-row justify-between w-full items-center px-6 large:px-16  large:hidden gap-4 mx-auto  max-w-[1280px]">
-        <div className="list-style-none m-0 p-0 flex flex-row gap-12 items-center w-full">
+      <CustomList
+        liststyle={`flex flex-row justify-between w-full items-center px-6 large:px-16  large:hidden ${
+          classes[`navigation-list`]
+        }`}
+      >
+        <CustomList liststyle="flex flex-row gap-12 items-center w-full">
           <div className="w-full flex flex-row justify-between items-center">
-            <div>
+            <li>
               <LogoIcon className="w-20 h-auto" />
-            </div>
+            </li>
             <MenuIcon
               className="w-5 h-5 cursor-pointer"
               onClick={() => setShowMenu(true)}
@@ -127,7 +147,7 @@ const Navbar = () => {
           </div>
           {showMenu && (
             <div className="w-[100vw] bg-black/50 z-80 absolute top-0 right-0 h-screen flex justify-end">
-              <div className="list-style-none m-0 p-0 flex flex-col gap-8 items-start xsmall:w-[18rem] w-10/12  bg-white h-[full]  xsmall:pl-8 pl-4 xsmall:pt-8 pt-6">
+              <CustomList liststyle="flex flex-col gap-8 items-start   xsmall:w-[18rem] w-10/12  bg-white h-[full]  xsmall:pl-8 pl-4 xsmall:pt-8 pt-6">
                 <div className="w-full flex justify-end xsmall:pr-8 pr-4">
                   <CloseIcon
                     className="w-5 h-5 cursor-pointer"
@@ -166,7 +186,7 @@ const Navbar = () => {
                     Contact Us
                   </Text>
                 </Link>
-                <div className="list-style-none m-0 p-0 flex flex-col gap-8 items-start w-fit pt-5">
+                <CustomList liststyle="flex flex-col gap-8 items-start w-fit pt-5">
                   {currentUser ? (
                     <>
                       <span>{currentUser.displayName}</span>
@@ -193,7 +213,7 @@ const Navbar = () => {
                   <Text textstyles="flex flex-row border border-gray-400 rounded-sm py-2 px-4 gap-2">
                     <SearchIcon className="w-5 h-5" />
                     <InputBox
-                      inputstyles="border-0 focus:border-0 focus:ring-0 shadow-none	focus:outline-none	"
+                      inputstyles="border-0 focus:border-0 focus:ring-0"
                       placeholder="Search..."
                     />
                   </Text>
@@ -205,12 +225,13 @@ const Navbar = () => {
                     {" "}
                     Go to Cart
                   </Button>
-                </div>
-              </div>
+                </CustomList>
+              </CustomList>
             </div>
           )}
-        </div>
-      </div>
+        </CustomList>
+      </CustomList>
+      {toggleCart && <CartDropDown />}
     </nav>
   );
 };

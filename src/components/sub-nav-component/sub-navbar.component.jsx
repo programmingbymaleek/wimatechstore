@@ -17,6 +17,7 @@ const SubNavbar = ({ navdata, children }) => {
             selected === index ? " border-blue-800" : "border-transparent"
           }`}
           onClick={() => selectElement(index)}
+          key={index}
         >
           <Text key={index} texttype="text-normal">
             {item}
