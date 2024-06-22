@@ -47,7 +47,7 @@ const Navbar = () => {
       >
         <CustomList liststyle="flex flex-row gap-12 items-center">
           <li>
-            <LogoIcon className="w-20 h-auto" />
+            <LogoIcon className="w-28 h-auto" />
           </li>
           <CustomList liststyle="flex flex-row gap-8 items-center">
             <Link to={"/wimatechstore"}>
