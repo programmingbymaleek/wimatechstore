@@ -2,9 +2,9 @@ import React from "react";
 
 const NavItem = ({ item, itemstyles, selectElement }) => {
   return (
-    <li className={`${itemstyles}`} onClick={selectElement}>
+    <div className={`${itemstyles}`} onClick={selectElement}>
       {item}
-    </li>
+    </div>
   );
 };
 
