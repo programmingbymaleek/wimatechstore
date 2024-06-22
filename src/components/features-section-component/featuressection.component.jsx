@@ -39,15 +39,9 @@ const FeaturesSection = () => {
         >
           Features
         </Text>
-<<<<<<< HEAD
-        <CustomList liststyle=" tablet:flex-row tablet:justify-between tablet:flex tablet:items-center py-12 pt-4 gap-4 w-full grid xsmall:grid-cols-2 grid-cols-1 justify-items-center">
+        <div className="list-style-none m-0 p-0 tablet:flex-row tablet:justify-between tablet:flex tablet:items-center py-12 pt-4 gap-4 w-full grid xsmall:grid-cols-2 grid-cols-1 justify-items-center">
           {featureData.map((item, index) => (
             <ItemComponent type="feature" data={item} key={index} />
-=======
-        <div className="list-style-none m-0 p-0 tablet:flex-row tablet:justify-between tablet:flex tablet:items-center py-12 pt-4 gap-4 w-full grid xsmall:grid-cols-2 grid-cols-1 justify-items-center">
-          {featureData.map((item) => (
-            <ItemComponent type="feature" data={item} />
->>>>>>> feature/m-001
           ))}
         </div>
       </div>
