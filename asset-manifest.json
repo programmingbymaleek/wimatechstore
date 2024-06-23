@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/wimatechstore/static/css/main.d5faecbf.css",
+    "main.js": "/wimatechstore/static/js/main.74343a56.js",
+    "static/js/453.0459dc41.chunk.js": "/wimatechstore/static/js/453.0459dc41.chunk.js",
+    "static/media/form-image.png": "/wimatechstore/static/media/form-image.821a79fe7ca676870902.png",
+    "static/media/hero-background.png": "/wimatechstore/static/media/hero-background.d360737e25bde482c821.png",
+    "static/media/dummy3.png": "/wimatechstore/static/media/dummy3.bceb7836af59ff73312c.png",
+    "static/media/dummy2.png": "/wimatechstore/static/media/dummy2.31da49e8bd0d12c0afbd.png",
+    "static/media/google_logo.png": "/wimatechstore/static/media/google_logo.6bc7d49355c4e25579a0.png",
+    "static/media/product-image.png": "/wimatechstore/static/media/product-image.de6299b7016552922852.png",
+    "static/media/dummy-image.png": "/wimatechstore/static/media/dummy-image.149e7cc42d714e9152f5.png",
+    "static/media/shopping_cart.svg": "/wimatechstore/static/media/shopping_cart.7f21d74658d33274c8c53e53b7cad945.svg",
+    "static/media/search.svg": "/wimatechstore/static/media/search.118561b6f15e030b89d3de99573c39d3.svg",
+    "static/media/youtube.svg": "/wimatechstore/static/media/youtube.eaf909477123659bb1e702f79cd29a69.svg",
+    "index.html": "/wimatechstore/index.html",
+    "main.d5faecbf.css.map": "/wimatechstore/static/css/main.d5faecbf.css.map",
+    "main.74343a56.js.map": "/wimatechstore/static/js/main.74343a56.js.map",
+    "453.0459dc41.chunk.js.map": "/wimatechstore/static/js/453.0459dc41.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d5faecbf.css",
+    "static/js/main.74343a56.js"
+  ]
+}
