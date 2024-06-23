@@ -10,6 +10,25 @@
 }
 
 .secondary-button {
+  background-color: #2a2a2f24;
+  color: #3a3a3a;
+  font-weight: 600;
+  font-size: .8rem;
+}
+
+.tag-button{
+  background-color: #ffffff;
+  border: 1px solid #3a3a3a60;
+  font-size: .8rem;
+  color: #3a3a3a;
+}
+
+.tag-button-active{
+  background-color: #1D4ED8;
+  color: #ffff;
+  font-size: .8rem;
+  border: 1px solid transparent;
+  font-weight: 600;
 }
 
 .image-button {
@@ -20,6 +39,9 @@
   border: 1px solid #3a3a3a78;
 }
 
+.inverted-button{
+
+}
 @media screen and (max-width: 440px) {
   .primary-button {
     font-size: .7rem;

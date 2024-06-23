@@ -5,6 +5,7 @@ import classes from "./navbar.style.module.scss";
 import CustomList from "../list-component/list.component";
 import { Link } from "react-router-dom";
 import { ReactComponent as SearchIcon } from "../../assets/icons/search.svg";
+import { ReactComponent as WhiteSearchIcon } from "../../assets/icons/white-search.svg";
 import { ReactComponent as CartIcon } from "../../assets/icons/shopping_cart.svg";
 import { ReactComponent as MenuIcon } from "../../assets/icons/bars.svg";
 import { ReactComponent as CloseIcon } from "../../assets/icons/close.svg";
@@ -46,9 +47,9 @@ const Navbar = () => {
         }`}
       >
         <CustomList liststyle="flex flex-row gap-12 items-center">
-          <li>
+          <div>
             <LogoIcon className="w-28 h-auto" />
-          </li>
+          </div>
           <CustomList liststyle="flex flex-row gap-8 items-center">
             <Link to={"/wimatechstore"}>
               <Text
@@ -146,8 +147,8 @@ const Navbar = () => {
             />
           </div>
           {showMenu && (
-            <div className="w-[100vw] bg-black/50 z-80 absolute top-0 right-0 h-screen flex justify-end">
-              <CustomList liststyle="flex flex-col gap-8 items-start   xsmall:w-[18rem] w-10/12  bg-white h-[full]  xsmall:pl-8 pl-4 xsmall:pt-8 pt-6">
+            <div className="w-[100vw] bg-black/50 z-20 absolute top-0 right-0 h-screen flex justify-end">
+              <CustomList liststyle="flex flex-col gap-6 items-start   xsmall:w-[18rem] w-10/12  bg-white h-full  xsmall:pl-8 pl-4 xsmall:pt-8 pt-6">
                 <div className="w-full flex justify-end xsmall:pr-8 pr-4">
                   <CloseIcon
                     className="w-5 h-5 cursor-pointer"
@@ -195,7 +196,7 @@ const Navbar = () => {
                       </button>
                     </>
                   ) : (
-                    <div className="flex flex-col gap-8 ">
+                    <div className="flex flex-col gap-6 ">
                       <Link
                         to={"/wimatechstore/login"}
                         className="hover:text-blue-800 font-hover:text-blue-800 text-gray-700 font-medium"
@@ -210,19 +211,26 @@ const Navbar = () => {
                       </Link>
                     </div>
                   )}
-                  <Text textstyles="flex flex-row border border-gray-400 rounded-sm py-2 px-4 gap-2">
-                    <SearchIcon className="w-5 h-5" />
-                    <InputBox
-                      inputstyles="border-0 focus:border-0 focus:ring-0"
-                      placeholder="Search..."
-                    />
-                  </Text>
-
+                  <div className="flex flex-row gap-1">
+                    <Text textstyles="flex flex-row border border-gray-400 rounded-sm py-2 px-4 gap-2">
+                      <InputBox
+                        inputstyles="border-0 focus:border-0 focus:ring-0"
+                        placeholder="Search..."
+                      />
+                    </Text>
+                    <Button
+                      buttontype="primary-button"
+                      buttonstyles="px-2 py-2 w-fit"
+                    >
+                      {" "}
+                      <WhiteSearchIcon className="w-5 h-5" />
+                    </Button>
+                  </div>
                   <Button
-                    buttontype="primary-button"
-                    buttonstyles="px-4 py-2 w-full"
+                    buttontype="secondary-button"
+                    buttonstyles="w-full py-2 px-4"
+                    buttonFunc={() => setShowMenu(false)}
                   >
-                    {" "}
                     Go to Cart
                   </Button>
                 </CustomList>
