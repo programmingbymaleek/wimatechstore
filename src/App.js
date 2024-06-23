@@ -11,7 +11,6 @@ import {
   addCollectionAndDocuments,
   getCategoriesAndDocumentFromFireBase,
 } from "./utilis/firebase.utils";
-import ShopProduct from "./shop_data_file";
 import { setProducts } from "./reduxtoolkit/features/products/productSlice";
 import {
   createUserDocumentFromAuth,
@@ -21,14 +20,12 @@ import {
 
 function App() {
   const dispatch = useDispatch();
-
   // Fetching shoe collections from Firebase
   useEffect(() => {
     const getShoeGroups = async () => {
       const groupMaps = await getCategoriesAndDocumentFromFireBase();
       dispatch(setProducts(groupMaps));
     };
-
     getShoeGroups();
   }, [dispatch]);
 
