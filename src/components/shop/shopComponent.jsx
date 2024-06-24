@@ -1,13 +1,13 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import CatergoryPreview from "../categoryPreview/categoryPreviewComponent";
-import Category from "../category/categoryComponent";
+import CategoryPage from "../category-page-component/categorypage.component";
 
 function Shop() {
   return (
     <Routes>
       <Route index element={<CatergoryPreview />} />
-      <Route path=":category" element={<Category />} />
+      <Route path=":category" element={<CategoryPage />} />
     </Routes>
   );
 }

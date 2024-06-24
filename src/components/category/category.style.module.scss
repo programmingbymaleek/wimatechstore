@@ -1,6 +1,6 @@
 .product-container{
-  display:grid;
+  display: grid;
   grid-template-columns: repeat(4,1fr);
-  column-gap: 10px;
-  row-gap: 50px;
+  column-gap: 1rem;
+  row-gap: 3rem;
 }
