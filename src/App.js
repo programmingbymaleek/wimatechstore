@@ -18,7 +18,6 @@ import {
   onAuthStateChangedListener,
   getUserDocumentFromFireBase,
 } from "./utilis/firebase.utils";
-import CategoryPage from "./components/category-page-component/categorypage.component";
 
 function App() {
   const dispatch = useDispatch();
@@ -71,7 +70,6 @@ function App() {
           <Route path="shop/*" element={<Shop />} />
           <Route path="login" element={<LoginSection />} />
           <Route path="signup" element={<SignupSection />} />
-          <Route path="category" element={<CategoryPage/>}/>
         </Route>
       </Routes>
     </>
