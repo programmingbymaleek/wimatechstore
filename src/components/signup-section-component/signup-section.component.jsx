@@ -1,15 +1,11 @@
 import React from "react";
 import AuthContainer from "../auth-container-component/auth-container.component";
-import BlurContainer from "../blur-conatiner-component/blur-container.component";
 import Button from "../button-component/button.component";
-import FormComponent from "../form-component/form.component";
 import FormInput from "../form-input-component/form-input.component";
-import CustomList from "../list-component/list.component";
 import Text from "../text-component/text.component";
 import TextSlideshowContainer from "../text-slideshow-container/text-slideshow-container.component";
 import { signInWithGooglePopUp } from "../../utilis/firebase.utils";
 import google_logo from "../../assets/images/google_logo.png";
-import OrDivider from "../or-divider-component/or-divider.component";
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
