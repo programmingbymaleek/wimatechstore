@@ -26,7 +26,7 @@ const ContactUsSection = () => {
             type="email"
             placeholder="Enter your email"
             name="email"
-            inputstyles="medium:w-8/12 tablet:w-9/12 w-full tablet:h-full h-12 px-4 tablet:py-auto py-2.5"
+            inputstyles="medium:w-8/12 tablet:w-9/12 w-full tablet:h-full h-12 px-4 tablet:py-auto py-2.5 border border-slate-300"
           />
           <Button
             buttontype="primary-button"

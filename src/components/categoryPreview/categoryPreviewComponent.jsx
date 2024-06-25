@@ -9,15 +9,15 @@ import Filter from "../filter-component/filter.component";
 function CatergoryPreview() {
   const products = useSelector((state) => state.products.products);
   const objectKeys = Object.keys(products);
-  
+
   return (
-    <div className="flex flex-col  w-full py-8 h-full pt-24 px-8 pb-16 mx-auto  max-w-[1280px]">
+    <div className="flex flex-col  w-full  h-[90dvh] overflow-hidden  pt-24 px-8 pb-4 mx-auto  max-w-[1280px]">
       <Text texttype="heading-md" textstyles="text-center xmedium:text-left">
         Shop
       </Text>
-      <div className="flex flex-row gap-16 pt-10">
+      <div className="flex flex-row gap-16 pt-10 h-full">
         <Filter />
-        <div className="grid gap-12 flex-1">
+        <div className="grid gap-12 flex-1 overflow-scroll h-full ">
           {objectKeys.map((title) => (
             <div key={title}>
               <h1 className="flex flex-row w-full justify-between">
@@ -26,12 +26,6 @@ function CatergoryPreview() {
                   textstyles="uppercase text-gray-800  font-semibold pb-2.5 block"
                 >
                   <Link to={`${title}`}>{title.toUpperCase()}</Link>
-                </Text>
-                <Text
-                  texttype="text-sm"
-                  textstyles="text-blue-500 hover:underline cursor-pointer"
-                >
-                  See more ⟩
                 </Text>
               </h1>
               <div className={classes["product-container"]}>

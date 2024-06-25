@@ -7,7 +7,7 @@ import { ReactComponent as WhiteSearchIcon } from "../../assets/icons/white-sear
 import { ReactComponent as CartIcon } from "../../assets/icons/shopping_cart.svg";
 import { ReactComponent as MenuIcon } from "../../assets/icons/bars.svg";
 import { ReactComponent as CloseIcon } from "../../assets/icons/close.svg";
-import { ReactComponent as LogoIcon } from "../../assets/icons/logo.svg";
+import logo from "../../assets/images/globe-logo.png";
 
 import { useSelector } from "react-redux";
 import { SignOutUser } from "../../utilis/firebase.utils";
@@ -18,6 +18,7 @@ import Button from "../button-component/button.component.jsx";
 import CartDropDown from "../cart-drop-down-component/cartDropDown";
 import { setToogleCart } from "../../reduxtoolkit/features/cart/cartSlice";
 import { useDispatch } from "react-redux";
+import DropDown from "../drop-down-component/drop-down.component.jsx";
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -25,6 +26,7 @@ const Navbar = () => {
   const { toggleCart } = useSelector((state) => state.cart);
   const [showMenu, setShowMenu] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
+  const [showDropDown, setShowDropDown] = useState(false);
 
   const navigate = useNavigate();
   const navigateToHome = () => {
@@ -37,16 +39,33 @@ const Navbar = () => {
     dispatch(setToogleCart(!toggleCart));
   };
 
+  const categoryData = [
+    "iPhone",
+    "Samsung",
+    "Techno",
+    "Huawei",
+    "Vivo",
+    "Oppo",
+    "Xiaomi",
+    "Gionee",
+    "Itel",
+    "Infinix",
+  ];
+
   return (
     <nav className={`py-8 border-b ${classes[`navigation`]}`}>
-      <div 
-        className={`hidden flex-row justify-between w-full items-center px-4 large:px-8  large:flex ${
+      <div
+        className={`hidden flex-row justify-between w-full items-center px-8 large:px-16  large:flex ${
           classes[`navigation-list`]
         }`}
       >
         <div className="flex flex-row gap-12 items-center">
           <div>
-            <LogoIcon className="w-28 h-auto" />
+            <img
+              src={logo}
+              alt="Certified Global Enterprise"
+              className="w-12 h-auto"
+            />
           </div>
           <div className="flex flex-row gap-8 items-center">
             <Link to={"/wimatechstore"}>
@@ -57,22 +76,38 @@ const Navbar = () => {
                 Home
               </Text>
             </Link>
-            <Link to={"/wimatechstore"}></Link>
-            <Link
-              to={"/wimatechstore/shop"}
-              texttype="text-normal"
-              textstyles=" hover:text-blue-800 text-gray-700 font-medium"
-            >
-              Shop
-            </Link>
-            <Link to={"/wimatechstore"}>
+            <Link to={"/wimatechstore/shop"}>
               <Text
                 texttype="text-normal"
                 textstyles=" hover:text-blue-800 text-gray-700 font-medium"
               >
-                Categories
+                Shop
               </Text>
             </Link>
+            <div className="flex flex-col h-full relative">
+              <button onClick={() => setShowDropDown(!showDropDown)}>
+                <Text
+                  texttype="text-normal"
+                  textstyles=" hover:text-blue-800 text-gray-700 font-medium cursor-pointer"
+                >
+                  Categories
+                </Text>
+              </button>
+              {showDropDown && (
+                <DropDown>
+                  {categoryData.map((item, index) => (
+                    <li>
+                      <a
+                        href="#"
+                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >
+                        {item}
+                      </a>
+                    </li>
+                  ))}
+                </DropDown>
+              )}
+            </div>
             <Link to={"/wimatechstore"}>
               <Text
                 texttype="text-normal"
@@ -122,9 +157,9 @@ const Navbar = () => {
               onClick={() => setShowSearch(true)}
             />
           )}
-          <CartIcon className="w-5 h-5" onClick={toogleCart} />
-          {/* <NavIcon></NavIcon>
-          <NavIcon></NavIcon> */}
+          <Button buttontype="icon-button" buttonstyles="bg-transparent">
+            <CartIcon className="w-5 h-5" onClick={toogleCart} />
+          </Button>
         </div>
       </div>
 
@@ -136,9 +171,11 @@ const Navbar = () => {
       >
         <div className="flex flex-row gap-12 items-center w-full">
           <div className="w-full flex flex-row justify-between items-center">
-            <li>
-              <LogoIcon className="w-20 h-auto" />
-            </li>
+              <img
+                src={logo}
+                alt="Certified Global Enterprise"
+                className="w-10 h-auto"
+                />
             <MenuIcon
               className="w-5 h-5 cursor-pointer"
               onClick={() => setShowMenu(true)}

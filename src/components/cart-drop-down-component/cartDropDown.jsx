@@ -17,19 +17,24 @@ function CartDropDown() {
           </Text>
           <CloseIcon className="cursor-pointer" />
         </div>
-        <div className="h-[240px] overflow-scroll flex flex-col">
+        <div className="h-[240px] overflow-scroll flex flex-col hide-scrollbar">
           <div className=" pb-4 gap-3 justify-between items-center grid grid-cols-4">
-            <div className="gap-2 item-center flex col-span-2	">
-              <div className="flex-1 flex flex-col">
+            <div className="gap-2 flex-row flex col-span-2	items-center">
+              <img
+                src="https://i.ibb.co/ZYxc1d4/Itel-S24-Price-in-Bangladesh-2024-and-Specs.webp"
+                alt="product image"
+                className="w-12 h-auto"
+              />
+              <div className="flex-1 flex flex-col w-full">
                 <Text
                   texttype="text-normal"
-                  textstyles="text-gray-800 leading-4 font-semibold text-sm  text-ellipsis whitespace-nowrap"
+                  textstyles="text-gray-800 leading-4 font-semibold text-sm  text-ellipsis whitespace-nowrap w-8/12 overflow-clip"
                 >
-                  iPhone 15
+                   iPhone 15
                 </Text>
                 <Text
                   texttype="text-normal"
-                  textstyles="text-gray-500 font-sm overflow-hidden text-ellipsis whitespace-nowrap mt-0.5"
+                  textstyles="text-gray-500 font-sm overflow-hidden text-ellipsis whitespace-nowrap mt-0.5 w-8/12 overflow-clip"
                 >
                   Apple
                 </Text>

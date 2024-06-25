@@ -3,6 +3,7 @@ import LandingPage from "./components/landing-page-component/landingpage.compone
 import LoginSection from "./components/login-section-component/login-section.component";
 import SignupSection from "./components/signup-section-component/signup-section.component";
 import Navigation from "./components/navigation-section-component/navigation.component";
+import Product from './components/product/product.component'
 import { setCurrentUser } from "./reduxtoolkit/features/user/userSlice";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
@@ -70,6 +71,8 @@ function App() {
           <Route path="shop/*" element={<Shop />} />
           <Route path="login" element={<LoginSection />} />
           <Route path="signup" element={<SignupSection />} />
+          <Route path="product" element={<Product />} />
+
         </Route>
       </Routes>
     </>

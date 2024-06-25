@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import CatergoryPreview from "../categoryPreview/categoryPreviewComponent";
-import CategoryPage from "../category-page-component/categorypage.component";
+import CategoryPage from "../category-page-component/category-page.component";
 
 function Shop() {
   return (
