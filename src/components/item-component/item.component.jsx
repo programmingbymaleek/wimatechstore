@@ -1,5 +1,6 @@
 import React from "react";
 import Text from "../text-component/text.component";
+import Button from "../button-component/button.component";
 
 const ItemComponent = ({ type, ...rest }) => {
   return (
@@ -62,6 +63,37 @@ const ItemComponent = ({ type, ...rest }) => {
               textstyles="text-center xlarge:text-left tablet:w-11/12 medium:block tablet:hidden w-11/12 "
             >
               {rest.data.description}
+            </Text>
+          </div>
+        </div>
+      )}
+      {type == "product_item" && (
+        <div
+          className={`${rest.productstyle} flex flex-col h-[350px] items-center relative gap-2`}
+        >
+          <img
+            src={rest.data.imageUrl}
+            alt={rest.data.name}
+            className="cursor-pointer w-full h-4/6 object-cover mb-[5px]"
+          />
+          <Button buttontype="secondary-button" onClick={""} buttonstyles="">
+            View Product
+          </Button>
+          <div className={`w-full h-[5%] justify-between flex flex-col gap-1`}>
+            <Text texttype="text-normal" textstyles="text-gray-800 w-full">
+              {rest.data.name}
+            </Text>
+            <Text
+              texttype="text-sm"
+              textstyles="w-full uppercase text-gray-500"
+            >
+              {rest.data.make}
+            </Text>
+            <Text
+              texttype="text-normal"
+              textstyles=" text-gray-900 font-semibold w-full"
+            >
+              ${rest.data.price}
             </Text>
           </div>
         </div>

@@ -63,6 +63,7 @@ const LandingPage = () => {
           </Button>
         </BackgroundImageContainer>
       </div>
+
       <ProductSection
         navItems={navItems}
         data={ShopProduct[1].items}

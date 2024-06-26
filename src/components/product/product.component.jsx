@@ -1,12 +1,5 @@
 import React, { useState } from "react";
 import Text from "../text-component/text.component";
-import {
-  Dialog,
-  DialogBackdrop,
-  DialogPanel,
-  Radio,
-  RadioGroup,
-} from "@headlessui/react";
 import { ReactComponent as BackIcon } from "../../assets/icons/back.svg";
 import NumberInput from "../number-input-component/number-input.component";
 import Button from "../button-component/button.component";
@@ -15,19 +8,20 @@ import ProductSection from "../product-section-component/productsection.componen
 import ShopProduct from "../../shop_data_file";
 import ScrollableSection from "../scrollable-component/scrollable-section.component";
 import ItemComponent from "../item-component/item.component";
+import ProductCard from "../productCard/productCard";
 
 const Product = () => {
   return (
     <div>
-      <div className="flex flex-col  w-full py-8 h-full  pt-24 px-16 pb-16 mx-auto  max-w-[1280px]">
+      <div className="flex flex-col  w-full py-8 h-full  px-16 pt-32 pb-16 mx-auto  max-w-[1280px]">
         <Button
           buttontype="icon-button"
           buttonstyles="text-white bg-white border border-gray-100 hover:bg-gray-100/50 rounded-lg text-sm p-2.5 w-max text-center inline-flex items-center me-2 "
         >
           <BackIcon className="w-5 h-5" />
         </Button>
-        <div className="w-full overflow-clip">
-          <div className="large:grid-cols-2 gap-8 grid w-full">
+        <div className="w-full overflow-clip pt-8">
+          <div className="large:grid-cols-2 gap-8 grid w-full items-center">
             <div className="large:max-w-lg max-w-md mx-auto">
               <div id="product-1-tab-content">
                 <div
@@ -130,13 +124,36 @@ const Product = () => {
         <div className="pb-5 pt-20 py-12 flex flex-col gap-5">
           <Text
             texttype="heading-smd"
-            textstyles=" leading-6 w-full text-center pb-10"
+            textstyles=" leading-6 w-full text-center pb-8"
+          >
+            Order History
+          </Text>
+          <ScrollableSection scrollstyles="w-full gap-4 medium:gap-8 justify-between">
+            {ShopProduct[2].items.map((item, index) => (
+              <ItemComponent
+                type="product_item"
+                key={item.id}
+                data={item}
+                productstyle="w-[20rem]"
+              />
+            ))}
+          </ScrollableSection>
+        </div>
+        <div className="pb-5 pt-20 py-12 flex flex-col gap-5">
+          <Text
+            texttype="heading-smd"
+            textstyles=" leading-6 w-full text-center pb-8"
           >
             Related Products
           </Text>
           <ScrollableSection scrollstyles="w-full gap-4 medium:gap-8 justify-between">
             {ShopProduct[2].items.map((item, index) => (
-              <ItemComponent type="product" data={item} key={index} />
+              <ItemComponent
+                type="product_item"
+                key={item.id}
+                data={item}
+                productstyle="w-[20rem]"
+              />
             ))}
           </ScrollableSection>
         </div>

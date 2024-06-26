@@ -19,6 +19,7 @@ import {
   onAuthStateChangedListener,
   getUserDocumentFromFireBase,
 } from "./utilis/firebase.utils";
+import CartComponent from "./components/cart/cart.component";
 
 function App() {
   const dispatch = useDispatch();
@@ -72,6 +73,7 @@ function App() {
           <Route path="login" element={<LoginSection />} />
           <Route path="signup" element={<SignupSection />} />
           <Route path="product" element={<Product />} />
+          <Route path="cart" element={<CartComponent />} />
 
         </Route>
       </Routes>
