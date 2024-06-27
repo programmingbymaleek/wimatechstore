@@ -18,14 +18,14 @@ const CategoryPage = () => {
   }, [category]);
   return (
     <div>
-      <div className="flex flex-col  w-full py-8 h-full pt-24 px-8 pb-16 mx-auto  max-w-[1280px]">
+      <div className="flex flex-col  w-full py-8 h-[90dvh] overflow-hidden pt-24 px-8 pb-16 mx-auto  max-w-[1280px]">
         <Text texttype="heading-md" textstyles="text-center xmedium:text-left">
           Electronics
         </Text>
-        <div className="flex flex-row gap-16 pt-10">
+        <div className="flex flex-row gap-16 pt-10 h-full">
           <Filter />
 
-          <div className="grid gap-12 flex-1 grid-cols-4 w-full">
+          <div className="grid flex-1 gap-x-8 gap-y-2 grid-cols-4 w-full overflow-scroll h-full ">
             {categoryProduct ? (
               categoryProduct.map((product) => (
                 <div className="w-full h-[350px]">

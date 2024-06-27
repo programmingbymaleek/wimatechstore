@@ -7,7 +7,7 @@ function CatergoryPreview({dataOne}) {
 	const objectKeys = Object.keys(dataOne);
 
 	return (
-		<div className="flex flex-col w-full  h-full pb-16 mx-auto max-w-[1280px]">
+		<div className="flex flex-col w-full py-8 h-full pt-24 px-8 pb-16 mx-auto max-w-[1280px]">
 			{/* <Text texttype="heading-md" textstyles="text-center xmedium:text-left">
         Shop
       </Text> */}
@@ -18,7 +18,7 @@ function CatergoryPreview({dataOne}) {
         onChange={handleSearch}
         className="my-4 p-2 border border-gray-300 rounded"
       /> */}
-			<div className="flex flex-row gap-16 ">
+			<div className="flex flex-row gap-16 pt-10">
 				{/* <Filter /> */}
 				<div className="grid gap-12 flex-1">
 					{objectKeys.length > 0 ? (
@@ -27,7 +27,10 @@ function CatergoryPreview({dataOne}) {
 								<h1 className="flex flex-row w-full justify-between">
 									<Text texttype="text-normal" textstyles="uppercase text-gray-800 font-semibold pb-2.5 block">
 										{title.toUpperCase()}
-									</Text>    
+									</Text>
+									<Text texttype="text-sm" textstyles="text-blue-500 hover:underline cursor-pointer">
+										See more ⟩
+									</Text>
 								</h1>
 								<div className={classes["product-container"]}>
 									{dataOne[title]

@@ -24,7 +24,13 @@ const LandingPage = () => {
     <div className={`w-full`}>
       <HeroSection />
       <CategorySection />
-      <ProductSection navItems={navItems} data={ShopProduct[0].items} />
+      <ProductSection
+        navItems={navItems}
+        data={ShopProduct[0].items}
+        title="New Arrivals"
+        subtitle="How can you evaluate content without design"
+        header="Hurry up to buy"
+      />{" "}
       <div className="grid w-full max-w-[1280px] px-6 large:px-16 mx-auto my-20 grid-cols-12 gap-4  large:h-96 medium:h-[23rem] h-[30rem]">
         <BackgroundImageContainer
           containerstyle={`large:col-span-8 medium:col-span-6 col-span-12 flex flex-col items-start justify-center large:pl-8 pl-12 gap-4 medium:gap-7 bg-no-repeat bg-cover bg-center rounded-lg
@@ -57,11 +63,16 @@ const LandingPage = () => {
           </Button>
         </BackgroundImageContainer>
       </div>
-      <ProductSection navItems={navItems}  data={ShopProduct[1].items}  />
 
+      <ProductSection
+        navItems={navItems}
+        data={ShopProduct[1].items}
+        title="Best Sellers"
+        subtitle="How can you evaluate content without design"
+        header="Hurry up to buy"
+      />
       <FeaturesSection />
       <ContactUsSection />
-      <FooterSection />
     </div>
   );
 };
