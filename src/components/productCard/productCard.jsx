@@ -4,14 +4,13 @@ import classes from "./product-card.style.module.scss";
 import { useContext } from "react";
 import { ProductQuickViewContext } from "../contexts/product-quick-view-context";
 import Text from "../text-component/text.component";
+import { Link } from "react-router-dom";
 
-function ProductCard({ product }) {
+function ProductCard({ product, title }) {
   const { addItemToCart } = useContext(ProductQuickViewContext);
-  const { name, price, imageUrl, make } = product;
+  const { name, price, imageUrl, make, id } = product;
+
   const { setProductToView } = useContext(ProductQuickViewContext);
-  // const addProductCartHandler = () => {
-  //   return addItemToCart(product);
-  // };
 
   return (
     <div className={`${classes["product-card-container"]} gap-2`}>
@@ -33,12 +32,10 @@ function ProductCard({ product }) {
           texttype="text-normal"
           textstyles={`${classes["price"]} text-gray-900 font-semibold w-full`}
         >
-          ${price}
+          {price}
         </Text>
       </div>
-      <Button buttontype="inverted-button" onClick={""} buttonstyles="">
-        View Product
-      </Button>
+      <Link to={`${title}/${name}/${id}`}> View Product</Link>
     </div>
   );
 }

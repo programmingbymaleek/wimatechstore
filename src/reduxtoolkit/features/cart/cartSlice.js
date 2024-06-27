@@ -1,11 +1,25 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const addCartItem = (cartItems, productToadd) => {
-  if (cartItems.length < 1) {
-    return [{ ...productToadd, id: 1 }];
-  } else {
-    return [...cartItems, { ...productToadd, id: (cartItems.length += 1) }];
+const addCartItem = (cartItemsArray, productTodAdd) => {
+  const findItemIndex = cartItemsArray.findIndex(
+    (cartItem) => cartItem.id === productTodAdd.id
+  );
+  if (findItemIndex !== -1) {
+    const updatedCartItem = cartItemsArray.map((cartItem, index) => {
+      // If the current index matches the existingItemIndex, increment the quantity
+      if (index === findItemIndex) {
+        return { ...cartItem, quantity: cartItem.quantity + 1 };
+      }
+      // Otherwise, return the cartItem unchanged
+      return cartItem;
+    });
+    return updatedCartItem;
   }
+  const newItem = { ...productTodAdd, quantity: 1 };
+  return [...cartItemsArray, newItem];
+  //find if cartItemArray contains product to add..
+  //if found, increment quantity.
+  //return new array of modified cart items/new cart items
 };
 
 const incrementItem = (cartItems, product_increment_id) => {
