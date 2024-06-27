@@ -12,7 +12,7 @@ const ItemComponent = ({ type, ...rest }) => {
             alt="product image"
             className="medium:w-40 medium:h-48 object-cover w-32 h-40"
           />
-          <div className="list-style-none m-0 p-0 flex flex-col justify-center items-center pt-4 gap-1">
+          <div className=" m-0 p-0 flex flex-col justify-center items-center pt-4 gap-1">
             <Text
               texttype="text-normal"
               textstyles="medium:w-40 w-32 overflow-hidden text-ellipsis whitespace-nowrap hover:underline cursor-pointer"

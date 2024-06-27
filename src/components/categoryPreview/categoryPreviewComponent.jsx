@@ -4,6 +4,7 @@ import Text from "../text-component/text.component";
 import classes from "./categoryPreview.style.module.scss";
 import { addItemsTocart } from "../../reduxtoolkit/features/cart/cartSlice";
 import { useDispatch } from "react-redux";
+import Button from "../button-component/button.component";
 
 function CatergoryPreview({ dataOne }) {
   const objectKeys = Object.keys(dataOne);
@@ -47,10 +48,8 @@ function CatergoryPreview({ dataOne }) {
                         key={product.id}
                         product={product}
                         title={title}
+                        productstyle="w-full"
                       />
-                      <button onClick={() => addCartItem(product)}>
-                        Add item to cart
-                      </button>
                     </div>
                   ))}
                 </div>

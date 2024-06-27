@@ -3,17 +3,30 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Text from "../text-component/text.component";
 import { ReactComponent as BackIcon } from "../../assets/icons/back.svg";
+import { ReactComponent as AddCartIcon } from "../../assets/icons/cart_add.svg";
+
 import NumberInput from "../number-input-component/number-input.component";
 import Button from "../button-component/button.component";
 import Stars from "../stars-component/stars.component";
 import ScrollableSection from "../scrollable-component/scrollable-section.component";
 import ItemComponent from "../item-component/item.component";
 import ShopProduct from "../../shop_data_file";
+import ProductCard from "../productCard/productCard";
+import { addItemsTocart } from "../../reduxtoolkit/features/cart/cartSlice";
+import { useDispatch } from "react-redux";
+import InputBox from "../inputbox-component/inputbox.component";
 
 const Product = () => {
   const { category, id } = useParams();
   const products = useSelector((state) => state.products.products);
   const [productToView, setProductToView] = useState(null);
+
+  const dispatch = useDispatch();
+
+  const addCartItem = (productToView) => {
+    dispatch(addItemsTocart(productToView));
+    // Navigate("/checkout-items");
+  };
 
   useEffect(() => {
     if (products && products[category]) {
@@ -27,7 +40,7 @@ const Product = () => {
   }
 
   if (!productToView) {
-    return <div>Product not found</div>; // Handle the case where the product is not found
+    return <div className="">Product not found</div>; // Handle the case where the product is not found
   }
   console.log(productToView);
   console.log(products[category]);
@@ -43,21 +56,12 @@ const Product = () => {
         </Button>
         <div className="w-full overflow-clip pt-8">
           <div className="large:grid-cols-2 gap-8 grid w-full items-center">
-            <div className="large:max-w-lg max-w-md mx-auto">
-              <div id="product-1-tab-content">
-                <div
-                  className="p-4 bg-white rounded-lg "
-                  id="product-1-image-1"
-                  role="tabpanel"
-                  aria-labelledby="product-1-image-1-tab"
-                >
-                  <img
-                    className="w-full mx-auto"
-                    src="https://i.ibb.co/Vp08JRx/Itel-P55-T.webp"
-                    alt=""
-                  />
-                </div>
-              </div>
+            <div className="w-9/12 mx-auto p-4 bg-white rounded-lg ">
+              <img
+                className="w-full h-auto mx-auto"
+                src={productToView.imageUrl}
+                alt=""
+              />
             </div>
 
             <div className="medium:mt-0 mt-6 w-full block">
@@ -74,7 +78,7 @@ const Product = () => {
                     texttype="heading-xmd"
                     textstyles="medium:text-3xl text-gray-900 font-extrabold text-2xl"
                   >
-                    {productToView.price}
+                    ${productToView.price}
                   </Text>
 
                   <div className="gap-2 items-center flex">
@@ -99,23 +103,7 @@ const Product = () => {
                     buttontype="primary-button"
                     buttonstyles="medium:mt-0 medium:w-max w-[100vw] font-medium px-5 py-2.5 rounded-lg justify-center flex mt-4"
                   >
-                    <svg
-                      className="w-5 h-5 -ms-2 me-2"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke="currentColor"
-                        strokeLinecap="round" // Corrected property
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M4 4h1.5L8 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm.75-3H7.5M11 7H6.312M17 4v6m-3-3h6"
-                      />
-                    </svg>
+                    <AddCartIcon className="w-5 h-5 -ms-2 me-2" />
                     Add to cart
                   </Button>
                 </div>
@@ -134,11 +122,90 @@ const Product = () => {
               >
                 {productToView.description}
               </Text>
+              <div class="medium:grid-cols-2">
+                <p class="text-gray-900  font-medium text-base">Pickup</p>
+
+                <div class="gap-4 flex flex-col mt-2 medium:flex-row ">
+                  <div class="flex">
+                    <div class="items-center h-5 flex">
+                      <InputBox
+                        inputstyles="text-primary-600 focus:ring-primary-500 text-blue-900 bg-white border-gray-100 rounded-full w-4 h-4 cursor-pointer"
+                        type="radio"
+                        name="shipping"
+                        id="shipping-checkbox"
+                      />
+                    </div>
+                    <div class="text-sm ms-2 flex flex-col">
+                      <label for="shipping-checkbox">
+                        <Text
+                          textstyles="text-gray-900 font-medium"
+                          texttype="text-normal"
+                        >
+                          Standard Shipping - $19
+                        </Text>
+                      </label>
+                      <Text
+                        textstyles="text-gray-500 font-normal"
+                        texttype="text-normal"
+                      >
+                        Arrives Nov 17
+                      </Text>
+                    </div>
+                  </div>
+                  <div class="flex">
+                    <div class="items-center h-5 flex">
+                      <InputBox
+                        inputstyles="text-primary-600 focus:ring-primary-500 text-blue-900 bg-white border-gray-100 rounded-full w-4 h-4 cursor-pointer"
+                        type="radio"
+                        name="shipping"
+                        id="shipping-checkbox"
+                      />
+                    </div>
+                    <div class="text-sm ms-2 flex flex-col">
+                      <label for="shipping-checkbox">
+                        <Text
+                          textstyles="text-gray-900 font-medium"
+                          texttype="text-normal"
+                        >
+                          Express Shipping - $30
+                        </Text>
+                      </label>
+                      <Text
+                        textstyles="text-gray-500 font-normal"
+                        texttype="text-normal"
+                      >
+                        Arrives Nov 17
+                      </Text>
+                    </div>
+                  </div>
+
+                  <div class="flex">
+                    <div class="items-center h-5 flex">
+                      <InputBox
+                        inputstyles="text-primary-600 focus:ring-primary-500 text-blue-900 bg-white border-gray-100 rounded-full w-4 h-4 cursor-pointer"
+                        type="radio"
+                        name="shipping"
+                        id="shipping-checkbox"
+                      />
+                    </div>
+                    <div class="text-sm ms-2 flex flex-col">
+                      <label for="shipping-checkbox">
+                        <Text
+                          textstyles="text-gray-900 font-medium"
+                          texttype="text-normal"
+                        >
+                          Pick up from store
+                        </Text>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="pb-5 pt-20 py-12 flex flex-col gap-5">
+        <div className="pb-5 pt-20 py-12 flex flex-col gap-5 mt-4">
           <Text
             texttype="heading-smd"
             textstyles="leading-6 w-full text-center pb-8"
@@ -147,16 +214,18 @@ const Product = () => {
           </Text>
           <ScrollableSection scrollstyles="w-full gap-4 medium:gap-8 justify-between">
             {ShopProduct[2].items.map((item, index) => (
-              <ItemComponent
-                type="product_item"
-                key={item.id}
-                data={item}
-                productstyle="w-[20rem]"
-              />
+              <div key={item.id}>
+                <ProductCard
+                  key={item.id}
+                  product={item}
+                  title={item.make}
+                  productstyle="w-[200px]"
+                />
+              </div>
             ))}
           </ScrollableSection>
         </div>
-        <div className="pb-5 pt-20 py-12 flex flex-col gap-5">
+        <div className="pb-5 pt-20 py-12 flex flex-col gap-5 mt-4">
           <Text
             texttype="heading-smd"
             textstyles="leading-6 w-full text-center pb-8"
@@ -165,12 +234,14 @@ const Product = () => {
           </Text>
           <ScrollableSection scrollstyles="w-full gap-4 medium:gap-8 justify-between">
             {ShopProduct[2].items.map((item, index) => (
-              <ItemComponent
-                type="product_item"
-                key={item.id}
-                data={item}
-                productstyle="w-[20rem]"
-              />
+              <div key={item.id}>
+                <ProductCard
+                  key={item.id}
+                  product={item}
+                  title={item.make}
+                  productstyle="w-[200px]"
+                />
+              </div>
             ))}
           </ScrollableSection>
         </div>

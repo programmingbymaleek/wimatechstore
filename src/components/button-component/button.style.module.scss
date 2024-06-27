@@ -12,7 +12,13 @@
 .secondary-button {
   background-color: #2a2a2f24;
   color: #3a3a3a;
-  font-weight: 600;
+  font-weight: 500;
+  font-size: .8rem;
+}
+.secondary-button:hover {
+  background-color: #2a2a2f3c;
+  color: #3a3a3a;
+  font-weight: 500;
   font-size: .8rem;
 }
 

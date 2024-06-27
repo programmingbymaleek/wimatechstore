@@ -113,7 +113,7 @@ const Filter = () => {
         Electronics
       </Text>
       <div className="flex flex-row gap-14 pt-2 h-full">
-        <div className="w-[14rem] flex flex-col gap-10">
+        <div className="w-[14rem] flex flex-col gap-10  h-[80vh] overflow-scroll">
           <div className="w-full">
             <Text
               texttype="text-normal"
@@ -134,7 +134,7 @@ const Filter = () => {
                   />
                   <label
                     htmlFor={category}
-                    className="ml-5 text-sm font-medium text-gray-600 dark:text-gray-300"
+                    className="ml-5 text-sm text-gray-900 dark:text-gray-300 capitalize"
                   >
                     {category}
                   </label>
@@ -149,15 +149,15 @@ const Filter = () => {
             >
               Price
             </Text>
-            <div className="flex flex-row flex-wrap gap-3 pt-6">
+            <div className="flex flex-col gap-3 pt-6">
               {buttonData.map((range) => (
                 <Button
                   key={range}
                   buttontype="icon-buttom"
-                  buttonstyles={`text-gray-600 px-2 py-1.5 rounded-md ${
+                  buttonstyles={`text-gray-600 px-1 py-1.5 rounded-md  w-max border text-sm font-medium ${
                     selectedPriceRange === range
-                      ? "bg-gray-600 text-white"
-                      : "border border-gray-300 w-max px-1 text-sm"
+                      ? "bg-blue-600 text-white border border-transparent"
+                      : " border-gray-300 bg-white "
                   }`}
                   buttonFunc={() => handlePriceRangeClick(range)}
                 >
@@ -173,7 +173,7 @@ const Filter = () => {
             </div>
           </div>
         </div>
-        <div className="flex-grow flex-1">
+        <div className="flex-grow flex-1 h-[80vh] overflow-scroll">
           {isEmpty ? (
             <div>No items or categories available for this price range.</div>
           ) : (
