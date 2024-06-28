@@ -15,21 +15,20 @@ const CartComponent = () => {
         </Text>
 
         <div className="medium:mt-4 border-gray-100/50 border-b overflow-x-auto mt-6 relative w-full">
-          <table className="xmedium:table-fixed text-gray-900 text-base text-left w-full overflow-x-scroll">
-            <thead className="border-b w-full stre">
-              <tr className="grid grid-cols-5 place-items-stretch mx-auto w ">
-
-                <th className="min-w-56 py-4 whitespace-nowrap w-96 ">
+          <table className=" text-gray-900 text-base text-left w-full overflow-x-scroll">
+            <thead className="border-b w-full ">
+              <tr className="flex flex-row w-max ">
+                <th className="min-w-56 py-4 whitespace-nowrap w-80 ">
                   <Text texttype="text-normal" textstyles="font-bold">
                     Product
                   </Text>
                 </th>
-                <th className="p-4">
+                <th className="p-4 w-72">
                   <Text texttype="text-normal" textstyles="font-bold">
                     Quantity
                   </Text>
                 </th>
-                <th className="p-4 text-gray-900 font-bold ">
+                <th className="p-4 text-gray-900 font-bold w-56">
                   <Text texttype="text-normal" textstyles="font-bold">
                     Price
                   </Text>
@@ -41,16 +40,16 @@ const CartComponent = () => {
                 </th>
                 <th
                   scope="col"
-                  class="text-gray-900 font-semibold text-sm text-left py-3.5 px-3 text-transparent"
+                  className="text-gray-900 font-semibold text-sm text-left py-3.5 px-3 text-transparent w-fit"
                 >
                   Trash
                 </th>
               </tr>
             </thead>
-            <tbody className="text-gray-900 text-base text-left ">
-              <tr className="border-b">
-                <td className="min-w-56 py-6 whitespace-nowrap w-96">
-                  <a href="#" className="font-medium gap-4 items-center flex">
+            <tbody className="text-gray-900 text-base text-left w-max">
+              <tr className="border-b flex flex-row items-center w-full">
+                <td className="min-w-56 py-6 whitespace-nowrap w-fit h-28">
+                  <div className="font-medium gap-4 items-center flex w-80">
                     <div className="w-16 flex-shrink-0 h-12 aspect-1">
                       <img
                         className="w-full h-auto"
@@ -59,29 +58,29 @@ const CartComponent = () => {
                       />
                     </div>
                     Apple iMac 27”
-                  </a>
+                  </div>
                 </td>
 
-                <td className="p-4">
-                  <div className="items-center flex">
+                <td className="p-4 w-72 h-fit">
+                  <div className=" w-full">
                     <NumberInput />
                   </div>
                 </td>
 
-                <td className="p-4 text-gray-900 font-bold text-base text-end">
+                <td className="p-4 text-gray-900 font-bold text-base w-56 h-fit">
                   $1,499
                 </td>
 
-                <td className="p-4 text-gray-900 font-bold text-base text-end">
+                <td className="p-4 text-gray-900 font-bold text-base w-56 h-fit">
                   $1,499
                 </td>
 
-                <td className="py-4">
+                <td className="py-4 h-fit">
                   <button
                     data-tooltip-target="remove-tooltip"
                     data-tooltip-placement="top"
                     type="button"
-                    className="text-gray-300 p-2 rounded-lg block m-auto"
+                    className="text-gray-300 p-2 rounded-lg block  w-fit"
                   >
                     <BinIcon className="w-6 h-6 hover:text-red-800" />
                   </button>
@@ -116,24 +115,6 @@ const CartComponent = () => {
                     textstyle="text-gray-900 font-medium"
                   >
                     $6,592.00
-                  </Text>
-                </dd>
-              </dl>
-              <dl className="items-center flex gap-4 justify-between ">
-                <dt>
-                  <Text
-                    texttype="text-normal"
-                    textstyle="text-gray-900 font-normal"
-                  >
-                    Savings
-                  </Text>
-                </dt>
-                <dd>
-                  <Text
-                    texttype="text-normal"
-                    textstyle="text-green-600 font-medium"
-                  >
-                    -$299.00
                   </Text>
                 </dd>
               </dl>
@@ -219,15 +200,10 @@ const CartComponent = () => {
           >
             Order History
           </Text>
-          <ScrollableSection scrollstyles="w-full gap-4 medium:gap-8 justify-between">
+          <ScrollableSection scrollstyles=" gap-4 medium:gap-8 justify-between overflow-clip">
             {ShopProduct[2].items.map((item, index) => (
-              <div key={item.id}>
-                <ProductCard
-                  key={item.id}
-                  product={item}
-                  title={item.make}
-                  productstyle="w-[200px]"
-                />
+              <div key={item.id} className="w-[220px]">
+                <ProductCard key={item.id} product={item} title={item.make} />
               </div>
             ))}
           </ScrollableSection>
@@ -239,7 +215,7 @@ const CartComponent = () => {
           >
             Related Products
           </Text>
-          <ScrollableSection scrollstyles="w-full gap-4 medium:gap-8 justify-between">
+          <ScrollableSection scrollstyles=" gap-4 medium:gap-8 justify-between">
             {ShopProduct[2].items.map((item, index) => (
               <div key={item.id}>
                 <ProductCard

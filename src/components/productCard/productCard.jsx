@@ -22,9 +22,7 @@ function ProductCard({ product, title, productstyle }) {
   };
 
   return (
-    <div
-      className={`${productstyle} w-full gap-2 h-fit flex flex-col items-center relative`}
-    >
+    <div className={` w-[200px] gap-2 h-fit flex flex-col items-center relative`}>
       <Link to={`${title}/${name}/${id}`} className="w-full h-[220px]">
         <img
           src={imageUrl}

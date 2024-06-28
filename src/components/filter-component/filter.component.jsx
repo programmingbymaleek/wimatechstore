@@ -3,6 +3,7 @@ import Text from "../text-component/text.component";
 import Button from "../button-component/button.component";
 import { useSelector } from "react-redux";
 import CatergoryPreview from "../categoryPreview/categoryPreviewComponent";
+import { ReactComponent as CloseIcon } from "../../assets/icons/close.svg";
 
 const Filter = () => {
   const products = useSelector((state) => state.products.products);
@@ -115,12 +116,14 @@ const Filter = () => {
       <div className="flex flex-row gap-14 pt-2 h-full">
         <div className="w-[14rem] flex flex-col gap-10  h-[80vh] overflow-scroll">
           <div className="w-full">
-            <Text
-              texttype="text-normal"
-              textstyles="uppercase text-gray-800 border-b-2 border-blue-700 font-semibold pb-2.5 w-full block"
-            >
-              Categories
-            </Text>
+            <div className="flex flex-row justify-between border-b-2 border-blue-700 ">
+              <Text
+                texttype="text-normal"
+                textstyles="uppercase text-gray-800 font-semibold pb-2.5 w-full block"
+              >
+                Categories
+              </Text>
+            </div>
             <div className="flex flex-col gap-3 pt-6">
               {categoryData.map((category) => (
                 <div key={category} className="flex items-center">
@@ -130,7 +133,7 @@ const Filter = () => {
                     name={category}
                     checked={checkedItems[category] || false}
                     onChange={handleChange}
-                    className="w-4 h-4 text-gray-900 bg-gray-100 border-gray-300 rounded dark:bg-gray-700 dark:border-gray-600"
+                    className="w-4 h-4 text-gray-900 bg-gray-100 border-gray-300 rounded "
                   />
                   <label
                     htmlFor={category}
@@ -143,12 +146,27 @@ const Filter = () => {
             </div>
           </div>
           <div className="w-full">
-            <Text
-              texttype="text-normal"
-              textstyles="uppercase text-gray-800 border-b-2 border-blue-700 font-semibold pb-2.5 w-full block"
+            <div className="flex flex-row justify-between border-b-2 border-blue-700 ">
+              <Text
+                texttype="text-normal"
+                textstyles="uppercase text-gray-800 border-b-2 border-blue-700 font-semibold pb-2.5 w-full block"
+              >
+                Price
+              </Text>
+            </div>
+
+            <Button
+              className="flex flex-row cursor-pointer"
+              onclick={clearPriceRange}
             >
-              Price
-            </Text>
+              <CloseIcon className="w-5 h-5 text-red-800" />
+              <Text
+                texttype="text-normal"
+                textstyles=" text-red-800 hover:underline "
+              >
+                Clear
+              </Text>
+            </Button>
             <div className="flex flex-col gap-3 pt-6">
               {buttonData.map((range) => (
                 <Button
@@ -164,12 +182,6 @@ const Filter = () => {
                   {range}
                 </Button>
               ))}
-              <Button
-                buttonstyles="text-gray-600 px-2 py-1.5 rounded-md text-blue-600 hover:underline text-sm"
-                buttonFunc={clearPriceRange}
-              >
-                Clear Price Range
-              </Button>
             </div>
           </div>
         </div>

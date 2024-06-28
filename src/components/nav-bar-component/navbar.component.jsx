@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { ReactComponent as SearchIcon } from "../../assets/icons/search.svg";
 import { ReactComponent as WhiteSearchIcon } from "../../assets/icons/white-search.svg";
 import { ReactComponent as CartIcon } from "../../assets/icons/shopping_cart.svg";
+import { ReactComponent as NewItemCartIcon } from "../../assets/icons/new_cart_item.svg";
 import { ReactComponent as MenuIcon } from "../../assets/icons/bars.svg";
 import { ReactComponent as CloseIcon } from "../../assets/icons/close.svg";
 import logo from "../../assets/images/globe-logo.png";
@@ -99,7 +100,7 @@ const Navbar = () => {
                     <li>
                       <a
                         href="#"
-                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                        class="block px-4 py-2 hover:bg-gray-100 "
                       >
                         {item}
                       </a>
@@ -159,6 +160,7 @@ const Navbar = () => {
           )}
           <Button buttontype="icon-button" buttonstyles="bg-transparent">
             <CartIcon className="w-5 h-5" onClick={toogleCart} />
+            {/* <NewItemCartIcon className="w-5 h-5" onClick={toogleCart}/> */}
           </Button>
         </div>
       </div>

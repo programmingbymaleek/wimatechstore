@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import classes from "./scrollable-section.styles.module.scss";
+
 const ScrollableSection = ({ scrollstyles, children }) => {
   const contentRef = useRef(null);
   const [showPrevButton, setShowPrevButton] = useState(false);
@@ -33,6 +34,7 @@ const ScrollableSection = ({ scrollstyles, children }) => {
     const { scrollLeft, scrollWidth, clientWidth } = contentRef.current;
     setShowPrevButton(scrollLeft > 0);
     setShowNextButton(scrollWidth > clientWidth + scrollLeft);
+    console.log(scrollLeft, scrollWidth, clientWidth);
   };
 
   return (
