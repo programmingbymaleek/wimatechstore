@@ -6,11 +6,17 @@ import { ReactComponent as CloseIcon } from "../../assets/icons/close.svg";
 import { useSelector } from "react-redux";
 import { deletCartItem } from "../../reduxtoolkit/features/cart/cartSlice";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function CartDropDown() {
   const { cartItems } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   console.log(cartItems);
+
+  const navigate = useNavigate();
+  const goToCheckOut = () => {
+    navigate("/wimatechstore/checkout");
+  };
 
   return (
     <>
@@ -43,7 +49,7 @@ function CartDropDown() {
                         texttype="text-normal"
                         textstyles="text-gray-800 leading-4 font-semibold text-sm  text-ellipsis whitespace-nowrap w-8/12 overflow-clip"
                       >
-                        iPhone 15
+                        {cartItem.name}
                       </Text>
                       <Text
                         texttype="text-normal"
@@ -58,7 +64,7 @@ function CartDropDown() {
                     texttype="text-normal"
                     textstyles="text-gray-500 font-sm mt-0.5"
                   >
-                    x1
+                    {`x${cartItem.quantity}`}
                   </Text>
 
                   <div className="gap-2 justify-end items-center flex ">
@@ -66,7 +72,7 @@ function CartDropDown() {
                       texttype="text-sm"
                       textstyles="text-gray-800 leading-4 font-semibold text-sm"
                     >
-                      ${cartItem.price}
+                      {`$${cartItem.price}`}
                     </Text>
                     <Button
                       buttontype="icon-button"
@@ -96,7 +102,7 @@ function CartDropDown() {
               ))}
 
             {cartItems.length == 0 && (
-              <Text texttype='text-sm' textstyles="w-full text-center italic">
+              <Text texttype="text-sm" textstyles="w-full text-center italic">
                 No item in cart
               </Text>
             )}
@@ -105,6 +111,7 @@ function CartDropDown() {
           <Button
             buttontype="primary-button"
             buttonstyles="space-y-4 me-2 px-5 py-2.5  w-full items-center "
+            buttonFunc={goToCheckOut}
           >
             {" "}
             Go to Checkout{" "}

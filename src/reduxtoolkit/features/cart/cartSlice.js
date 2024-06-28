@@ -23,19 +23,19 @@ const addCartItem = (cartItemsArray, productTodAdd) => {
 };
 
 const incrementItem = (cartItems, product_increment_id) => {
-  // return cartItems.map((item) =>
-  //   item.id === product_increment_id
-  //     ? { ...item, quantity: (item.quantity += 1) }
-  //     : item
-  // );
+  return cartItems.map((item) =>
+    item.id === product_increment_id
+      ? { ...item, quantity: (item.quantity += 1) }
+      : item
+  );
 };
 
 const decrementItem = (cartItems, product_to_decrement) => {
-  // return cartItems.map((item) =>
-  //   (item.id === product_to_decrement.id) & (product_to_decrement.quantity > 1)
-  //     ? { ...item, quantity: (item.quantity -= 1) }
-  //     : item
-  // );
+  return cartItems.map((item) =>
+    (item.id === product_to_decrement.id) & (product_to_decrement.quantity > 1)
+      ? { ...item, quantity: (item.quantity -= 1) }
+      : item
+  );
 };
 
 const deletItem = (cartItems, product_To_Delete) => {

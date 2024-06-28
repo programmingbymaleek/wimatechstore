@@ -8,7 +8,7 @@ const Button = ({ children, buttontype, buttonstyles, buttonFunc, type }) => {
           className={`flex items-center justify-center cursor-pointer ${buttonstyles} ${
             classes[`${buttontype}`]
           } ${classes[`button`]}`}
-          onClick={() => buttonFunc()}
+          onClick={buttonFunc}
         >
           {children}
         </button>
