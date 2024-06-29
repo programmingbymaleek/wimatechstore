@@ -7,7 +7,7 @@ import { setCurrentUser } from "./reduxtoolkit/features/user/userSlice";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import Shop from "./components/shop/shopComponent";
-import CheckOut from "./components/checkout/checkout-component";
+import CartPreview from "./components/cartPreview/cart-preview";
 import {
   addCollectionAndDocuments,
   getCategoriesAndDocumentFromFireBase,
@@ -70,7 +70,7 @@ function App() {
           <Route path="login" element={<LoginSection />} />
           <Route path="signup" element={<SignupSection />} />
           <Route path="cart" element={<CartComponent />} />
-          <Route path="checkOut" element={<CheckOut />} />
+          <Route path="order-review" element={<CartPreview />} />
         </Route>
       </Routes>
     </>

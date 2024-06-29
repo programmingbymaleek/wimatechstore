@@ -7,11 +7,15 @@ import {
   decrementCartItem,
 } from "../../reduxtoolkit/features/cart/cartSlice";
 
-function CheckOut() {
+function CartPreview() {
   const dispatch = useDispatch();
   const { cartItems, total } = useSelector((state) => state.cart);
   console.log(cartItems);
   console.log(total);
+
+  const increaceCartItem = (itemToIncrease) => {
+    dispatch(addItemsTocart(itemToIncrease));
+  };
 
   const reduceCartItem = (itemToReduce) => {
     dispatch(decrementCartItem(itemToReduce));
@@ -33,13 +37,7 @@ function CheckOut() {
       {cartItems.map((itemToCheckOut) => (
         <div key={itemToCheckOut.id}>
           <p>{itemToCheckOut.name}</p>
-          <button
-            onClick={() => {
-              dispatch(addItemsTocart(itemToCheckOut));
-            }}
-          >
-            add
-          </button>
+          <button onClick={() => increaceCartItem(itemToCheckOut)}>add</button>
           <span
             style={{
               color: "red",
@@ -58,4 +56,4 @@ function CheckOut() {
   );
 }
 
-export default CheckOut;
+export default CartPreview;
