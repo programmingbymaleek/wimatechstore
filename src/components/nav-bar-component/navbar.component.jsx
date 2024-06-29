@@ -23,7 +23,7 @@ import DropDown from "../drop-down-component/drop-down.component.jsx";
 
 const Navbar = () => {
   const dispatch = useDispatch();
-  const currentUser = useSelector((state) => state.user.currentUser);
+  const { currentUser } = useSelector((state) => state.user);
   const { toggleCart, count } = useSelector((state) => state.cart);
   const [showMenu, setShowMenu] = useState(false);
   const [showSearch, setShowSearch] = useState(false);

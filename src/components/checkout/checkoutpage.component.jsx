@@ -157,7 +157,8 @@ const CheckoutPage = () => {
                   <Button
                     buttontype="primary-button"
                     buttonstyles=" medium:mt-0 py-3 px-10 flex mt-4"
-                    buttonFunc={() => setStage(stage++)}
+                    // buttonFunc={() => setStage(stage++)}
+                    buttonFunc={() => ""}
                   >
                     Continue
                   </Button>

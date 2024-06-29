@@ -19,6 +19,7 @@ import {
   getUserDocumentFromFireBase,
 } from "./utilis/firebase.utils";
 import CartComponent from "./components/cart/cart.component";
+import { data } from "autoprefixer";
 
 function App() {
   const dispatch = useDispatch();
@@ -44,11 +45,12 @@ function App() {
   useEffect(() => {
     const unSubscribe = onAuthStateChangedListener(async (user) => {
       if (user) {
-        await createUserDocumentFromAuth(user);
+        const dataUser = await createUserDocumentFromAuth(user);
+        const userId = dataUser.id;
         const userData = await fetchUserData(user.uid);
         if (userData) {
           const { displayName, email } = userData;
-          dispatch(setCurrentUser({ displayName, email }));
+          dispatch(setCurrentUser({ displayName, email, userId }));
         }
       } else {
         dispatch(setCurrentUser(null));
