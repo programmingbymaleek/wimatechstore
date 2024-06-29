@@ -39,15 +39,12 @@ const SetPayment = () => {
 
             <div className="ms-4 flex flex-col">
               <label
-                for="pay-on-delivery"
+                htmlFor="pay-on-delivery"
                 className="font-medium leading-none text-gray-900"
               >
                 Payment on delivery
               </label>
-              <Text
-                texttype='text-sm'
-                textstyles="mt-1 text-gray-500"
-              >
+              <Text texttype="text-sm" textstyles="mt-1 text-gray-500">
                 +$15 payment processing fee
               </Text>
             </div>
@@ -69,15 +66,13 @@ const SetPayment = () => {
 
             <div className="ms-4 text-sm flex-col">
               <label
-                for="paypal-2"
+                htmlFor="paypal-2"
                 className="font-medium leading-none text-gray-900 dark:text-white"
               >
                 {" "}
                 Paypal account{" "}
               </label>
-              <Text
-                texttype='text-sm'
-                textstyles="mt-1 text-gray-500">
+              <Text texttype="text-sm" textstyles="mt-1 text-gray-500">
                 Connect to your account
               </Text>
             </div>
@@ -99,7 +94,7 @@ const SetPayment = () => {
 
             <div className="ms-4 text-sm">
               <label
-                for="credit-card"
+                htmlFor="credit-card"
                 className="font-medium leading-none text-gray-900 dark:text-white"
               >
                 {" "}

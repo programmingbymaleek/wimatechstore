@@ -4,7 +4,10 @@ import classes from "./cartDropDown.style.module.scss";
 import Text from "../text-component/text.component";
 import { ReactComponent as CloseIcon } from "../../assets/icons/close.svg";
 import { useSelector } from "react-redux";
-import { deletCartItem } from "../../reduxtoolkit/features/cart/cartSlice";
+import {
+  deletCartItem,
+  setToogleCart,
+} from "../../reduxtoolkit/features/cart/cartSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
@@ -18,6 +21,10 @@ function CartDropDown() {
     navigate("/wimatechstore/checkout");
   };
 
+  const closeCart = () => {
+    dispatch(setToogleCart(false));
+  };
+
   return (
     <>
       <div className="absolute w-full mx-auto  max-w-[1280px] flex flex-row justify-end px-8">
@@ -29,7 +36,13 @@ function CartDropDown() {
             >
               Your shopping cart
             </Text>
-            <CloseIcon className="cursor-pointer" />
+            <Button
+              buttontype="icon-button"
+              buttonstyles=""
+              buttonFunc={closeCart}
+            >
+              <CloseIcon className="cursor-pointer" />
+            </Button>
           </div>
           <div className="h-[240px] overflow-scroll flex flex-col hide-scrollbar">
             {cartItems.length > 0 &&

@@ -36,7 +36,7 @@ const SetDelivery = () => {
         <div>
           <div className="mb-2 flex items-center gap-2">
             <label
-              for="select-country-input-3"
+              htmlFor="select-country-input-3"
               className="block text-sm font-medium shadow-sm text-gray-900"
             >
               {" "}
@@ -58,7 +58,7 @@ const SetDelivery = () => {
         <div>
           <div className="mb-2 flex items-center gap-2">
             <label
-              for="select-city-input-3"
+              htmlFor="select-city-input-3"
               className="block text-sm font-medium text-gray-900"
             >
               {" "}
@@ -79,7 +79,7 @@ const SetDelivery = () => {
 
         <div>
           <label
-            for="phone-input-3"
+            htmlFor="phone-input-3"
             className="mb-2 block text-sm font-medium text-gray-900"
           >
             {" "}

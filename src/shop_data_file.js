@@ -204,8 +204,7 @@ const ShopProduct = [
       {
         id: 25,
         name: "iPhone 15 Pro Max",
-        imageUrl:
-          "https://i.ibb.co/GT7WmS0/i-Phone-15-Pro-Max.webp",
+        imageUrl: "https://i.ibb.co/GT7WmS0/i-Phone-15-Pro-Max.webp",
         make: "Apple",
         price: 199.99,
       },
@@ -228,8 +227,7 @@ const ShopProduct = [
       {
         id: 28,
         name: "iPhone 14",
-        imageUrl:
-          "https://i.ibb.co/TP699jd/Apple-i-Phone-14.webp",
+        imageUrl: "https://i.ibb.co/TP699jd/Apple-i-Phone-14.webp",
         make: "Apple",
         price: 1099,
       },
@@ -292,8 +290,7 @@ const ShopProduct = [
       {
         id: 36,
         name: "iPhone 8",
-        imageUrl:
-          "https://i.ibb.co/z2snypd/i-Phone-8-plus.webp",
+        imageUrl: "https://i.ibb.co/z2snypd/i-Phone-8-plus.webp",
         make: "Apple",
         price: 1099,
       },
@@ -305,8 +302,7 @@ const ShopProduct = [
       {
         id: 37,
         name: "itel RS24",
-        imageUrl:
-          "https://i.ibb.co/10PCB9x/rs24.webp",
+        imageUrl: "https://i.ibb.co/10PCB9x/rs24.webp",
         make: "itel",
         price: 199.99,
       },
@@ -329,8 +325,7 @@ const ShopProduct = [
       {
         id: 40,
         name: "itel P55T",
-        imageUrl:
-          "https://i.ibb.co/Vp08JRx/Itel-P55-T.webp",
+        imageUrl: "https://i.ibb.co/Vp08JRx/Itel-P55-T.webp",
         make: "itel",
         price: 199.99,
       },
@@ -353,16 +348,14 @@ const ShopProduct = [
       {
         id: 43,
         name: "itel P38 Pro",
-        imageUrl:
-          "https://i.ibb.co/6m9vQPP/itelp38.webp",
+        imageUrl: "https://i.ibb.co/6m9vQPP/itelp38.webp",
         make: "itel",
         price: 199.99,
       },
       {
         id: 44,
         name: "itel P38",
-        imageUrl:
-          "https://i.ibb.co/6m9vQPP/itelp38.webp",
+        imageUrl: "https://i.ibb.co/6m9vQPP/itelp38.webp",
         make: "itel",
         price: 199.99,
       },
@@ -393,8 +386,7 @@ const ShopProduct = [
       {
         id: 48,
         name: "itel S17",
-        imageUrl:
-          "https://i.ibb.co/cNfYQms/itels17.webp",
+        imageUrl: "https://i.ibb.co/cNfYQms/itels17.webp",
         make: "itel",
         price: 199.99,
       },
@@ -414,8 +406,7 @@ const ShopProduct = [
       {
         id: 50,
         name: "Galaxy M55",
-        imageUrl:
-          "https://i.ibb.co/TcXptfq/Samsung-Galaxy-M55.webp",
+        imageUrl: "https://i.ibb.co/TcXptfq/Samsung-Galaxy-M55.webp",
         make: "Samsung",
         price: 199.99,
       },
@@ -438,8 +429,7 @@ const ShopProduct = [
       {
         id: 53,
         name: "Galaxy A04s",
-        imageUrl:
-          "https://i.ibb.co/wC28HTR/Samsung-Galaxy-A04s.webp",
+        imageUrl: "https://i.ibb.co/wC28HTR/Samsung-Galaxy-A04s.webp",
         make: "Samsung",
         price: 199.99,
       },
@@ -478,8 +468,7 @@ const ShopProduct = [
       {
         id: 58,
         name: "Galaxy A32",
-        imageUrl:
-          "https://i.ibb.co/njC2wzG/Galaxy-A32.webp",
+        imageUrl: "https://i.ibb.co/njC2wzG/Galaxy-A32.webp",
         make: "Samsung",
         price: 199.99,
       },
@@ -515,8 +504,7 @@ const ShopProduct = [
       {
         id: 62,
         name: "Infinix GT 20 Pro",
-        imageUrl:
-          "https://i.ibb.co/GW0CR81/Infinix-GT-20-Pro.webp",
+        imageUrl: "https://i.ibb.co/GW0CR81/Infinix-GT-20-Pro.webp",
         make: "Infinix",
         price: 199.99,
       },
@@ -547,16 +535,14 @@ const ShopProduct = [
       {
         id: 66,
         name: "Infinix Note 12 VIP",
-        imageUrl:
-          "https://i.ibb.co/NTNm17c/INFINIX-XIAOMI.webp",
+        imageUrl: "https://i.ibb.co/NTNm17c/INFINIX-XIAOMI.webp",
         make: "Infinix",
         price: 199.99,
       },
       {
         id: 67,
         name: "Infinix Hot 40 Pro",
-        imageUrl:
-          "https://i.ibb.co/8rncDsp/Infinix-Hot-40-Pro.webp",
+        imageUrl: "https://i.ibb.co/8rncDsp/Infinix-Hot-40-Pro.webp",
         make: "Infinix",
         price: 199.99,
       },
@@ -571,8 +557,7 @@ const ShopProduct = [
       {
         id: 69,
         name: "Infinix Zero 30 5G",
-        imageUrl:
-          "https://i.ibb.co/pzzR1tF/Infinix-Zero-30.webp",
+        imageUrl: "https://i.ibb.co/pzzR1tF/Infinix-Zero-30.webp",
         make: "Infinix",
         price: 199.99,
       },
@@ -587,8 +572,7 @@ const ShopProduct = [
       {
         id: 71,
         name: "Infinix Hot 8 LTE 5G",
-        imageUrl:
-          "https://i.ibb.co/k90cRFQ/infinixhot8lte.webp",
+        imageUrl: "https://i.ibb.co/k90cRFQ/infinixhot8lte.webp",
         make: "Infinix",
         price: 199.99,
       },
@@ -624,8 +608,7 @@ const ShopProduct = [
       {
         id: 75,
         name: "Huawei P30 Pro",
-        imageUrl:
-          "https://i.ibb.co/TmGKkwc/Huawei-P30-Pro-1.webp",
+        imageUrl: "https://i.ibb.co/TmGKkwc/Huawei-P30-Pro-1.webp",
         make: "Huawei",
         price: 199.99,
       },
@@ -656,8 +639,7 @@ const ShopProduct = [
       {
         id: 79,
         name: "Huawei Nova Y70",
-        imageUrl:
-          "https://i.ibb.co/2gn03FM/Huawei-nova-Y70.webp",
+        imageUrl: "https://i.ibb.co/2gn03FM/Huawei-nova-Y70.webp",
         make: "Huawei",
         price: 199.99,
       },
@@ -680,8 +662,7 @@ const ShopProduct = [
       {
         id: 82,
         name: "Huawei Nova 11i",
-        imageUrl:
-          "https://i.ibb.co/d7DmdNy/Huawei-nova-11i.webp",
+        imageUrl: "https://i.ibb.co/d7DmdNy/Huawei-nova-11i.webp",
         make: "Huawei",
         price: 199.99,
       },
@@ -696,8 +677,7 @@ const ShopProduct = [
       {
         id: 84,
         name: "Huawei Nova Y91",
-        imageUrl:
-          "https://i.ibb.co/ZxCCtq0/Huawei-nova-Y91-announced.webp",
+        imageUrl: "https://i.ibb.co/ZxCCtq0/Huawei-nova-Y91-announced.webp",
         make: "Huawei",
         price: 199.99,
       },
@@ -709,8 +689,7 @@ const ShopProduct = [
       {
         id: 85,
         name: "Gionee Max Pro",
-        imageUrl:
-          "https://i.ibb.co/sK7zjKp/gioneemaxpro.webp",
+        imageUrl: "https://i.ibb.co/sK7zjKp/gioneemaxpro.webp",
         make: "Gionee",
         price: 199.99,
       },
@@ -749,8 +728,7 @@ const ShopProduct = [
       {
         id: 90,
         name: "Gionee P50 Pro",
-        imageUrl:
-          "https://i.ibb.co/q14z5zG/gioneep50pro.webp",
+        imageUrl: "https://i.ibb.co/q14z5zG/gioneep50pro.webp",
         make: "Gionee",
         price: 199.99,
       },
@@ -765,40 +743,35 @@ const ShopProduct = [
       {
         id: 92,
         name: "Gionee G15 Pro",
-        imageUrl:
-          "https://i.ibb.co/mb9wNwZ/gionee15pro.webp",
+        imageUrl: "https://i.ibb.co/mb9wNwZ/gionee15pro.webp",
         make: "Gionee",
         price: 199.99,
       },
       {
         id: 93,
         name: "Gionee K3",
-        imageUrl:
-          "https://i.ibb.co/frp6KmG/gioneek3.webp",
+        imageUrl: "https://i.ibb.co/frp6KmG/gioneek3.webp",
         make: "Gionee",
         price: 199.99,
       },
       {
         id: 94,
         name: "Gionee M12",
-        imageUrl:
-          "https://i.ibb.co/PCfrZz4/gioneem12.webp",
+        imageUrl: "https://i.ibb.co/PCfrZz4/gioneem12.webp",
         make: "Gionee",
         price: 199.99,
       },
       {
         id: 95,
         name: "Gionee M13",
-        imageUrl:
-          "https://i.ibb.co/DkL3N6G/gioneem13.webp",
+        imageUrl: "https://i.ibb.co/DkL3N6G/gioneem13.webp",
         make: "Gionee",
         price: 199.99,
       },
       {
         id: 96,
         name: "Gionee Steel 5",
-        imageUrl:
-          "https://i.ibb.co/WFVfsGd/gioneesteel5.webp",
+        imageUrl: "https://i.ibb.co/WFVfsGd/gioneesteel5.webp",
         make: "Gionee",
         price: 199.99,
       },
@@ -842,16 +815,14 @@ const ShopProduct = [
       {
         id: 101,
         name: "Nokia C32",
-        imageUrl:
-          "https://i.ibb.co/5Fsnr8K/Nokia-C32.webp",
+        imageUrl: "https://i.ibb.co/5Fsnr8K/Nokia-C32.webp",
         make: "Nokia",
         price: 199.99,
       },
       {
         id: 102,
         name: "Nokia C01 Plus",
-        imageUrl:
-          "https://i.ibb.co/9WZT1gK/Nokia-C01-Plus.webp",
+        imageUrl: "https://i.ibb.co/9WZT1gK/Nokia-C01-Plus.webp",
         make: "Nokia",
         price: 199.99,
       },
@@ -890,8 +861,7 @@ const ShopProduct = [
       {
         id: 107,
         name: "Nokia 7.2",
-        imageUrl:
-          "https://i.ibb.co/vYsL0sC/Nokia-7-2-4g-128gb-1.webp",
+        imageUrl: "https://i.ibb.co/vYsL0sC/Nokia-7-2-4g-128gb-1.webp",
         make: "Nokia",
         price: 199.99,
       },
@@ -919,8 +889,7 @@ const ShopProduct = [
       {
         id: 110,
         name: "Techno Camon 30 Pro",
-        imageUrl:
-          "https://i.ibb.co/9Hft62F/Tecno-Camon-30-Pro.webp",
+        imageUrl: "https://i.ibb.co/9Hft62F/Tecno-Camon-30-Pro.webp",
         make: "Techno",
         price: 199.99,
       },
@@ -951,16 +920,14 @@ const ShopProduct = [
       {
         id: 114,
         name: "Techno Camon 20",
-        imageUrl:
-          "https://i.ibb.co/DVDwCKp/TECNO-SPARK-20-Pro-Global.webp",
+        imageUrl: "https://i.ibb.co/DVDwCKp/TECNO-SPARK-20-Pro-Global.webp",
         make: "Techno",
         price: 199.99,
       },
       {
         id: 115,
         name: "Techno Spark 10",
-        imageUrl:
-          "https://i.ibb.co/RDF5jXK/Tecno-Spark-10-pro.webp",
+        imageUrl: "https://i.ibb.co/RDF5jXK/Tecno-Spark-10-pro.webp",
         make: "Techno",
         price: 199.99,
       },
@@ -975,8 +942,7 @@ const ShopProduct = [
       {
         id: 117,
         name: "Techno Pova 6 Pro",
-        imageUrl:
-          "https://i.ibb.co/vZNY4Xk/technopova5x.webp",
+        imageUrl: "https://i.ibb.co/vZNY4Xk/technopova5x.webp",
         make: "Techno",
         price: 199.99,
       },
@@ -1028,8 +994,7 @@ const ShopProduct = [
       {
         id: 123,
         name: "Redmi A2+",
-        imageUrl:
-          "https://i.ibb.co/w7RZDhw/Xiaomi-Redmi-A2-32-GB-Handy.webp",
+        imageUrl: "https://i.ibb.co/w7RZDhw/Xiaomi-Redmi-A2-32-GB-Handy.webp",
         make: "Xiaomi",
         price: 199.99,
       },
@@ -1121,8 +1086,7 @@ const ShopProduct = [
       {
         id: 134,
         name: "Vivo Y200 Pro",
-        imageUrl:
-          "https://i.ibb.co/th4TjVg/Vivo-Y200-Pro-5-G.webp",
+        imageUrl: "https://i.ibb.co/th4TjVg/Vivo-Y200-Pro-5-G.webp",
         make: "Vivo",
         price: 199.99,
       },
@@ -1185,8 +1149,7 @@ const ShopProduct = [
       {
         id: 142,
         name: "Vivo S18",
-        imageUrl:
-          "https://i.ibb.co/JKNS44r/Vivo-S18.webp",
+        imageUrl: "https://i.ibb.co/JKNS44r/Vivo-S18.webp",
         make: "Vivo",
         price: 199.99,
       },
@@ -1238,8 +1201,7 @@ const ShopProduct = [
       {
         id: 148,
         name: "Oppo A16k",
-        imageUrl:
-          "https://i.ibb.co/5hZg7KW/OPPO-A16-K-2.webp",
+        imageUrl: "https://i.ibb.co/5hZg7KW/OPPO-A16-K-2.webp",
         make: "Oppo",
         price: 199.99,
       },
@@ -1254,8 +1216,7 @@ const ShopProduct = [
       {
         id: 150,
         name: "Oppo A18",
-        imageUrl:
-          "https://i.ibb.co/42Jpy2P/OPPO-A18.webp",
+        imageUrl: "https://i.ibb.co/42Jpy2P/OPPO-A18.webp",
         make: "Oppo",
         price: 199.99,
       },
@@ -1286,8 +1247,7 @@ const ShopProduct = [
       {
         id: 154,
         name: "Oppo Reno5",
-        imageUrl:
-          "https://i.ibb.co/48JSSCf/Oppo-Reno-5-4-G-Tunisie.webp",
+        imageUrl: "https://i.ibb.co/48JSSCf/Oppo-Reno-5-4-G-Tunisie.webp",
         make: "Oppo",
         price: 199.99,
       },

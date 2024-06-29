@@ -122,12 +122,12 @@ const Product = () => {
               >
                 {productToView.description}
               </Text>
-              <div class="medium:grid-cols-2">
-                <p class="text-gray-900  font-medium text-base">Pickup</p>
+              <div className="medium:grid-cols-2">
+                <p className="text-gray-900  font-medium text-base">Pickup</p>
 
-                <div class="gap-4 flex flex-col mt-2 medium:flex-row ">
-                  <div class="flex">
-                    <div class="items-center h-5 flex">
+                <div className="gap-4 flex flex-col mt-2 medium:flex-row ">
+                  <div className="flex">
+                    <div className="items-center h-5 flex">
                       <InputBox
                         inputstyles="text-primary-600 focus:ring-primary-500 text-blue-900 bg-white border-gray-100 rounded-full w-4 h-4 cursor-pointer"
                         type="radio"
@@ -135,8 +135,8 @@ const Product = () => {
                         id="shipping-checkbox"
                       />
                     </div>
-                    <div class="text-sm ms-2 flex flex-col">
-                      <label for="shipping-checkbox">
+                    <div className="text-sm ms-2 flex flex-col">
+                      <label htmlFor="shipping-checkbox">
                         <Text
                           textstyles="text-gray-900 font-medium"
                           texttype="text-normal"
@@ -152,8 +152,8 @@ const Product = () => {
                       </Text>
                     </div>
                   </div>
-                  <div class="flex">
-                    <div class="items-center h-5 flex">
+                  <div className="flex">
+                    <div className="items-center h-5 flex">
                       <InputBox
                         inputstyles="text-primary-600 focus:ring-primary-500 text-blue-900 bg-white border-gray-100 rounded-full w-4 h-4 cursor-pointer"
                         type="radio"
@@ -161,8 +161,8 @@ const Product = () => {
                         id="shipping-checkbox"
                       />
                     </div>
-                    <div class="text-sm ms-2 flex flex-col">
-                      <label for="shipping-checkbox">
+                    <div className="text-sm ms-2 flex flex-col">
+                      <label htmlFor="shipping-checkbox">
                         <Text
                           textstyles="text-gray-900 font-medium"
                           texttype="text-normal"
@@ -179,8 +179,8 @@ const Product = () => {
                     </div>
                   </div>
 
-                  <div class="flex">
-                    <div class="items-center h-5 flex">
+                  <div className="flex">
+                    <div className="items-center h-5 flex">
                       <InputBox
                         inputstyles="text-primary-600 focus:ring-primary-500 text-blue-900 bg-white border-gray-100 rounded-full w-4 h-4 cursor-pointer"
                         type="radio"
@@ -188,8 +188,8 @@ const Product = () => {
                         id="shipping-checkbox"
                       />
                     </div>
-                    <div class="text-sm ms-2 flex flex-col">
-                      <label for="shipping-checkbox">
+                    <div className="text-sm ms-2 flex flex-col">
+                      <label htmlFor="shipping-checkbox">
                         <Text
                           textstyles="text-gray-900 font-medium"
                           texttype="text-normal"

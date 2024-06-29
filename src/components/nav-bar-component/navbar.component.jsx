@@ -100,7 +100,7 @@ const Navbar = () => {
                     <li>
                       <a
                         href="#"
-                        class="block px-4 py-2 hover:bg-gray-100 "
+                        className="block px-4 py-2 hover:bg-gray-100 "
                       >
                         {item}
                       </a>
@@ -173,11 +173,11 @@ const Navbar = () => {
       >
         <div className="flex flex-row gap-12 items-center w-full">
           <div className="w-full flex flex-row justify-between items-center">
-              <img
-                src={logo}
-                alt="Certified Global Enterprise"
-                className="w-10 h-auto"
-                />
+            <img
+              src={logo}
+              alt="Certified Global Enterprise"
+              className="w-10 h-auto"
+            />
             <MenuIcon
               className="w-5 h-5 cursor-pointer"
               onClick={() => setShowMenu(true)}
