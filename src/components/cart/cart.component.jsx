@@ -19,6 +19,8 @@ import { Link } from "react-router-dom";
 const CartComponent = () => {
   const dispatch = useDispatch();
   const { cartItems, total } = useSelector((state) => state.cart);
+  const tax = (total * 0.1).toFixed(2);
+  const grandTotal = Number(total) + Number(tax);
 
   const reduceCartItem = (itemToReduce) => {
     dispatch(decrementCartItem(itemToReduce));
@@ -152,7 +154,7 @@ const CartComponent = () => {
                         texttype="text-normal"
                         textstyle="text-gray-900 font-medium"
                       >
-                        $6,592.00
+                        ${total}
                       </Text>
                     </dd>
                   </dl>
@@ -163,7 +165,13 @@ const CartComponent = () => {
                         texttype="text-normal"
                         textstyle="text-gray-900 font-normal"
                       >
-                        Store Pickup
+                        Tax{" "}
+                        <Text
+                          texttype="text-sm"
+                          textstyles="text-gray-600 ml-2"
+                        >
+                          (10%)
+                        </Text>
                       </Text>
                     </dt>
                     <dd>
@@ -171,26 +179,7 @@ const CartComponent = () => {
                         texttype="text-normal"
                         textstyle="text-gray-900 font-medium"
                       >
-                        $99
-                      </Text>
-                    </dd>
-                  </dl>
-
-                  <dl className="items-center flex gap-4 justify-between ">
-                    <dt>
-                      <Text
-                        texttype="text-normal"
-                        textstyle="text-gray-900 font-normal"
-                      >
-                        Tax
-                      </Text>
-                    </dt>
-                    <dd>
-                      <Text
-                        texttype="text-normal"
-                        textstyle="text-gray-900 font-medium"
-                      >
-                        $799
+                        ${tax}
                       </Text>
                     </dd>
                   </dl>
@@ -210,7 +199,7 @@ const CartComponent = () => {
                       texttype="text-normal"
                       textstyle="text-gray-900 font-bold"
                     >
-                      $7,191.00
+                      ${grandTotal}
                     </Text>
                   </dd>
                 </dl>
@@ -218,20 +207,22 @@ const CartComponent = () => {
             </div>
 
             <div className="medium:justify-between medium:items-center medium:flex gap-4 mt-1.5">
-              <a
-                href="#"
-                className="text-gray-900 text-sm py-3 px-2.5 bg-white border w-3/12 text-center rounded-lg"
-              >
-                Continue Shopping
-              </a>
-              {/* <a
-                href="#"
-                className="bg-blue-800 medium:mt-0 text-white font-medium text-sm py-3 px-5 rounded-lg justify-center items-center w-3/12 flex mt-4"
-              >
-                Proceed to Checkout
-              </a> */}
-
-              <Link to={"../checkout"}>Proceed to cart</Link>
+              <Link to="/wimatechstore/shop" className="w-3/12">
+                <Button
+                  buttontype="other-button"
+                  buttonstyles=" medium:mt-0  py-3 px-5  mt-4 w-full focus:ring-[4px] focus:outline-none focus:ring-[#2a2a2f0d]"
+                >
+                  Continue Shopping
+                </Button>
+              </Link>
+              <Link to="../checkout" className="w-3/12">
+                <Button
+                  buttontype="primary-button"
+                  buttonstyles=" medium:mt-0  py-3 px-5  mt-4 w-full focus:ring-[4px] focus:ring-blue-300"
+                >
+                  Proceed to Checkout
+                </Button>
+              </Link>
             </div>
           </>
         ) : (
@@ -240,7 +231,7 @@ const CartComponent = () => {
               There are no items in your cart right now
             </Text>
             <Link to="/wimatechstore/shop">
-              <Button buttontype="primary-button" buttonstyles="py-3 px-6">
+              <Button buttontype="primary-button" buttonstyles="py-3 px-6 focus:ring-[4px] focus:ring-blue-300">
                 Go to shop
               </Button>
             </Link>

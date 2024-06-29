@@ -19,6 +19,7 @@ import {
   getUserDocumentFromFireBase,
 } from "./utilis/firebase.utils";
 import CartComponent from "./components/cart/cart.component";
+import ErrorPage from "./components/error-page-component/error-page.component";
 
 function App() {
   const dispatch = useDispatch();
@@ -71,6 +72,8 @@ function App() {
           <Route path="signup" element={<SignupSection />} />
           <Route path="cart" element={<CartComponent />} />
           <Route path="checkOut" element={<CheckoutPage />} />
+          <Route path="errorpage" element={<ErrorPage />} />
+
         </Route>
       </Routes>
     </>

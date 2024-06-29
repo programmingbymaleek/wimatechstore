@@ -1,17 +1,14 @@
 import React from "react";
 import FormInput from "../form-input-component/form-input.component";
 import Button from "../button-component/button.component";
+import Text from "../text-component/text.component";
 
 const SetDelivery = () => {
   return (
     <div className="space-y-4">
-      <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
+      <Text texttype='heading-base' textstyles=" text-gray-900">
         Delivery Details
-      </h2>{" "}
-      <form
-        className="flex flex-col xmedium:w-[40%] small:w-[28rem] xxsmall:w-11/12 w-full xmedium:pb-0 pb-8 justify-center"
-        // onSubmit={submitFormHandler}
-      ></form>
+      </Text>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <FormInput
           type="name"
@@ -45,7 +42,7 @@ const SetDelivery = () => {
           </div>
           <select
             id="select-country-input-3"
-            className="block w-full rounded-[0.4rem] border  bg-white p-2.5 py-3 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
+            className="block w-full rounded-[0.4rem] border  bg-white p-2.5 py-3 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500"
           >
             <option selected>United States</option>
             <option value="AS">Australia</option>
@@ -86,7 +83,7 @@ const SetDelivery = () => {
             Phone Number*{" "}
           </label>
           <div className="flex items-center">
-            <button className="z-10 inline-flex shrink-0 items-center rounded-s-lg border  bg-gray-50 px-4 py-3 text-center text-sm font-medium text-gray-900 hover:bg-gray-200 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-700">
+            <div className="z-5 inline-flex shrink-0 items-center rounded-s-lg border  bg-gray-50 px-4 py-3 text-center text-sm font-medium text-gray-900 hover:bg-gray-200 focus:outline-none focus:ring-4 focus:ring-gray-100">
               +1
               <svg
                 className="-me-0.5 ms-2 h-3 w-3"
@@ -105,12 +102,12 @@ const SetDelivery = () => {
                   d="m19 9-7 7-7-7"
                 />
               </svg>
-            </button>
+            </div>
             <div className="relative w-full">
               <input
                 type="text"
                 id="phone-input"
-                className="z-20 block w-full rounded-e-lg border border-s-0  bg-white p-2.5 py-3 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:border-s-gray-700  dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500"
+                className="z-20 block w-full rounded-e-lg border border-s-0  bg-white p-2.5 py-3 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 "
                 pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                 placeholder="123-456-7890"
                 required

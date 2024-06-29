@@ -109,9 +109,9 @@ const Filter = () => {
                   name={category}
                   checked={checkedItems[category] || false}
                   onChange={handleChange}
-                  className="w-4 h-4 text-blue-700 bg-gray-100 border-gray-300 rounded dark:bg-gray-700 dark:border-gray-600"
+                  className="w-4 h-4 text-blue-700 bg-gray-100 border-gray-300 rounded"
                 />
-                <label htmlFor={category} className="ml-5 text-sm font-medium text-gray-600 dark:text-gray-300">
+                <label htmlFor={category} className="ml-5 text-sm font-medium text-gray-600">
                   {category}
                 </label>
               </div>

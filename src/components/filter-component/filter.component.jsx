@@ -135,7 +135,7 @@ const Filter = () => {
                   />
                   <label
                     htmlFor={category}
-                    className="ml-5 text-sm text-gray-900 dark:text-gray-300 capitalize"
+                    className="ml-5 text-sm text-gray-900 capitalize"
                   >
                     {category}
                   </label>
@@ -151,18 +151,21 @@ const Filter = () => {
               >
                 Price
               </Text>
-              <Button
-                className="flex flex-row cursor-pointer"
-                onclick={clearPriceRange}
-              >
-                <CloseIcon className="w-4 h-4 text-red-800" />
-                <Text
-                  texttype="text-normal"
-                  textstyles=" text-red-800 hover:underline "
+              {selectedPriceRange != null && (
+                <Button
+                  buttontype="icon-button"
+                  buttonstyles="flex flex-row cursor-pointer"
+                  buttonFunc={clearPriceRange}
                 >
-                  Clear
-                </Text>
-              </Button>
+                  <CloseIcon className="w-4 h-4 text-red-800" />
+                  <Text
+                    texttype="text-sm"
+                    textstyles=" text-red-800 hover:underline "
+                  >
+                    Clear
+                  </Text>
+                </Button>
+              )}
             </div>
 
             <div className="flex flex-col gap-3 pt-6">

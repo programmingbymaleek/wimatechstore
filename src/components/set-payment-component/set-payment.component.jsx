@@ -18,22 +18,21 @@ const SetPayment = () => {
 
   return (
     <div className="space-y-4">
-      <Text texttype="heading-base" textstyles=" text-gray-900 ">
+      <Text texttype="heading-base" textstyles=" text-gray-700 ">
         Payment
       </Text>
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-        <div className="rounded-lg border border-gray-200 bg-gray-50 p-4 ps-4 dark:border-gray-700 dark:bg-gray-800">
+        <div className="rounded-lg border border-gray-200 bg-gray-50 p-4 ps-4 ">
           <div className="flex items-start">
             <div className="flex h-5 items-center">
               <InputBox
+                inputstyles="text-primary-600 focus:ring-primary-500 text-blue-900 bg-white border-gray-100 rounded-full w-4 h-4 cursor-pointer"
                 type="radio"
+                name="payment-method"
+                id="pay-on-delivery"
                 value="pay-on-delivery"
                 onChange={handleOptionChange}
-                required
-                placeholder="Enter email address"
-                name="payment-method"
-                inputstyles="h-4 w-4 border-gray-300 bg-white text-primary-600 focus:ring-2 focus:ring-primary-600 "
               />
             </div>
 
@@ -51,23 +50,23 @@ const SetPayment = () => {
           </div>
         </div>
 
-        <div className="rounded-lg border border-gray-200 bg-gray-50 p-4 ps-4 dark:border-gray-700 dark:bg-gray-800">
+        <div className="rounded-lg border border-gray-200 bg-gray-50 p-4 ps-4 ">
           <div className="flex items-start">
             <div className="flex h-5 items-center">
-              <input
-                id="paypal-2"
+              <InputBox
+                inputstyles="text-primary-600 focus:ring-primary-500 text-blue-900 bg-white border-gray-100 rounded-full w-4 h-4 cursor-pointer"
                 type="radio"
                 name="payment-method"
+                id="paypal-2"
                 value="paypal"
-                className="h-4 w-4 border-gray-300 bg-white text-primary-600 focus:ring-2 focus:ring-primary-600 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600"
                 onChange={handleOptionChange}
               />
             </div>
 
-            <div className="ms-4 text-sm flex-col">
+            <div className="ms-4 text-sm flex flex-col">
               <label
                 htmlFor="paypal-2"
-                className="font-medium leading-none text-gray-900 dark:text-white"
+                className="font-medium leading-none text-gray-900 "
               >
                 {" "}
                 Paypal account{" "}
@@ -79,33 +78,30 @@ const SetPayment = () => {
           </div>
         </div>
 
-        <div className="rounded-lg border border-gray-200 bg-gray-50 p-4 ps-4 dark:border-gray-700 dark:bg-gray-800">
+        <div className="rounded-lg border border-gray-200 bg-gray-50 p-4 ps-4 ">
           <div className="flex items-start">
             <div className="flex h-5 items-center">
-              <input
-                id="credit-card"
+              <InputBox
+                inputstyles="text-primary-600 focus:ring-primary-500 text-blue-900 bg-white border-gray-100 rounded-full w-4 h-4 cursor-pointer"
                 type="radio"
                 name="payment-method"
+                id="credit-card"
                 value="credit-card"
-                className="h-4 w-4 border-gray-300 bg-white text-primary-600 focus:ring-2 focus:ring-primary-600 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600"
                 onChange={handleOptionChange}
               />
             </div>
 
-            <div className="ms-4 text-sm">
+            <div className="ms-4 text-sm flex flex-col">
               <label
                 htmlFor="credit-card"
-                className="font-medium leading-none text-gray-900 dark:text-white"
+                className="font-medium leading-none text-gray-900 "
               >
                 {" "}
                 Credit Card{" "}
               </label>
-              <p
-                id="credit-card-text"
-                className="mt-1 text-xs font-normal text-gray-500 dark:text-gray-400"
-              >
+              <Text texttype="text-sm" textstyles="mt-1 text-gray-500">
                 Pay with your credit card
-              </p>
+              </Text>
             </div>
           </div>
         </div>

@@ -33,7 +33,7 @@ const ContactUsSection = () => {
           />
           <Button
             buttontype="primary-button"
-            buttonstyles="px-6 tablet:h-full tablet:w-max w-full h-12 tablet:py-auto py-3"
+            buttonstyles="px-6 tablet:h-full tablet:w-max w-full h-12 tablet:py-auto py-3 focus:ring-[4px] focus:ring-blue-300"
           >
             Get Started
           </Button>

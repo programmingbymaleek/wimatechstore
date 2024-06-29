@@ -82,7 +82,7 @@ const LoginSection = () => {
           inputstyle="w-full xsmall:px-6 xsmall:py-3 px-5 py-2.5 xsmall:mt-3 mt-2 xsmall:mb-5 mb-5"
         />
         <Button
-          buttonstyles="xsmall:py-3.5 py-2.5 capitalize pt-4 "
+          buttonstyles="xsmall:py-3.5 py-2.5 capitalize pt-4 focus:ring-[4px] focus:ring-blue-300"
           buttontype="primary-button"
           type="submit"
         >

@@ -36,13 +36,13 @@ const Navbar = () => {
     navigate("/wimatechstore");
   };
 
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
+  // const handleMouseEnter = () => {
+  //   setIsHovered(true);
+  // };
 
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
+  // const handleMouseLeave = () => {
+  //   setIsHovered(false);
+  // };
 
   const toogleCart = () => {
     dispatch(setToogleCart(!toggleCart));
@@ -80,7 +80,7 @@ const Navbar = () => {
             <Link to={"/wimatechstore"}>
               <Text
                 texttype="text-normal"
-                textstyles=" hover:text-blue-800 text-gray-700 font-medium"
+                textstyles="hover:text-blue-800 text-gray-700 font-medium"
               >
                 Home
               </Text>
@@ -88,49 +88,36 @@ const Navbar = () => {
             <Link to={"/wimatechstore/shop"}>
               <Text
                 texttype="text-normal"
-                textstyles=" hover:text-blue-800 text-gray-700 font-medium"
+                textstyles="hover:text-blue-800 text-gray-700 font-medium"
               >
                 Shop
               </Text>
             </Link>
-            <div
-              className="flex flex-col h-full relative"
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
-              <button
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-              >
+            <div className="relative group">
+              <button className="inline-flex items-center">
                 <Text
                   texttype="text-normal"
-                  textstyles=" hover:text-blue-800 text-gray-700 font-medium cursor-pointer"
+                  textstyles="hover:text-blue-800 text-gray-700 font-medium cursor-pointer"
                 >
                   Categories
                 </Text>
               </button>
-              {isHovered && (
-                <DropDown
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                >
+              <div className="group-hover:block hidden h-[30vh] pt-6 absolute">
+                <DropDown>
                   {categoryData.map((item, index) => (
-                    <li>
-                      <a
-                        href="#"
-                        className="block px-4 py-2 hover:bg-gray-100 "
-                      >
+                    <li key={index}>
+                      <a href="#" className="block px-4 py-2 hover:bg-gray-100">
                         {item}
                       </a>
                     </li>
                   ))}
                 </DropDown>
-              )}
+              </div>
             </div>
             <Link to={"/wimatechstore#contact-us-section"}>
               <Text
                 texttype="text-normal"
-                textstyles=" hover:text-blue-800 text-gray-700 font-medium"
+                textstyles="hover:text-blue-800 text-gray-700 font-medium"
               >
                 Contact Us
               </Text>
@@ -286,7 +273,7 @@ const Navbar = () => {
                   </div>
                   <Button
                     buttontype="secondary-button"
-                    buttonstyles="w-full py-2 px-4"
+                    buttonstyles="w-full py-2 px-4 focus:ring-[4px] focus:outline-none focus:ring-[#2a2a2f0d]"
                     buttonFunc={() => setShowMenu(false)}
                   >
                     Go to Cart

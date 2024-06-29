@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Text from "../text-component/text.component";
 import { ReactComponent as BackIcon } from "../../assets/icons/back.svg";
 import { ReactComponent as AddCartIcon } from "../../assets/icons/cart_add.svg";
@@ -21,6 +21,7 @@ const Product = () => {
   const { category, id } = useParams();
   const products = useSelector((state) => state.products.products);
   const [productToView, setProductToView] = useState(null);
+  const [count, setCount] = useState(0);
 
   const dispatch = useDispatch();
 
@@ -53,18 +54,28 @@ const Product = () => {
       </div>
     ); // Handle the case where the product is not found
   }
-  console.log(productToView);
-  console.log(products[category]);
+
+  const increaseCount = () => {
+    setCount((prevCount) => prevCount + 1);
+  };
+  const decreaseCount = () => {
+    if (count == 0) {
+      return;
+    }
+    setCount((prevCount) => prevCount - 1);
+  };
 
   return (
     <div>
       <div className="flex flex-col w-full py-8 h-full px-16 pt-32 pb-16 mx-auto max-w-[1280px]">
-        <Button
-          buttontype="icon-button"
-          buttonstyles="text-white bg-white border border-gray-100 hover:bg-gray-100/50 rounded-lg text-sm p-2.5 w-max text-center inline-flex items-center me-2 "
-        >
-          <BackIcon className="w-5 h-5" />
-        </Button>
+        <Link to="/wimatechstore/shop">
+          <Button
+            buttontype="icon-button"
+            buttonstyles="text-white bg-white border border-gray-100 hover:bg-gray-100/50 rounded-lg text-sm p-2.5 w-max text-center inline-flex items-center me-2 focus:ring-[4px] focus:outline-none focus:ring-[#2a2a2f0d]"
+          >
+            <BackIcon className="w-5 h-5 hover:text-blue-200 text-gray-500" />
+          </Button>
+        </Link>
         <div className="w-full overflow-clip pt-8">
           <div className="large:grid-cols-2 gap-8 grid w-full items-center">
             <div className="w-9/12 mx-auto p-4 bg-white rounded-lg ">
@@ -104,7 +115,11 @@ const Product = () => {
                   <Text textstyles="block mb-2 text-sm font-medium text-gray-900">
                     Choose quantity:
                   </Text>
-                  <NumberInput />
+                  <NumberInput
+                    value={count}
+                    decrementFunc={decreaseCount}
+                    incrementFunc={increaseCount}
+                  />
                 </div>
               </div>
 
@@ -112,17 +127,21 @@ const Product = () => {
                 <div className="medium:gap-4 medium:items-center medium:flex">
                   <Button
                     buttontype="primary-button"
-                    buttonstyles="medium:mt-0 medium:w-max w-[100vw] font-medium px-5 py-2.5 rounded-lg justify-center flex mt-4"
+                    buttonstyles="medium:mt-0 medium:w-max w-[100vw] font-medium px-5 py-2.5 rounded-lg justify-center flex mt-4 focus:ring-[4px] focus:ring-blue-300"
                   >
                     <AddCartIcon className="w-5 h-5 -ms-2 me-2" />
                     Add to cart
                   </Button>
                 </div>
                 <div className="medium:flex gap-1 flex-col items-start hidden">
-                  <Text textstyles="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                  <Text textstyles="block mb-2 text-sm font-medium text-gray-900">
                     Choose quantity:
                   </Text>
-                  <NumberInput />
+                  <NumberInput
+                    value={count}
+                    decrementFunc={decreaseCount}
+                    incrementFunc={increaseCount}
+                  />
                 </div>
               </div>
 

@@ -126,7 +126,7 @@ function CartDropDown() {
 
           <Button
             buttontype="primary-button"
-            buttonstyles="space-y-4 me-2 px-5 py-2.5  w-full items-center "
+            buttonstyles="space-y-4 me-2 px-5 py-2.5  w-full items-center focus:ring-[4px] focus:ring-blue-300"
             buttonFunc={goToCheckOut}
           >
             {" "}

@@ -65,6 +65,11 @@
   font-size: .8rem;
   border: 1px solid #E5E7EB;
 }
+
+.other-button:hover{
+  background-color: #e5e7eb2d;
+}
+
 @media screen and (max-width: 440px) {
   .primary-button {
     font-size: .7rem;
