@@ -15,6 +15,7 @@ import ProductCard from "../productCard/productCard";
 import { addItemsTocart } from "../../reduxtoolkit/features/cart/cartSlice";
 import { useDispatch } from "react-redux";
 import InputBox from "../inputbox-component/inputbox.component";
+import Spinner from "../spinner-component/spinner.component";
 
 const Product = () => {
   const { category, id } = useParams();
@@ -36,11 +37,21 @@ const Product = () => {
   }, [products, category, id]);
 
   if (!products || !products[category]) {
-    return <div>Loading...</div>; // You can replace this with a loading spinner or message
+    return (
+      <div className="h-96">
+        <Spinner />
+      </div>
+    ); // You can replace this with a loading spinner or message
   }
 
   if (!productToView) {
-    return <div className="">Product not found</div>; // Handle the case where the product is not found
+    return (
+      <div className="h-96">
+        <Text texttype="text-normal italic text-gray-700">
+          Product not found
+        </Text>
+      </div>
+    ); // Handle the case where the product is not found
   }
   console.log(productToView);
   console.log(products[category]);

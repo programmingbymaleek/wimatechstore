@@ -13,6 +13,7 @@ import {
   createUserDocumentFromAuth,
 } from "../../utilis/firebase.utils";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 const LoginSection = () => {
   const loginInWithGoogle = async () => {
     await signInWithGooglePopUp();
@@ -101,7 +102,11 @@ const LoginSection = () => {
         </Button>
         <Text texttype="text-normal" textstyles=" w-full text-center py-5">
           Don't have an account?{" "}
-          <Text textstyles="text-[#0000a3] font-semibold">Sign Up</Text>
+          <Link to="/wimatechstore/signup">
+            <Text textstyles="text-[#0000a3] font-medium hover:underline cursor-pointer">
+             Sign Up
+            </Text>
+          </Link>
         </Text>
       </form>
       <TextSlideshowContainer />

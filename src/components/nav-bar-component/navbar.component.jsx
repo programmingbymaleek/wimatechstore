@@ -23,17 +23,26 @@ import DropDown from "../drop-down-component/drop-down.component.jsx";
 
 const Navbar = () => {
   const dispatch = useDispatch();
-  const currentUser = useSelector((state) => state.user.currentUser);
-  const { toggleCart } = useSelector((state) => state.cart);
+  const { currentUser } = useSelector((state) => state.user.currentUser);
+  const { toggleCart, cartItems } = useSelector((state) => state.cart);
   const [showMenu, setShowMenu] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const [showDropDown, setShowDropDown] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const navigate = useNavigate();
   const navigateToHome = () => {
     SignOutUser();
     console.log("signed user out");
     navigate("/wimatechstore");
+  };
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
   };
 
   const toogleCart = () => {
@@ -85,8 +94,15 @@ const Navbar = () => {
                 Shop
               </Text>
             </Link>
-            <div className="flex flex-col h-full relative">
-              <button onClick={() => setShowDropDown(!showDropDown)}>
+            <div
+              className="flex flex-col h-full relative"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              <button
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
                 <Text
                   texttype="text-normal"
                   textstyles=" hover:text-blue-800 text-gray-700 font-medium cursor-pointer"
@@ -94,8 +110,11 @@ const Navbar = () => {
                   Categories
                 </Text>
               </button>
-              {showDropDown && (
-                <DropDown>
+              {isHovered && (
+                <DropDown
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                >
                   {categoryData.map((item, index) => (
                     <li>
                       <a
@@ -109,7 +128,7 @@ const Navbar = () => {
                 </DropDown>
               )}
             </div>
-            <Link to={"/wimatechstore"}>
+            <Link to={"/wimatechstore#contact-us-section"}>
               <Text
                 texttype="text-normal"
                 textstyles=" hover:text-blue-800 text-gray-700 font-medium"
@@ -159,8 +178,11 @@ const Navbar = () => {
             />
           )}
           <Button buttontype="icon-button" buttonstyles="bg-transparent">
-            <CartIcon className="w-5 h-5" onClick={toogleCart} />
-            {/* <NewItemCartIcon className="w-5 h-5" onClick={toogleCart}/> */}
+            {cartItems.length > 0 ? (
+              <CartIcon className="w-5 h-5" onClick={toogleCart} />
+            ) : (
+              <NewItemCartIcon className="w-5 h-5" onClick={toogleCart} />
+            )}
           </Button>
         </div>
       </div>

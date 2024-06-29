@@ -9,6 +9,10 @@
   font-size: .8rem;
 }
 
+.primary-button:hover {
+  background-color: #00008f;
+}
+
 .secondary-button {
   background-color: #2a2a2f24;
   color: #3a3a3a;
@@ -16,10 +20,7 @@
   font-size: .8rem;
 }
 .secondary-button:hover {
-  background-color: #2a2a2f3c;
-  color: #3a3a3a;
-  font-weight: 500;
-  font-size: .8rem;
+  background-color: #2a2a2f30;
 }
 
 .tag-button{
@@ -42,7 +43,11 @@
   color: #3a3a3a;
   font-weight: 600;
   font-size: .8rem;
-  border: 1px solid #3a3a3a78;
+  border: 1px solid #E5E7EB;
+}
+
+.image-button:hover{
+  background-color: #e5e7eb43;
 }
 
 .icon-button{
@@ -51,6 +56,14 @@
 
 .inverted-button{
   font-size: .8rem;
+}
+
+.other-button{
+  background-color: white;
+  color: #3a3a3a;
+  font-weight: 600;
+  font-size: .8rem;
+  border: 1px solid #E5E7EB;
 }
 @media screen and (max-width: 440px) {
   .primary-button {

@@ -149,24 +149,24 @@ const Filter = () => {
             <div className="flex flex-row justify-between border-b-2 border-blue-700 ">
               <Text
                 texttype="text-normal"
-                textstyles="uppercase text-gray-800 border-b-2 border-blue-700 font-semibold pb-2.5 w-full block"
+                textstyles="uppercase text-gray-800 font-semibold pb-2.5 w-full block"
               >
                 Price
               </Text>
+              <Button
+                className="flex flex-row cursor-pointer"
+                onclick={clearPriceRange}
+              >
+                <CloseIcon className="w-4 h-4 text-red-800" />
+                <Text
+                  texttype="text-normal"
+                  textstyles=" text-red-800 hover:underline "
+                >
+                  Clear
+                </Text>
+              </Button>
             </div>
 
-            <Button
-              className="flex flex-row cursor-pointer"
-              onclick={clearPriceRange}
-            >
-              <CloseIcon className="w-5 h-5 text-red-800" />
-              <Text
-                texttype="text-normal"
-                textstyles=" text-red-800 hover:underline "
-              >
-                Clear
-              </Text>
-            </Button>
             <div className="flex flex-col gap-3 pt-6">
               {buttonData.map((range) => (
                 <Button

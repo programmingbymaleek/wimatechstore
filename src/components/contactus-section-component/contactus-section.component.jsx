@@ -5,7 +5,10 @@ import Text from "../text-component/text.component";
 
 const ContactUsSection = () => {
   return (
-    <div className=" px-6 large:px-16 tablet:pb-0 pb-8 mx-auto max-w-[1280px]">
+    <div
+      className=" px-6 large:px-16 tablet:pb-0 pb-8 mx-auto max-w-[1280px]"
+      id="contact-us-section"
+    >
       <div className="flex flex-col gap-3 list-style-none m-0 p-0">
         <Text
           texttype="heading-base"

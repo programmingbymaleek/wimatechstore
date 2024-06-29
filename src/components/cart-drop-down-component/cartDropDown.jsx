@@ -27,8 +27,11 @@ function CartDropDown() {
 
   return (
     <>
-      <div className="absolute w-full mx-auto  max-w-[1280px] flex flex-row justify-end px-8">
-        <div className="relative inset-[0px auto auto 0px] m-0 top-9 transform-[translate(799px, 64px)] large:space-x-0 shadow antialiased p-4 bg-opacity-100 bg-white rounded-lg overflow-hidden w-[360px] block z-10">
+      <div
+        className="absolute w-full mx-auto  max-w-[1280px] flex flex-row justify-end px-8 pointer-events-none"
+        style={{ zIndex: "revert-layer" }}
+      >
+        <div className="relative inset-[0px auto auto 0px] m-0 top-9 transform-[translate(799px, 64px)] large:space-x-0 shadow antialiased p-4 bg-opacity-100 bg-white rounded-lg overflow-hidden w-[360px] block z-10 pointer-events-auto">
           <div className="mb-4 pb-4 bg-opacity-100 border-b gap-4 justify-between items-center flex ">
             <Text
               texttype="text-md"
@@ -85,7 +88,7 @@ function CartDropDown() {
                       texttype="text-sm"
                       textstyles="text-gray-800 leading-4 font-semibold text-sm"
                     >
-                      {`$${cartItem.price}`}
+                      {`$${cartItem.price * cartItem.quantity}`}
                     </Text>
                     <Button
                       buttontype="icon-button"
