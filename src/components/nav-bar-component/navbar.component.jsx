@@ -23,11 +23,10 @@ import DropDown from "../drop-down-component/drop-down.component.jsx";
 
 const Navbar = () => {
   const dispatch = useDispatch();
-  const { currentUser } = useSelector((state) => state.user.currentUser);
-  const { toggleCart, cartItems } = useSelector((state) => state.cart);
+  const currentUser = useSelector((state) => state.user.currentUser);
+  const { toggleCart, count } = useSelector((state) => state.cart);
   const [showMenu, setShowMenu] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
-  const [showDropDown, setShowDropDown] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
   const navigate = useNavigate();
@@ -178,7 +177,7 @@ const Navbar = () => {
             />
           )}
           <Button buttontype="icon-button" buttonstyles="bg-transparent">
-            {cartItems.length > 0 ? (
+            {count === 0 ? (
               <CartIcon className="w-5 h-5" onClick={toogleCart} />
             ) : (
               <NewItemCartIcon className="w-5 h-5" onClick={toogleCart} />

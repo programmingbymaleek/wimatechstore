@@ -18,7 +18,7 @@ function CartDropDown() {
 
   const navigate = useNavigate();
   const goToCheckOut = () => {
-    navigate("/wimatechstore/checkout");
+    navigate("/wimatechstore/cart");
   };
 
   const closeCart = () => {

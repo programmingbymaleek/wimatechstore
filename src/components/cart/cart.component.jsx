@@ -103,11 +103,11 @@ const CartComponent = () => {
                       </td>
 
                       <td className="p-4 text-gray-900 font-bold text-base w-56 h-fit">
-                        ${itemToCheckOut.price}
+                        {itemToCheckOut.price}
                       </td>
 
                       <td className="p-4 text-gray-900 font-bold text-base w-56 h-fit">
-                        ${itemToCheckOut.price * itemToCheckOut.quantity}
+                        {itemToCheckOut.price * itemToCheckOut.quantity}
                       </td>
 
                       <td className="py-4 h-fit">
@@ -224,12 +224,14 @@ const CartComponent = () => {
               >
                 Continue Shopping
               </a>
-              <a
+              {/* <a
                 href="#"
                 className="bg-blue-800 medium:mt-0 text-white font-medium text-sm py-3 px-5 rounded-lg justify-center items-center w-3/12 flex mt-4"
               >
                 Proceed to Checkout
-              </a>
+              </a> */}
+
+              <Link to={"../checkout"}>Proceed to cart</Link>
             </div>
           </>
         ) : (

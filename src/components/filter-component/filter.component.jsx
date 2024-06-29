@@ -81,8 +81,6 @@ const Filter = () => {
     filterData();
   }, [checkedItems, selectedPriceRange]);
 
-  console.log(filteredData);
-
   const buttonData = [
     "100-199.99",
     "200-299.99",

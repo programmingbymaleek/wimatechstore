@@ -34,7 +34,6 @@ const ScrollableSection = ({ scrollstyles, children }) => {
     const { scrollLeft, scrollWidth, clientWidth } = contentRef.current;
     setShowPrevButton(scrollLeft > 0);
     setShowNextButton(scrollWidth > clientWidth + scrollLeft);
-    console.log(scrollLeft, scrollWidth, clientWidth);
   };
 
   return (
