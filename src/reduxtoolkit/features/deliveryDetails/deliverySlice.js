@@ -13,15 +13,19 @@ const initialState = {
   error: null,
 };
 
+// console.log("from delivery slice page", initialState);
+
 export const fetchDeliveryDetails = createAsyncThunk(
   "delivery/fetchDeliveryDetails",
   async (userId, { rejectWithValue }) => {
     try {
       const docRef = doc(db, "deliveryDetails", userId);
+
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
         return docSnap.data();
       } else {
+        console.log("no delivery details found!!");
         return rejectWithValue("No delivery details found");
       }
     } catch (error) {
@@ -53,7 +57,7 @@ const deliveryDetailsSlice = createSlice({
   initialState,
   reducers: {
     setDeliveryDetails(state, action) {
-      return { ...state, ...action.payload, error: null };
+      return { ...state, ...action.payload, error: null, loading: false };
     },
   },
   extraReducers: (builder) => {

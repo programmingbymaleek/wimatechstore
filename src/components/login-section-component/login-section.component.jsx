@@ -5,8 +5,7 @@ import FormInput from "../form-input-component/form-input.component";
 import Text from "../text-component/text.component";
 import TextSlideshowContainer from "../text-slideshow-container/text-slideshow-container.component";
 import google_logo from "../../assets/images/google_logo.png";
-import { setCurrentUser } from "../../reduxtoolkit/features/user/userSlice";
-import { Dispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import {
   signInWithGooglePopUp,
   signInUserWithEmailAndPassword,
@@ -15,8 +14,10 @@ import {
 import { useState } from "react";
 import { Link } from "react-router-dom";
 const LoginSection = () => {
+  const navigate = useNavigate();
   const loginInWithGoogle = async () => {
     await signInWithGooglePopUp();
+    navigate("../shop");
   };
 
   const defaultFormFields = {
@@ -41,6 +42,7 @@ const LoginSection = () => {
     try {
       await signInUserWithEmailAndPassword(email, password);
       resetFormFields();
+      navigate("../shop");
     } catch (error) {
       console.log(error.code);
     }
@@ -97,14 +99,18 @@ const LoginSection = () => {
           buttonFunc={loginInWithGoogle}
           type="button"
         >
-          <img src={google_logo} alt="google_logo" className="w-5 h-5 small:w-4 small:h-4" />
+          <img
+            src={google_logo}
+            alt="google_logo"
+            className="w-5 h-5 small:w-4 small:h-4"
+          />
           Continue with Google
         </Button>
         <Text texttype="text-normal" textstyles=" w-full text-center py-5">
           Don't have an account?{" "}
           <Link to="/wimatechstore/signup">
             <Text textstyles="text-[#0000a3] font-medium hover:underline cursor-pointer">
-             Sign Up
+              Sign Up
             </Text>
           </Link>
         </Text>

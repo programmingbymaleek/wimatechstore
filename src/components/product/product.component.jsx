@@ -4,12 +4,10 @@ import { Link, useParams } from "react-router-dom";
 import Text from "../text-component/text.component";
 import { ReactComponent as BackIcon } from "../../assets/icons/back.svg";
 import { ReactComponent as AddCartIcon } from "../../assets/icons/cart_add.svg";
-
 import NumberInput from "../number-input-component/number-input.component";
 import Button from "../button-component/button.component";
 import Stars from "../stars-component/stars.component";
 import ScrollableSection from "../scrollable-component/scrollable-section.component";
-import ItemComponent from "../item-component/item.component";
 import ShopProduct from "../../shop_data_file";
 import ProductCard from "../productCard/productCard";
 import { addItemsTocart } from "../../reduxtoolkit/features/cart/cartSlice";
@@ -20,6 +18,8 @@ import Spinner from "../spinner-component/spinner.component";
 const Product = () => {
   const { category, id } = useParams();
   const products = useSelector((state) => state.products.products);
+  const { orders, status, error } = useSelector((state) => state.orderHistory);
+  const currentUser = useSelector((state) => state.user.currentUser);
   const [productToView, setProductToView] = useState(null);
   const [count, setCount] = useState(0);
 
@@ -100,7 +100,7 @@ const Product = () => {
                     texttype="heading-xmd"
                     textstyles="medium:text-3xl text-gray-900 font-extrabold text-2xl"
                   >
-                    ${productToView.price}
+                    {productToView.price}
                   </Text>
 
                   <div className="gap-2 items-center flex">
@@ -235,26 +235,28 @@ const Product = () => {
           </div>
         </div>
 
-        <div className="pb-5 pt-20 py-12 flex flex-col gap-5 mt-4">
-          <Text
-            texttype="heading-smd"
-            textstyles="leading-6 w-full text-center pb-8"
-          >
-            Order History
-          </Text>
-          <ScrollableSection scrollstyles="w-full gap-4 medium:gap-8 justify-between">
-            {ShopProduct[2].items.map((item, index) => (
-              <div key={item.id}>
-                <ProductCard
-                  key={item.id}
-                  product={item}
-                  title={item.make}
-                  productstyle="w-[200px]"
-                />
-              </div>
-            ))}
-          </ScrollableSection>
-        </div>
+        {currentUser && (
+          <div className="pb-5 pt-20 py-12 flex flex-col gap-5 mt-4">
+            <Text
+              texttype="heading-smd"
+              textstyles="leading-6 w-full text-center pb-8"
+            >
+              Order History
+            </Text>
+            <ScrollableSection scrollstyles="w-full gap-4 medium:gap-8 justify-between">
+              {orders.map((item, index) => (
+                <div key={item.id}>
+                  <ProductCard
+                    key={item.id}
+                    product={item}
+                    title={item.make}
+                    productstyle="w-[200px]"
+                  />
+                </div>
+              ))}
+            </ScrollableSection>
+          </div>
+        )}
         <div className="pb-5 pt-20 py-12 flex flex-col gap-5 mt-4">
           <Text
             texttype="heading-smd"

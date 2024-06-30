@@ -6,11 +6,20 @@ import OrderSummary from "../order-summary-component/order-summary.component";
 import SetDelivery from "../set-delivery-component/set-delivery.component";
 import SetPayment from "../set-payment-component/set-payment.component";
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { addCompletedOrders } from "../../utilis/firebase.utils";
+import { clearCart } from "../../reduxtoolkit/features/cart/cartSlice";
 
 const CheckoutPage = () => {
   const [stage, setStage] = useState(0);
+  const [orderValue, setOrderValue] = useState(0);
   const [isDeliveryValid, setIsDeliveryValid] = useState(false);
   const [isPaymentValid, setIsPaymentValid] = useState(false);
+  const { cartItems, total } = useSelector((state) => state.cart);
+  const currentUser = useSelector((state) => state.user.currentUser);
+  const deliveryDetails = useSelector((state) => state.deliveryDetails);
+  const dispatch = useDispatch();
+  console.log(deliveryDetails);
   const navigate = useNavigate();
 
   const goToCheckOut = () => {
@@ -39,16 +48,47 @@ const CheckoutPage = () => {
     }
   };
 
-  const handleOrder = (e) => {
-    e.preventDefault();
-    // Add your order handling logic here
-    console.log("Order placed successfully");
-  };
+  console.log(currentUser);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Add your submit handling logic here
-    console.log("Submitted successfully");
+  const onOrderRequest = async (event) => {
+    event.preventDefault();
+
+    try {
+      // Ensure we have a valid user ID, defaulting to "test_user_123" for testing
+      const userId = currentUser ? currentUser.userId : "test_user_123";
+      if (!userId || typeof userId !== "string") {
+        throw new Error(`Invalid userId: ${userId}`);
+      }
+
+      // Check if there are items in the cart
+      if (cartItems) {
+        const date = new Date(); // Create a new Date object for the order date
+        const items = cartItems; // Items from the cart
+        const totalAmount = total; // Total amount for the order
+        const status = "completed"; // Order status
+
+        // Create the order object to be sent to the database
+        const orderSent = [
+          {
+            date: date, // Use the Date object
+            items: [...items], // Spread operator to clone the items array
+            totalAmount: totalAmount, // Total amount
+            deliveryAddress: deliveryDetails,
+            status: status, // Order status
+          },
+        ];
+
+        // Add the order to the completed orders in the database
+        await addCompletedOrders(userId, orderSent);
+
+        // Update the local state to reflect the new order and empty the cart
+        setOrderValue(orderValue + 1);
+        dispatch(clearCart());
+      }
+    } catch (error) {
+      // Log any errors that occur during the order process
+      console.error("Error placing order:", error);
+    }
   };
 
   return (
@@ -86,7 +126,7 @@ const CheckoutPage = () => {
                     <Button
                       buttontype="primary-button"
                       buttonstyles="medium:mt-0 py-3 px-10 flex mt-4 focus:ring-[4px] focus:ring-blue-300"
-                      buttonFunc={handleOrder}
+                      buttonFunc={onOrderRequest}
                     >
                       Place Order
                     </Button>

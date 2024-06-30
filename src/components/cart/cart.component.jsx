@@ -19,6 +19,9 @@ import { Link } from "react-router-dom";
 const CartComponent = () => {
   const dispatch = useDispatch();
   const { cartItems, total } = useSelector((state) => state.cart);
+  const { orders, status, error } = useSelector((state) => state.orderHistory);
+  const currentUser = useSelector((state) => state.user.currentUser);
+  console.log(orders);
   const tax = (total * 0.1).toFixed(2);
   const grandTotal = Number(total) + Number(tax);
 
@@ -154,7 +157,7 @@ const CartComponent = () => {
                         texttype="text-normal"
                         textstyle="text-gray-900 font-medium"
                       >
-                        ${total}
+                        {total}
                       </Text>
                     </dd>
                   </dl>
@@ -179,7 +182,7 @@ const CartComponent = () => {
                         texttype="text-normal"
                         textstyle="text-gray-900 font-medium"
                       >
-                        ${tax}
+                        {tax}
                       </Text>
                     </dd>
                   </dl>
@@ -199,7 +202,7 @@ const CartComponent = () => {
                       texttype="text-normal"
                       textstyle="text-gray-900 font-bold"
                     >
-                      ${grandTotal}
+                      {grandTotal}
                     </Text>
                   </dd>
                 </dl>
@@ -231,28 +234,33 @@ const CartComponent = () => {
               There are no items in your cart right now
             </Text>
             <Link to="/wimatechstore/shop">
-              <Button buttontype="primary-button" buttonstyles="py-3 px-6 focus:ring-[4px] focus:ring-blue-300">
+              <Button
+                buttontype="primary-button"
+                buttonstyles="py-3 px-6 focus:ring-[4px] focus:ring-blue-300"
+              >
                 Go to shop
               </Button>
             </Link>
           </div>
         )}
 
-        <div className="pb-5 pt-20 py-12 flex flex-col gap-5 mt-4">
-          <Text
-            texttype="heading-smd"
-            textstyles="leading-6 w-full text-center pb-8"
-          >
-            Order History
-          </Text>
-          <ScrollableSection scrollstyles="gap-4 medium:gap-8 justify-between overflow-clip">
-            {ShopProduct[2].items.map((item) => (
-              <div key={item.id} className="w-[220px]">
-                <ProductCard key={item.id} product={item} title={item.make} />
-              </div>
-            ))}
-          </ScrollableSection>
-        </div>
+        {currentUser && (
+          <div className="pb-5 pt-20 py-12 flex flex-col gap-5 mt-4">
+            <Text
+              texttype="heading-smd"
+              textstyles="leading-6 w-full text-center pb-8"
+            >
+              Order History
+            </Text>
+            <ScrollableSection scrollstyles="gap-4 medium:gap-8 justify-between overflow-clip">
+              {orders.map((item) => (
+                <div key={item.id} className="w-[220px]">
+                  <ProductCard key={item.id} product={item} title={item.make} />
+                </div>
+              ))}
+            </ScrollableSection>
+          </div>
+        )}
         <div className="pb-5 pt-20 py-12 flex flex-col gap-5 mt-4">
           <Text
             texttype="heading-smd"

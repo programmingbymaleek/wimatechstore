@@ -33,7 +33,7 @@ const Navbar = () => {
   const navigateToHome = () => {
     SignOutUser();
     console.log("signed user out");
-    navigate("/wimatechstore");
+    navigate("/wimatechstore/shop");
   };
 
   // const handleMouseEnter = () => {

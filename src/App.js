@@ -22,6 +22,7 @@ import CartComponent from "./components/cart/cart.component";
 import ErrorPage from "./components/error-page-component/error-page.component";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import { fetchOrderHistory } from "./reduxtoolkit/features/orderHistory/orderHistory";
 
 function App() {
   const dispatch = useDispatch();
@@ -38,6 +39,7 @@ function App() {
     getShoeGroups();
   }, [dispatch]);
 
+  //fetch userOrderHistor
   const fetchUserData = async (uid) => {
     try {
       const userData = await getUserDocumentFromFireBase(uid);
@@ -47,15 +49,18 @@ function App() {
       return null;
     }
   };
-
   useEffect(() => {
     const unSubscribe = onAuthStateChangedListener(async (user) => {
       if (user) {
-        await createUserDocumentFromAuth(user);
+        const dataUser = await createUserDocumentFromAuth(user);
+        const userId = dataUser.id;
         const userData = await fetchUserData(user.uid);
         if (userData) {
           const { displayName, email } = userData;
-          dispatch(setCurrentUser({ displayName, email }));
+          dispatch(setCurrentUser({ displayName, email, userId }));
+
+          //fetch userOrderHistory
+          dispatch(fetchOrderHistory(userId));
         }
       } else {
         dispatch(setCurrentUser(null));

@@ -3,32 +3,41 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   setDeliveryDetails,
   fetchDeliveryDetails,
-  saveDeliveryDetails,
 } from "../../reduxtoolkit/features/deliveryDetails/deliverySlice";
 import FormInput from "../form-input-component/form-input.component";
 import Text from "../text-component/text.component";
 
-const SetDelivery = () => {
+const SetDelivery = ({ onValidate }) => {
   const currentUser = useSelector((state) => state.user.currentUser);
   const deliveryDetails = useSelector((state) => state.deliveryDetails);
-
-  console.log(currentUser, deliveryDetails);
   const dispatch = useDispatch();
 
-  const [editing, setEditing] = useState(false); // State to manage edit mode
-  const [formInitialized, setFormInitialized] = useState(false); // State to track form initialization
+  const [detailState, setDetailsState] = useState(false);
 
-  // Fetch delivery details if available for the user
   useEffect(() => {
-    if (currentUser) {
-      dispatch(fetchDeliveryDetails(currentUser));
-    }
+    const fetchData = async () => {
+      if (currentUser) {
+        try {
+          const result = await dispatch(
+            fetchDeliveryDetails(currentUser.userId)
+          );
+          if (result.meta.rejectedWithValue) {
+            setDetailsState(true); // Show the form if fetching fails
+          }
+        } catch (error) {
+          console.error("Error fetching delivery details:", error);
+          setDetailsState(true); // Show the form if there is an error
+        }
+      } else {
+        setDetailsState(true); // Show the form if there is an error
+      }
+    };
+
+    fetchData();
   }, [dispatch, currentUser]);
 
-  // Initialize delivery details form fields
   useEffect(() => {
     if (deliveryDetails && Object.keys(deliveryDetails).length === 0) {
-      // If deliveryDetails is empty (no existing data), initialize form fields
       dispatch(
         setDeliveryDetails({
           name: "",
@@ -39,95 +48,102 @@ const SetDelivery = () => {
           address: "",
         })
       );
-      setFormInitialized(true); // Set form initialization state to true
     }
   }, [deliveryDetails, dispatch]);
+
+  useEffect(() => {
+    validateFields();
+  }, [deliveryDetails]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     dispatch(setDeliveryDetails({ [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (validateFields()) {
-      dispatch(saveDeliveryDetails(deliveryDetails));
-    } else {
-      // Handle form validation errors, if any
-    }
-  };
-
-  const handleUpdate = () => {
-    setEditing(true); // Enable editing mode
-  };
-
-  const handleProceed = () => {
-    // Proceed with the next step after updating delivery details
-    // Example: navigate to the next page or perform another action
-    setEditing(false); // Disable editing mode after update
-  };
-
   const validateFields = () => {
     const { name, email, phone, address } = deliveryDetails || {};
-    return name && email && phone && address;
+    const isValid = name && email && phone && address;
+    onValidate(isValid);
   };
 
-  // Loading state while fetching data
-  // if (!currentUser || deliveryDetails.loading) {
-  //   return <div>Loading...</div>;
-  // }
+  return (
+    <>
+      {detailState && (
+        <div className="space-y-4">
+          <Text texttype="heading-base" textstyles="text-gray-900">
+            Delivery Details
+          </Text>
+          <div>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <FormInput
+                type="text"
+                name="name"
+                value={deliveryDetails.name || ""}
+                onChange={handleChange}
+                placeholder="Jane Doe"
+                labelstyle="capitalize font-medium mb-2 block"
+                inputstyle="block w-full rounded-[0.4rem] border p-2.5 py-3 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500"
+                required
+              />
+              {deliveryDetails.name === "" && (
+                <p className="text-red-500">Name is required</p>
+              )}
 
-  // Render form based on conditions
-  return "";
-  // <div className="space-y-4">
-  //   <Text texttype="heading-base" textstyles="text-gray-900">
-  //     Delivery Details
-  //   </Text>
-  //   <form onSubmit={handleSubmit}>
-  //     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-  //       <FormInput
-  //         type="text"
-  //         name="name"
-  //         value={deliveryDetails.name || ""}
-  //         onChange={handleChange}
-  //         placeholder="Jane Doe"
-  //         labelstyle="capitalize font-medium mb-2 block"
-  //         inputstyle="block w-full rounded-[0.4rem] border p-2.5 py-3 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500"
-  //         required
-  //       />
-  //       {!deliveryDetails.name && (
-  //         <p className="text-red-500">Name is required</p>
-  //       )}
+              <FormInput
+                type="email"
+                name="email"
+                value={deliveryDetails.email || ""}
+                onChange={handleChange}
+                placeholder="name@example.com"
+                labelstyle="capitalize font-medium mb-2 block"
+                inputstyle="block w-full rounded-[0.4rem] border p-2.5 py-3 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500"
+                required
+              />
+              {deliveryDetails.email === "" && (
+                <p className="text-red-500">Email is required</p>
+              )}
 
-  //       {/* Repeat similar FormInput and error handling for other fields */}
-  //     </div>
-  //     <button type="submit" className="btn btn-primary">
-  //       Save
-  //     </button>
-  //   </form>
+              <div>
+                <label
+                  htmlFor="phone"
+                  className="mb-2 block text-sm font-medium text-gray-900"
+                >
+                  Phone Number*
+                </label>
+                <input
+                  type="text"
+                  id="phone"
+                  name="phone"
+                  value={deliveryDetails.phone || ""}
+                  onChange={handleChange}
+                  className="block w-full rounded-[0.4rem] border bg-white p-2.5 py-3 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500"
+                  placeholder="123-456-7890"
+                  required
+                />
+                {deliveryDetails.phone === "" && (
+                  <p className="text-red-500">Phone number is required</p>
+                )}
+              </div>
 
-  //   {/* Conditionally render update button if there are existing delivery details */}
-  //   {formInitialized && Object.keys(deliveryDetails).length > 0 && (
-  //     <button onClick={handleUpdate} className="btn btn-secondary">
-  //       Update Details
-  //     </button>
-  //   )}
-
-  //   {/* Conditionally render update form if editing mode is enabled */}
-  //   {editing && (
-  //     <div>
-  //       <Text texttype="heading-base" textstyles="text-gray-900">
-  //         Update Delivery Details
-  //       </Text>
-  //       <form onSubmit={handleSubmit}>
-  //         {/* Include form inputs for editing */}
-  //       </form>
-  //       <button onClick={handleProceed} className="btn btn-primary">
-  //         Proceed
-  //       </button>
-  //     </div>
-  //   )}
-  // </div>
+              <FormInput
+                type="text"
+                name="address"
+                value={deliveryDetails.address || ""}
+                onChange={handleChange}
+                placeholder="123 Main St"
+                labelstyle="capitalize font-medium mb-2 block"
+                inputstyle="block w-full rounded-[0.4rem] border p-2.5 py-3 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500"
+                required
+              />
+              {deliveryDetails.address === "" && (
+                <p className="text-red-500">Address is required</p>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
 };
 
 export default SetDelivery;

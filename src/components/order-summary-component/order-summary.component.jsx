@@ -13,17 +13,11 @@ const OrderSummary = () => {
       <div className="flow-root border-b p-5">
         <div className="-my-3">
           <dl className="flex items-center justify-between gap-4 py-3 pb-5">
-            <Text
-              texttype="text-normal"
-              textstyles=" font-bold text-gray-900 "
-            >
+            <Text texttype="text-normal" textstyles=" font-bold text-gray-900 ">
               Order Summary
             </Text>
-            <Text
-              texttype="text-normal"
-              textstyles=" font-bold text-gray-900 "
-            >
-              ${grandTotal}
+            <Text texttype="text-normal" textstyles=" font-bold text-gray-900 ">
+              {grandTotal}
             </Text>
           </dl>
 
@@ -38,7 +32,7 @@ const OrderSummary = () => {
               texttype="text-normal"
               textstyles=" font-medium text-green-500"
             >
-              ${total}
+              {total}
             </Text>
           </div>
 
@@ -56,14 +50,17 @@ const OrderSummary = () => {
               texttype="text-normal"
               textstyles=" font-medium text-gray-900 "
             >
-              ${tax}
+              {tax}
             </Text>
           </div>
         </div>
       </div>
       <div className="h-[40vh] overflow-scroll">
         {cartItems.map((item) => (
-          <div className=" px-5 pt-6 gap-6 flex flex-row items-center">
+          <div
+            className=" px-5 pt-6 gap-6 flex flex-row items-center"
+            key={item.id}
+          >
             <img src={item.imageUrl} alt="product_image" className="w-16" />
             <div className="flex flex-col gap-2">
               <Text
@@ -83,7 +80,7 @@ const OrderSummary = () => {
                   texttype="text-normal"
                   textstyles="font-bold text-gray-900"
                 >
-                  ${item.price * item.quantity}
+                  {item.price * item.quantity}
                 </Text>
               </div>
             </div>
