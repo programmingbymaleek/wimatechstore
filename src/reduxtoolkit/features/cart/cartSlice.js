@@ -105,11 +105,7 @@ export const {
   incrementCartItem,
   decrementCartItem,
   addItemsTocart,
-<<<<<<< HEAD
-  setcartToEmpty,
-=======
   clearCart,
->>>>>>> feature/m-001
 } = cartSlice.actions;
 
 export const cartReducer = cartSlice.reducer;
