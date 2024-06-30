@@ -1,136 +1,148 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  setDeliveryDetails,
+  fetchDeliveryDetails,
+} from "../../reduxtoolkit/features/deliveryDetails/deliverySlice";
 import FormInput from "../form-input-component/form-input.component";
-import Button from "../button-component/button.component";
+import Text from "../text-component/text.component";
 
-const SetDelivery = () => {
+const SetDelivery = ({ onValidate }) => {
+  const currentUser = useSelector((state) => state.user.currentUser);
+  const deliveryDetails = useSelector((state) => state.deliveryDetails);
+  const dispatch = useDispatch();
+
+  const [detailState, setDetailsState] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      if (currentUser) {
+        try {
+          const result = await dispatch(
+            fetchDeliveryDetails(currentUser.userId)
+          );
+          if (result.meta.rejectedWithValue) {
+            setDetailsState(true); // Show the form if fetching fails
+          }
+        } catch (error) {
+          console.error("Error fetching delivery details:", error);
+          setDetailsState(true); // Show the form if there is an error
+        }
+      } else {
+        setDetailsState(true); // Show the form if there is an error
+      }
+    };
+
+    fetchData();
+  }, [dispatch, currentUser]);
+
+  useEffect(() => {
+    if (deliveryDetails && Object.keys(deliveryDetails).length === 0) {
+      dispatch(
+        setDeliveryDetails({
+          name: "",
+          email: "",
+          phone: "",
+          country: "United States",
+          city: "San Francisco",
+          address: "",
+        })
+      );
+    }
+  }, [deliveryDetails, dispatch]);
+
+  useEffect(() => {
+    validateFields();
+  }, [deliveryDetails]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    dispatch(setDeliveryDetails({ [name]: value }));
+  };
+
+  const validateFields = () => {
+    const { name, email, phone, address } = deliveryDetails || {};
+    const isValid = name && email && phone && address;
+    onValidate(isValid);
+  };
+
   return (
-    <div className="space-y-4">
-      <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
-        Delivery Details
-      </h2>{" "}
-      <form
-        className="flex flex-col xmedium:w-[40%] small:w-[28rem] xxsmall:w-11/12 w-full xmedium:pb-0 pb-8 justify-center"
-        // onSubmit={submitFormHandler}
-      ></form>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        <FormInput
-          type="name"
-          name="Name"
-          placeholder="Jane Doe"
-          labelstyle="capitalize font-medium mb-2 block"
-          inputstyle="block w-full rounded-[0.4rem] border  p-2.5 py-3 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500"
-          //   value={displayName}
-          required
-          //   onChange={onChangeHandler}
-        />
-        <FormInput
-          type="email"
-          name="email"
-          placeholder="name@example.com"
-          labelstyle="capitalize font-medium mb-2 block"
-          inputstyle="block w-full rounded-[0.4rem] border p-2.5 py-3 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500"
-          //   value={displayName}
-          required
-          //   onChange={onChangeHandler}
-        />
-        <div>
-          <div className="mb-2 flex items-center gap-2">
-            <label
-              htmlFor="select-country-input-3"
-              className="block text-sm font-medium shadow-sm text-gray-900"
-            >
-              {" "}
-              Country*{" "}
-            </label>
-          </div>
-          <select
-            id="select-country-input-3"
-            className="block w-full rounded-[0.4rem] border  bg-white p-2.5 py-3 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-          >
-            <option selected>United States</option>
-            <option value="AS">Australia</option>
-            <option value="FR">France</option>
-            <option value="ES">Spain</option>
-            <option value="UK">United Kingdom</option>
-          </select>
-        </div>
-
-        <div>
-          <div className="mb-2 flex items-center gap-2">
-            <label
-              htmlFor="select-city-input-3"
-              className="block text-sm font-medium text-gray-900"
-            >
-              {" "}
-              City*{" "}
-            </label>
-          </div>
-          <select
-            id="select-city-input-3"
-            className="block w-full rounded-[0.4rem] border shadow-sm  bg-white p-2.5 py-3 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 "
-          >
-            <option selected>San Francisco</option>
-            <option value="NY">New York</option>
-            <option value="LA">Los Angeles</option>
-            <option value="CH">Chicago</option>
-            <option value="HU">Houston</option>
-          </select>
-        </div>
-
-        <div>
-          <label
-            htmlFor="phone-input-3"
-            className="mb-2 block text-sm font-medium text-gray-900"
-          >
-            {" "}
-            Phone Number*{" "}
-          </label>
-          <div className="flex items-center">
-            <button className="z-10 inline-flex shrink-0 items-center rounded-s-lg border  bg-gray-50 px-4 py-3 text-center text-sm font-medium text-gray-900 hover:bg-gray-200 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-700">
-              +1
-              <svg
-                className="-me-0.5 ms-2 h-3 w-3"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="m19 9-7 7-7-7"
-                />
-              </svg>
-            </button>
-            <div className="relative w-full">
-              <input
+    <>
+      {detailState && (
+        <div className="space-y-4">
+          <Text texttype="heading-base" textstyles="text-gray-900">
+            Delivery Details
+          </Text>
+          <div>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <FormInput
                 type="text"
-                id="phone-input"
-                className="z-20 block w-full rounded-e-lg border border-s-0  bg-white p-2.5 py-3 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:border-s-gray-700  dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500"
-                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                placeholder="123-456-7890"
+                name="name"
+                value={deliveryDetails.name || ""}
+                onChange={handleChange}
+                placeholder="Jane Doe"
+                labelstyle="capitalize font-medium mb-2 block"
+                inputstyle="block w-full rounded-[0.4rem] border p-2.5 py-3 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500"
                 required
               />
+              {deliveryDetails.name === "" && (
+                <p className="text-red-500">Name is required</p>
+              )}
+
+              <FormInput
+                type="email"
+                name="email"
+                value={deliveryDetails.email || ""}
+                onChange={handleChange}
+                placeholder="name@example.com"
+                labelstyle="capitalize font-medium mb-2 block"
+                inputstyle="block w-full rounded-[0.4rem] border p-2.5 py-3 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500"
+                required
+              />
+              {deliveryDetails.email === "" && (
+                <p className="text-red-500">Email is required</p>
+              )}
+
+              <div>
+                <label
+                  htmlFor="phone"
+                  className="mb-2 block text-sm font-medium text-gray-900"
+                >
+                  Phone Number*
+                </label>
+                <input
+                  type="text"
+                  id="phone"
+                  name="phone"
+                  value={deliveryDetails.phone || ""}
+                  onChange={handleChange}
+                  className="block w-full rounded-[0.4rem] border bg-white p-2.5 py-3 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500"
+                  placeholder="123-456-7890"
+                  required
+                />
+                {deliveryDetails.phone === "" && (
+                  <p className="text-red-500">Phone number is required</p>
+                )}
+              </div>
+
+              <FormInput
+                type="text"
+                name="address"
+                value={deliveryDetails.address || ""}
+                onChange={handleChange}
+                placeholder="123 Main St"
+                labelstyle="capitalize font-medium mb-2 block"
+                inputstyle="block w-full rounded-[0.4rem] border p-2.5 py-3 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500"
+                required
+              />
+              {deliveryDetails.address === "" && (
+                <p className="text-red-500">Address is required</p>
+              )}
             </div>
           </div>
         </div>
-
-        <FormInput
-          type="address"
-          name="address"
-          placeholder="NO. 2"
-          labelstyle="capitalize font-medium mb-2 block"
-          inputstyle="block w-full rounded-[0.4rem] border  p-2.5 py-3 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500"
-          //   value={displayName}
-          required
-          //   onChange={onChangeHandler}
-        />
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 

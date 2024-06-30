@@ -22,8 +22,10 @@ function ProductCard({ product, title, productstyle }) {
   };
 
   return (
-    <div className={` w-[200px] gap-2 h-fit flex flex-col items-center relative`}>
-      <Link to={`${title}/${name}/${id}`} className="w-full h-[220px]">
+    <div
+      className={` w-[200px] gap-2 h-fit flex flex-col items-center relative `}
+    >
+      <Link to={`${title}/${name}/${id}`} className="w-full h-[230px]">
         <img
           src={imageUrl}
           alt={name}
@@ -49,7 +51,7 @@ function ProductCard({ product, title, productstyle }) {
       </div>
       <Button
         buttontype="secondary-button"
-        buttonstyles="w-full py-3 mt-2"
+        buttonstyles="w-full py-3 mt-2 focus:ring-[4px] focus:outline-none focus:ring-[#2a2a2f0d]"
         buttonFunc={() => addCartItem(product)}
       >
         Add item to cart

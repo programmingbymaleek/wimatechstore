@@ -77,9 +77,13 @@ const cartSlice = createSlice({
       state.cartItems = deletItem(state.cartItems, action.payload);
       updateCart(state);
     },
-    setcartToEmpty: (state) => {
-      state.cartItems = [];
-      updateCart(state);
+    clearCart: (state) => {
+      return {
+        ...state,
+        cartItems: [],
+        total: 0,
+        count: 0, // Create a new empty array for cartItems
+      };
     },
   },
 });
@@ -101,7 +105,11 @@ export const {
   incrementCartItem,
   decrementCartItem,
   addItemsTocart,
+<<<<<<< HEAD
   setcartToEmpty,
+=======
+  clearCart,
+>>>>>>> feature/m-001
 } = cartSlice.actions;
 
 export const cartReducer = cartSlice.reducer;
