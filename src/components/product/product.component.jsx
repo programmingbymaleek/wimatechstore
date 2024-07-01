@@ -10,10 +10,10 @@ import Stars from "../stars-component/stars.component";
 import ScrollableSection from "../scrollable-component/scrollable-section.component";
 import ShopProduct from "../../shop_data_file";
 import ProductCard from "../productCard/productCard";
-import { addItemsTocart } from "../../reduxtoolkit/features/cart/cartSlice";
 import { useDispatch } from "react-redux";
 import InputBox from "../inputbox-component/inputbox.component";
 import Spinner from "../spinner-component/spinner.component";
+import { addItemsTocart } from "../../reduxtoolkit/features/cart/cartSlice";
 
 const Product = () => {
   const { category, id } = useParams();
@@ -128,6 +128,7 @@ const Product = () => {
                   <Button
                     buttontype="primary-button"
                     buttonstyles="medium:mt-0 medium:w-max w-[100vw] font-medium px-5 py-2.5 rounded-lg justify-center flex mt-4 focus:ring-[4px] focus:ring-blue-300"
+                    buttonFunc={() => addCartItem(productToView)}
                   >
                     <AddCartIcon className="w-5 h-5 -ms-2 me-2" />
                     Add to cart

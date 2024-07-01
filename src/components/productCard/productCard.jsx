@@ -46,7 +46,7 @@ function ProductCard({ product, title, productstyle }) {
           texttype="text-normal"
           textstyles="text-gray-900 font-semibold w-full"
         >
-          ${price}
+          {price}
         </Text>
       </div>
       <Button
