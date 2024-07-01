@@ -5,7 +5,10 @@ import Text from "../text-component/text.component";
 
 const ContactUsSection = () => {
   return (
-    <div className=" px-6 large:px-16 tablet:pb-0 pb-8 mx-auto max-w-[1280px]">
+    <div
+      className=" px-6 large:px-16 tablet:pb-0 pb-8 mx-auto max-w-[1280px]"
+      id="contact-us-section"
+    >
       <div className="flex flex-col gap-3 list-style-none m-0 p-0">
         <Text
           texttype="heading-base"
@@ -30,7 +33,7 @@ const ContactUsSection = () => {
           />
           <Button
             buttontype="primary-button"
-            buttonstyles="px-6 tablet:h-full tablet:w-max w-full h-12 tablet:py-auto py-3"
+            buttonstyles="px-6 tablet:h-full tablet:w-max w-full h-12 tablet:py-auto py-3 focus:ring-[4px] focus:ring-blue-300"
           >
             Get Started
           </Button>

@@ -42,7 +42,7 @@ const LandingPage = () => {
           </Text>
           <Button
             buttontype="primary-button"
-            buttonstyles="px-5 py-3 capitalize"
+            buttonstyles="px-5 py-3 capitalize focus:ring-[4px] focus:ring-blue-300"
           >
             Shop now
           </Button>
@@ -56,7 +56,7 @@ const LandingPage = () => {
             Flash Sale!
           </Text>
           <Button
-            buttontype="primary-button"
+            buttontype="primary-button focus:ring-[4px] focus:ring-blue-300"
             buttonstyles="px-5 py-3 capitalize"
           >
             Shop now

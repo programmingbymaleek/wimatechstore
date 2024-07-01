@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { ReactComponent as SearchIcon } from "../../assets/icons/search.svg";
 import { ReactComponent as WhiteSearchIcon } from "../../assets/icons/white-search.svg";
 import { ReactComponent as CartIcon } from "../../assets/icons/shopping_cart.svg";
+import { ReactComponent as NewItemCartIcon } from "../../assets/icons/new_cart_item.svg";
 import { ReactComponent as MenuIcon } from "../../assets/icons/bars.svg";
 import { ReactComponent as CloseIcon } from "../../assets/icons/close.svg";
 import logo from "../../assets/images/globe-logo.png";
@@ -22,18 +23,26 @@ import DropDown from "../drop-down-component/drop-down.component.jsx";
 
 const Navbar = () => {
   const dispatch = useDispatch();
-  const currentUser = useSelector((state) => state.user.currentUser);
-  const { toggleCart } = useSelector((state) => state.cart);
+  const { currentUser } = useSelector((state) => state.user);
+  const { toggleCart, count } = useSelector((state) => state.cart);
   const [showMenu, setShowMenu] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
-  const [showDropDown, setShowDropDown] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const navigate = useNavigate();
   const navigateToHome = () => {
     SignOutUser();
     console.log("signed user out");
-    navigate("/wimatechstore");
+    navigate("/wimatechstore/shop");
   };
+
+  // const handleMouseEnter = () => {
+  //   setIsHovered(true);
+  // };
+
+  // const handleMouseLeave = () => {
+  //   setIsHovered(false);
+  // };
 
   const toogleCart = () => {
     dispatch(setToogleCart(!toggleCart));
@@ -71,7 +80,7 @@ const Navbar = () => {
             <Link to={"/wimatechstore"}>
               <Text
                 texttype="text-normal"
-                textstyles=" hover:text-blue-800 text-gray-700 font-medium"
+                textstyles="hover:text-blue-800 text-gray-700 font-medium"
               >
                 Home
               </Text>
@@ -79,39 +88,36 @@ const Navbar = () => {
             <Link to={"/wimatechstore/shop"}>
               <Text
                 texttype="text-normal"
-                textstyles=" hover:text-blue-800 text-gray-700 font-medium"
+                textstyles="hover:text-blue-800 text-gray-700 font-medium"
               >
                 Shop
               </Text>
             </Link>
-            <div className="flex flex-col h-full relative">
-              <button onClick={() => setShowDropDown(!showDropDown)}>
+            <div className="relative group">
+              <button className="inline-flex items-center">
                 <Text
                   texttype="text-normal"
-                  textstyles=" hover:text-blue-800 text-gray-700 font-medium cursor-pointer"
+                  textstyles="hover:text-blue-800 text-gray-700 font-medium cursor-pointer"
                 >
                   Categories
                 </Text>
               </button>
-              {showDropDown && (
+              <div className="group-hover:block hidden h-[30vh] pt-6 absolute">
                 <DropDown>
                   {categoryData.map((item, index) => (
-                    <li>
-                      <a
-                        href="#"
-                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                      >
+                    <li key={index}>
+                      <a href="#" className="block px-4 py-2 hover:bg-gray-100">
                         {item}
                       </a>
                     </li>
                   ))}
                 </DropDown>
-              )}
+              </div>
             </div>
-            <Link to={"/wimatechstore"}>
+            <Link to={"/wimatechstore#contact-us-section"}>
               <Text
                 texttype="text-normal"
-                textstyles=" hover:text-blue-800 text-gray-700 font-medium"
+                textstyles="hover:text-blue-800 text-gray-700 font-medium"
               >
                 Contact Us
               </Text>
@@ -158,7 +164,11 @@ const Navbar = () => {
             />
           )}
           <Button buttontype="icon-button" buttonstyles="bg-transparent">
-            <CartIcon className="w-5 h-5" onClick={toogleCart} />
+            {count === 0 ? (
+              <CartIcon className="w-5 h-5" onClick={toogleCart} />
+            ) : (
+              <NewItemCartIcon className="w-5 h-5" onClick={toogleCart} />
+            )}
           </Button>
         </div>
       </div>
@@ -171,11 +181,11 @@ const Navbar = () => {
       >
         <div className="flex flex-row gap-12 items-center w-full">
           <div className="w-full flex flex-row justify-between items-center">
-              <img
-                src={logo}
-                alt="Certified Global Enterprise"
-                className="w-10 h-auto"
-                />
+            <img
+              src={logo}
+              alt="Certified Global Enterprise"
+              className="w-10 h-auto"
+            />
             <MenuIcon
               className="w-5 h-5 cursor-pointer"
               onClick={() => setShowMenu(true)}
@@ -263,7 +273,7 @@ const Navbar = () => {
                   </div>
                   <Button
                     buttontype="secondary-button"
-                    buttonstyles="w-full py-2 px-4"
+                    buttonstyles="w-full py-2 px-4 focus:ring-[4px] focus:outline-none focus:ring-[#2a2a2f0d]"
                     buttonFunc={() => setShowMenu(false)}
                   >
                     Go to Cart

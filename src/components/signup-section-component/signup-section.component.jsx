@@ -12,6 +12,7 @@ import {
 } from "../../utilis/firebase.utils";
 import { useState } from "react";
 import { async } from "@firebase/util";
+import { Link } from "react-router-dom";
 
 const SignupSection = () => {
   const signUpWithGoogle = async () => {
@@ -110,7 +111,7 @@ const SignupSection = () => {
           inputstyle="w-full xsmall:px-6 xsmall:py-3 px-5 py-2.5 xsmall:mt-3 mt-2 xsmall:mb-5 mb-5"
         />
         <Button
-          buttonstyles="xsmall:py-3.5 py-2.5 capitalize pt-4 "
+          buttonstyles="xsmall:py-3.5 py-2.5 capitalize pt-4 focus:ring-[4px] focus:ring-blue-300"
           buttontype="primary-button"
           type="submit"
         >
@@ -134,7 +135,11 @@ const SignupSection = () => {
         </Button>
         <Text texttype="text-normal" textstyles=" w-full text-center py-5">
           Already have an account?{" "}
-          <Text textstyles="text-[#0000a3] font-semibold">Log In</Text>
+          <Link to="/wimatechstore/login">
+            <Text textstyles="text-[#0000a3] font-medium hover:underline cursor-pointer">
+              Log In
+            </Text>
+          </Link>
         </Text>
       </form>
       <TextSlideshowContainer />

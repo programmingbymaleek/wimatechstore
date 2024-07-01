@@ -31,7 +31,7 @@ const HeroSection = () => {
           </Text>
           <Button
             buttontype="primary-button"
-            buttonstyles="py-3 px-7 w-fit capitalize"
+            buttonstyles="py-3 px-7 w-fit capitalize focus:ring-[4px] focus:ring-blue-300"
           >
             shop now
           </Button>

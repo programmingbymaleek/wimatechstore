@@ -5,17 +5,19 @@ import FormInput from "../form-input-component/form-input.component";
 import Text from "../text-component/text.component";
 import TextSlideshowContainer from "../text-slideshow-container/text-slideshow-container.component";
 import google_logo from "../../assets/images/google_logo.png";
-import { setCurrentUser } from "../../reduxtoolkit/features/user/userSlice";
-import { Dispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import {
   signInWithGooglePopUp,
   signInUserWithEmailAndPassword,
   createUserDocumentFromAuth,
 } from "../../utilis/firebase.utils";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 const LoginSection = () => {
+  const navigate = useNavigate();
   const loginInWithGoogle = async () => {
     await signInWithGooglePopUp();
+    navigate("../shop");
   };
 
   const defaultFormFields = {
@@ -40,6 +42,7 @@ const LoginSection = () => {
     try {
       await signInUserWithEmailAndPassword(email, password);
       resetFormFields();
+      navigate("../shop");
     } catch (error) {
       console.log(error.code);
     }
@@ -81,7 +84,7 @@ const LoginSection = () => {
           inputstyle="w-full xsmall:px-6 xsmall:py-3 px-5 py-2.5 xsmall:mt-3 mt-2 xsmall:mb-5 mb-5"
         />
         <Button
-          buttonstyles="xsmall:py-3.5 py-2.5 capitalize pt-4 "
+          buttonstyles="xsmall:py-3.5 py-2.5 capitalize pt-4 focus:ring-[4px] focus:ring-blue-300"
           buttontype="primary-button"
           type="submit"
         >
@@ -96,12 +99,20 @@ const LoginSection = () => {
           buttonFunc={loginInWithGoogle}
           type="button"
         >
-          <img src={google_logo} alt="google_logo" className="w-5 h-5 small:w-4 small:h-4" />
+          <img
+            src={google_logo}
+            alt="google_logo"
+            className="w-5 h-5 small:w-4 small:h-4"
+          />
           Continue with Google
         </Button>
         <Text texttype="text-normal" textstyles=" w-full text-center py-5">
           Don't have an account?{" "}
-          <Text textstyles="text-[#0000a3] font-semibold">Sign Up</Text>
+          <Link to="/wimatechstore/signup">
+            <Text textstyles="text-[#0000a3] font-medium hover:underline cursor-pointer">
+              Sign Up
+            </Text>
+          </Link>
         </Text>
       </form>
       <TextSlideshowContainer />

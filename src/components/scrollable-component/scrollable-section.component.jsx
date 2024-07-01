@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import classes from "./scrollable-section.styles.module.scss";
+
 const ScrollableSection = ({ scrollstyles, children }) => {
   const contentRef = useRef(null);
   const [showPrevButton, setShowPrevButton] = useState(false);

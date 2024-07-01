@@ -18,17 +18,20 @@ function CartDropDown() {
 
   const navigate = useNavigate();
   const goToCheckOut = () => {
-    navigate("/wimatechstore/order-review");
+    navigate("/wimatechstore/cart");
   };
 
   const closeCart = () => {
-    dispatch(setToogleCart(!toggleCart));
+    dispatch(setToogleCart(false));
   };
 
   return (
     <>
-      <div className="absolute w-full mx-auto  max-w-[1280px] flex flex-row justify-end px-8">
-        <div className="relative inset-[0px auto auto 0px] m-0 top-9 transform-[translate(799px, 64px)] large:space-x-0 shadow antialiased p-4 bg-opacity-100 bg-white rounded-lg overflow-hidden w-[360px] block z-10">
+      <div
+        className="absolute w-full mx-auto  max-w-[1280px] flex flex-row justify-end px-8 pointer-events-none"
+        style={{ zIndex: "revert-layer" }}
+      >
+        <div className="relative inset-[0px auto auto 0px] m-0 top-9 transform-[translate(799px, 64px)] large:space-x-0 shadow antialiased p-4 bg-opacity-100 bg-white rounded-lg overflow-hidden w-[360px] block z-10 pointer-events-auto">
           <div className="mb-4 pb-4 bg-opacity-100 border-b gap-4 justify-between items-center flex ">
             <Text
               texttype="text-md"
@@ -36,7 +39,13 @@ function CartDropDown() {
             >
               Your shopping cart
             </Text>
-            <CloseIcon className="cursor-pointer" onClick={closeCart} />
+            <Button
+              buttontype="icon-button"
+              buttonstyles=""
+              buttonFunc={closeCart}
+            >
+              <CloseIcon className="cursor-pointer" />
+            </Button>
           </div>
           <div className="h-[240px] overflow-scroll flex flex-col hide-scrollbar">
             {cartItems.length > 0 &&
@@ -79,7 +88,7 @@ function CartDropDown() {
                       texttype="text-sm"
                       textstyles="text-gray-800 leading-4 font-semibold text-sm"
                     >
-                      {`$${cartItem.price}`}
+                      {`$${cartItem.price * cartItem.quantity}`}
                     </Text>
                     <Button
                       buttontype="icon-button"
@@ -117,7 +126,7 @@ function CartDropDown() {
 
           <Button
             buttontype="primary-button"
-            buttonstyles="space-y-4 me-2 px-5 py-2.5  w-full items-center "
+            buttonstyles="space-y-4 me-2 px-5 py-2.5  w-full items-center focus:ring-[4px] focus:ring-blue-300"
             buttonFunc={goToCheckOut}
           >
             {" "}
