@@ -116,7 +116,7 @@ const CheckoutPage = () => {
                   </Button>
                   {stage < 2 ? (
                     <Button
-                      buttontype="button"
+                      buttontype="primary-button"
                       buttonstyles="medium:mt-0 py-3 px-10 flex mt-4 focus:ring-[4px] focus:ring-blue-300"
                       buttonFunc={handleContinue}
                     >

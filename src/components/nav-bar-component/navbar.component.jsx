@@ -8,6 +8,7 @@ import { ReactComponent as CartIcon } from "../../assets/icons/shopping_cart.svg
 import { ReactComponent as NewItemCartIcon } from "../../assets/icons/new_cart_item.svg";
 import { ReactComponent as MenuIcon } from "../../assets/icons/bars.svg";
 import { ReactComponent as CloseIcon } from "../../assets/icons/close.svg";
+import { ReactComponent as UserIcon } from "../../assets/icons/user.svg";
 import logo from "../../assets/images/globe-logo.png";
 
 import { useSelector } from "react-redux";
@@ -106,9 +107,12 @@ const Navbar = () => {
                 <DropDown>
                   {categoryData.map((item, index) => (
                     <li key={index}>
-                      <a href="#" className="block px-4 py-2 hover:bg-gray-100">
+                      <Link
+                        to={`category/${item}`}
+                        className="block px-4 py-2 hover:bg-gray-100"
+                      >
                         {item}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </DropDown>
@@ -124,52 +128,98 @@ const Navbar = () => {
             </Link>
           </div>
         </div>
-        <div className="flex flex-row gap-8 items-center w-fit">
-          {currentUser ? (
-            <>
-              <span>{currentUser.displayName}</span>
-              <button onClick={navigateToHome}>
-                <NavItem item="Logout" />
-              </button>
-            </>
-          ) : (
-            <div className="flex flex-row gap-4 ">
-              <Link
-                to={"/wimatechstore/login"}
-                className="hover:text-blue-800 font-hover:text-blue-800 text-gray-700 font-medium"
-              >
-                <Text texttype="text-normal">Login</Text>
-              </Link>
-              <span>/</span>
-              <Link
-                to={"/wimatechstore/signup"}
-                className="hover:text-blue-800 font-hover:text-blue-800 text-gray-700 font-medium"
-              >
-                <Text texttype="text-normal">Register</Text>
-              </Link>
-            </div>
-          )}
+        <div className="flex flex-row gap-6 items-center w-fit">
           {showSearch ? (
             <Text textstyles="flex flex-row border border-gray-300 rounded-lg py-2 px-4 gap-2">
               <SearchIcon className="w-5 h-5" />
               <InputBox
-                inputstyles="border-0 focus:border-0 focus:ring-0"
+                inputstyles="border-0 focus:border-0 focus:outline-0 focus:inset-0"
                 placeholder="Search..."
               />
             </Text>
           ) : (
             <SearchIcon
-              className="w-5 h-5 cursor-pointer"
+              className="w-5 h-5 cursor-pointer text-[#7b828f] hover:text-gray-600"
               onClick={() => setShowSearch(true)}
             />
           )}
           <Button buttontype="icon-button" buttonstyles="bg-transparent">
             {count === 0 ? (
-              <CartIcon className="w-5 h-5" onClick={toogleCart} />
+              <CartIcon
+                className="w-5 h-5 text-[#7b828f] hover:text-gray-600"
+                onClick={toogleCart}
+              />
             ) : (
               <NewItemCartIcon className="w-5 h-5" onClick={toogleCart} />
             )}
           </Button>
+          <div className="relative group">
+            <Button buttontype="icon-button" buttonstyles="bg-transparent">
+              <UserIcon className="w-6 h-6 text-gray-400 hover:text-gray-500" />
+            </Button>
+            <div className="group-hover:block hidden -left-[140px] h-[30vh] pt-6 absolute">
+              <DropDown>
+                {currentUser ? (
+                  <>
+                    {/* <span>{currentUser.displayName}</span> */}
+                    <li>
+                      <a href="#" className="block px-4 py-2 hover:bg-gray-100">
+                        Profile
+                      </a>
+                    </li>
+                    <li>
+                      <Link
+                        to="/wimatechstore/cart"
+                        className="block px-4 py-2 hover:bg-gray-100"
+                      >
+                        Shopping Cart
+                      </Link>
+                    </li>
+                    <li>
+                      <a href="#" className="block px-4 py-2 hover:bg-gray-100">
+                        Order History
+                      </a>
+                    </li>
+                    <li>
+                      <button
+                        className=" px-4 py-2 hover:bg-gray-100 w-full border-0 flex justify-start "
+                        onClick={navigateToHome}
+                      >
+                        <Text texttype="text-normal">Sign Out</Text>
+                      </button>
+                    </li>
+                  </>
+                ) : (
+                  <>
+                    <li>
+                      <Link
+                        to="/wimatechstore/cart"
+                        className="block px-4 py-2 hover:bg-gray-100"
+                      >
+                        Shopping Cart
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to={"/wimatechstore/login"}
+                        className="block px-4 py-2 hover:bg-gray-100"
+                      >
+                        <Text texttype="text-normal">Login</Text>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to={"/wimatechstore/signup"}
+                        className="block px-4 py-2 hover:bg-gray-100"
+                      >
+                        <Text texttype="text-normal">Register</Text>
+                      </Link>
+                    </li>
+                  </>
+                )}
+              </DropDown>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -259,7 +309,7 @@ const Navbar = () => {
                   <div className="flex flex-row gap-1">
                     <Text textstyles="flex flex-row border border-gray-400 rounded-sm py-2 px-4 gap-2">
                       <InputBox
-                        inputstyles="border-0 focus:border-0 focus:ring-0"
+                        inputstyles="border-0 focus:border-0 focus:outline-0 focus:inset-0"
                         placeholder="Search..."
                       />
                     </Text>

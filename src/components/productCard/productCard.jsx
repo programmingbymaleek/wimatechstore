@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addItemsTocart } from "../../reduxtoolkit/features/cart/cartSlice";
 
-function ProductCard({ product, title, productstyle }) {
+function ProductCard({ product, title, productstyle, type }) {
   const { addItemToCart } = useContext(ProductQuickViewContext);
   const { name, price, imageUrl, make, id } = product;
 
@@ -23,7 +23,7 @@ function ProductCard({ product, title, productstyle }) {
 
   return (
     <div
-      className={` w-[200px] gap-2 h-fit flex flex-col items-center relative `}
+      className={` w-[200px] gap-2 h-fit flex flex-col items-center relative ${productstyle}`}
     >
       <Link to={`${title}/${name}/${id}`} className="w-full h-[230px]">
         <img
@@ -49,13 +49,17 @@ function ProductCard({ product, title, productstyle }) {
           {price}
         </Text>
       </div>
-      <Button
-        buttontype="secondary-button"
-        buttonstyles="w-full py-3 mt-2 focus:ring-[4px] focus:outline-none focus:ring-[#2a2a2f0d]"
-        buttonFunc={() => addCartItem(product)}
-      >
-        Add item to cart
-      </Button>
+      {type == "order-history" ? (
+        <></>
+      ) : (
+        <Button
+          buttontype="secondary-button"
+          buttonstyles="w-full py-3 mt-2 focus:ring-[4px] focus:outline-none focus:ring-[#2a2a2f0d]"
+          buttonFunc={() => addCartItem(product)}
+        >
+          Add item to cart
+        </Button>
+      )}
     </div>
   );
 }

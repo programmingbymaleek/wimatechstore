@@ -9,85 +9,141 @@ const OrderSummary = () => {
   const grandTotal = Number(total) + Number(tax);
 
   return (
-    <div className="mt-6 w-full sm:mt-8 large:mt-0 large:max-w-sm xl:max-w-md border shadow-sm h-[60vh] overflow-hidden">
-      <div className="flow-root border-b p-5">
-        <div className="-my-3">
-          <dl className="flex items-center justify-between gap-4 py-3 pb-5">
-            <Text texttype="text-normal" textstyles=" font-bold text-gray-900 ">
-              Order Summary
-            </Text>
-            <Text texttype="text-normal" textstyles=" font-bold text-gray-900 ">
-              {grandTotal}
-            </Text>
-          </dl>
+    <>
+      <section className="bg-white py-8 antialiased dark:bg-gray-900 md:py-16">
+        <div className="space-y-4">
+          <Text texttype="heading-base" textstyles="text-gray-900">
+            Delivery Details
+          </Text>
+          <div className="flex flex-row gap-14 pt-2 h-full">
+            <div className="mt-6 space-y-4 border-b border-t border-gray-200 py-8 dark:border-gray-700 sm:mt-8">
+              <h4 className="text-lg font-semibold text-gray-900 dark:text-white">
+                Billing & Delivery information
+              </h4>
 
-          <div className="flex items-center justify-between gap-4 py-0.5">
-            <Text
-              texttype="text-normal"
-              textstyles=" font-normal text-gray-500 "
-            >
-              Sub Total
-            </Text>
-            <Text
-              texttype="text-normal"
-              textstyles=" font-medium text-green-500"
-            >
-              {total}
-            </Text>
-          </div>
+              <dl>
+                <dt className="text-base font-medium text-gray-900 dark:text-white">
+                  Individual
+                </dt>
+                <dd className="mt-1 text-base font-normal text-gray-500 dark:text-gray-400">
+                  Bonnie Green - +1 234 567 890, San Francisco, California,
+                  United States, 3454, Scott Street
+                </dd>
+              </dl>
+            </div>
 
-          <div className="flex items-center justify-between gap-4 py-0.5 pb-4">
-            <Text
-              texttype="text-normal"
-              textstyles=" font-normal text-gray-500 "
-            >
-              Tax{" "}
-              <Text texttype="text-sm" textstyles="">
-                (10%)
-              </Text>
-            </Text>
-            <Text
-              texttype="text-normal"
-              textstyles=" font-medium text-gray-900 "
-            >
-              {tax}
-            </Text>
-          </div>
-        </div>
-      </div>
-      <div className="h-[40vh] overflow-scroll">
-        {cartItems.map((item) => (
-          <div
-            className=" px-5 pt-6 gap-6 flex flex-row items-center"
-            key={item.id}
-          >
-            <img src={item.imageUrl} alt="product_image" className="w-16" />
-            <div className="flex flex-col gap-2">
-              <Text
-                texttype="text-normal"
-                textstyles="text-gray-900 w-full leading-5"
-              >
-                {item.name}
-              </Text>
-              <div className="flex flex-row justify-between items-center">
-                <Text
-                  texttype="text-normal"
-                  textstyles="font-bold text-gray-900"
-                >
-                  x{item.quantity}
-                </Text>
-                <Text
-                  texttype="text-normal"
-                  textstyles="font-bold text-gray-900"
-                >
-                  {item.price * item.quantity}
-                </Text>
+            <div className="mt-6 sm:mt-8">
+              <div className="relative overflow-x-auto border-b border-gray-200 dark:border-gray-800">
+                <table className="w-full text-left font-medium text-gray-900 dark:text-white md:table-fixed">
+                  <tbody className="divide-y divide-gray-200 dark:divide-gray-800">
+                    <tr>
+                      <td className="whitespace-nowrap py-4 md:w-[384px]">
+                        <div className="flex items-center gap-4">
+                          <a
+                            href="#"
+                            className="flex items-center aspect-square w-10 h-10 shrink-0"
+                          >
+                            <img
+                              className="h-auto w-full max-h-full dark:hidden"
+                              src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front.svg"
+                              alt="imac image"
+                            />
+                            <img
+                              className="hidden h-auto w-full max-h-full dark:block"
+                              src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front-dark.svg"
+                              alt="imac image"
+                            />
+                          </a>
+                          <a href="#" className="hover:underline">
+                            Apple iMac 27”
+                          </a>
+                        </div>
+                      </td>
+
+                      <td className="p-4 text-base font-normal text-gray-900 dark:text-white">
+                        x1
+                      </td>
+
+                      <td className="p-4 text-right text-base font-bold text-gray-900 dark:text-white">
+                        $1,499
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td className="whitespace-nowrap py-4 md:w-[384px]">
+                        <div className="flex items-center gap-4">
+                          <a
+                            href="#"
+                            className="flex items-center aspect-square w-10 h-10 shrink-0"
+                          >
+                            <img
+                              className="h-auto w-full max-h-full dark:hidden"
+                              src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/iphone-light.svg"
+                              alt="imac image"
+                            />
+                            <img
+                              className="hidden h-auto w-full max-h-full dark:block"
+                              src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/iphone-dark.svg"
+                              alt="imac image"
+                            />
+                          </a>
+                          <a href="#" className="hover:underline">
+                            Apple iPhone 14
+                          </a>
+                        </div>
+                      </td>
+
+                      <td className="p-4 text-base font-normal text-gray-900 dark:text-white">
+                        x2
+                      </td>
+
+                      <td className="p-4 text-right text-base font-bold text-gray-900 dark:text-white">
+                        $1,998
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="mt-4 space-y-6">
+                <h4 className="text-xl font-semibold text-gray-900 dark:text-white">
+                  Order summary
+                </h4>
+
+                <div className="space-y-4">
+                  <div className="space-y-2">
+                    <dl className="flex items-center justify-between gap-4">
+                      <dt className="text-gray-500 dark:text-gray-400">
+                        Original price
+                      </dt>
+                      <dd className="text-base font-medium text-gray-900 dark:text-white">
+                        $6,592.00
+                      </dd>
+                    </dl>
+
+                    <dl className="flex items-center justify-between gap-4">
+                      <dt className="text-gray-500 dark:text-gray-400">Tax</dt>
+                      <dd className="text-base font-medium text-gray-900 dark:text-white">
+                        $799
+                      </dd>
+                    </dl>
+                  </div>
+
+                  <dl className="flex items-center justify-between gap-4 border-t border-gray-200 pt-2 dark:border-gray-700">
+                    <dt className="text-lg font-bold text-gray-900 dark:text-white">
+                      Total
+                    </dt>
+                    <dd className="text-lg font-bold text-gray-900 dark:text-white">
+                      $7,191.00
+                    </dd>
+                  </dl>
+                </div>
               </div>
             </div>
           </div>
-        ))}
-      </div>
-    </div>
+        </div>
+      </section>
+    </>
   );
 };
 

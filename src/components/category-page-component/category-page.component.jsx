@@ -20,7 +20,7 @@ const CategoryPage = () => {
     <div>
       <div className="flex flex-col  w-full py-8 h-[90dvh] overflow-hidden pt-24 px-8 pb-16 mx-auto  max-w-[1280px]">
         <Text texttype="heading-md" textstyles="text-center xmedium:text-left">
-          Electronics
+          Shop
         </Text>
         <div className="flex flex-row gap-16 pt-10 h-full">
           <Filter />
@@ -29,7 +29,11 @@ const CategoryPage = () => {
             {categoryProduct ? (
               categoryProduct.map((product) => (
                 <div className="w-full h-[350px]">
-                  <ProductCard key={product.id} product={product} />
+                  <ProductCard
+                    key={product.id}
+                    product={product}
+                    productstyle="w-[20vw]"
+                  />
                 </div>
               ))
             ) : (

@@ -86,7 +86,7 @@ const SetDelivery = ({ onValidate }) => {
                 required
               />
               {deliveryDetails.name === "" && (
-                <p className="text-red-500">Name is required</p>
+                <Text className="text-red-500">Name is required</Text>
               )}
 
               <FormInput
@@ -100,7 +100,7 @@ const SetDelivery = ({ onValidate }) => {
                 required
               />
               {deliveryDetails.email === "" && (
-                <p className="text-red-500">Email is required</p>
+                <Text texttype='text-sm' textstyles="text-red-500 italic">Email is required</Text>
               )}
 
               <div>
@@ -121,7 +121,7 @@ const SetDelivery = ({ onValidate }) => {
                   required
                 />
                 {deliveryDetails.phone === "" && (
-                  <p className="text-red-500">Phone number is required</p>
+                  <Text texttype='text-sm' textstyles="text-red-500 italic">Phone number is required</Text>
                 )}
               </div>
 
@@ -136,7 +136,7 @@ const SetDelivery = ({ onValidate }) => {
                 required
               />
               {deliveryDetails.address === "" && (
-                <p className="text-red-500">Address is required</p>
+                <Text texttype='text-sm' textstyles="text-red-500 italic">Address is required</Text>
               )}
             </div>
           </div>

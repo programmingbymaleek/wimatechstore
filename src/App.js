@@ -23,6 +23,7 @@ import ErrorPage from "./components/error-page-component/error-page.component";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { fetchOrderHistory } from "./reduxtoolkit/features/orderHistory/orderHistory";
+import Category from "./components/category/categoryComponent";
 
 function App() {
   const dispatch = useDispatch();
@@ -84,6 +85,8 @@ function App() {
           <Route path="cart" element={<CartComponent />} />
           <Route path="checkOut" element={<CheckoutWrapper />} />
           <Route path="errorpage" element={<ErrorPage />} />
+          <Route path="category/:category" element={<Category />} />
+
         </Route>
       </Routes>
     </Elements>

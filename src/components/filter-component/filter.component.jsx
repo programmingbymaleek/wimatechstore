@@ -109,7 +109,7 @@ const Filter = () => {
   return (
     <div className="flex flex-col w-full py-6 h-full pt-32 gap-8 px-16 pb-16 mx-auto max-w-[1280px] house">
       <Text texttype="heading-md" textstyles="text-center xmedium:text-left">
-        Electronics
+        Shop
       </Text>
       <div className="flex flex-row gap-14 pt-2 h-full">
         <div className="w-[14rem] flex flex-col gap-10  h-[80vh] overflow-scroll">

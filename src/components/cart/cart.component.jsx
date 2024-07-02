@@ -85,7 +85,7 @@ const CartComponent = () => {
                       className="border-b flex flex-row items-center w-full"
                     >
                       <td className="min-w-56 py-6 whitespace-nowrap w-fit h-max">
-                        <div className="font-medium gap-4 items-center flex w-80">
+                        <div className="font-medium gap-6 items-center flex w-80">
                           <div className="w-16 flex-shrink-0 h-24 aspect-1">
                             <img
                               className="w-full h-full object-cover"
@@ -93,7 +93,9 @@ const CartComponent = () => {
                               alt="product image"
                             />
                           </div>
-                          {itemToCheckOut.name}
+                          <Text texttype="text-normal" textstyles="">
+                            {itemToCheckOut.name}
+                          </Text>
                         </div>
                       </td>
 
@@ -107,12 +109,16 @@ const CartComponent = () => {
                         </div>
                       </td>
 
-                      <td className="p-4 text-gray-900 font-bold text-base w-56 h-fit">
-                        {itemToCheckOut.price}
+                      <td className="p-4 w-56 h-fit">
+                        <Text texttype="text-normal" textstyles="font-bold">
+                          {itemToCheckOut.price}
+                        </Text>
                       </td>
 
-                      <td className="p-4 text-gray-900 font-bold text-base w-56 h-fit">
-                        {itemToCheckOut.price * itemToCheckOut.quantity}
+                      <td className="p-4 w-56 h-fit">
+                        <Text texttype="text-normal" textstyles="font-bold">
+                          {itemToCheckOut.price * itemToCheckOut.quantity}
+                        </Text>
                       </td>
 
                       <td className="py-4 h-fit">
@@ -123,7 +129,7 @@ const CartComponent = () => {
                           className="text-gray-300 p-2 rounded-lg block w-fit"
                         >
                           <BinIcon
-                            className="w-6 h-6 hover:text-red-800"
+                            className="w-5 h-5 hover:text-red-800"
                             onClick={() => removeCartItems(itemToCheckOut)}
                           />
                         </button>
@@ -255,7 +261,13 @@ const CartComponent = () => {
             <ScrollableSection scrollstyles="gap-4 medium:gap-8 justify-between overflow-clip">
               {orders.map((item) => (
                 <div key={item.id} className="w-[220px]">
-                  <ProductCard key={item.id} product={item} title={item.make} />
+                  <ProductCard
+                    key={item.id}
+                    product={item}
+                    title={item.make}
+                    type="order-history"
+                    productstyle="w-[200px]"
+                  />
                 </div>
               ))}
             </ScrollableSection>

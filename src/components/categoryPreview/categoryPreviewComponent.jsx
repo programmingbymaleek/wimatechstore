@@ -48,7 +48,7 @@ function CatergoryPreview({ dataOne }) {
                         key={product.id}
                         product={product}
                         title={title}
-                        productstyle="w-full"
+                        productstyle="w-[15vw]"
                       />
                     </div>
                   ))}
