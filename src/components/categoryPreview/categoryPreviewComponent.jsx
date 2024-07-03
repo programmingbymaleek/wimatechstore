@@ -17,16 +17,6 @@ function CatergoryPreview({ dataOne }) {
 
   return (
     <div className="flex flex-col w-full  h-full pb-16 mx-auto max-w-[1280px]">
-      {/* <Text texttype="heading-md" textstyles="text-center xmedium:text-left">
-        Shop
-      </Text> */}
-      {/* <input
-        type="text"
-        placeholder="Search for Product"
-        value={searchQuery}
-        onChange={handleSearch}
-        className="my-4 p-2 border border-gray-300 rounded"
-      /> */}
       <div className="flex flex-row gap-16 ">
         {/* <Filter /> */}
         <div className="grid gap-12 flex-1">
@@ -41,14 +31,15 @@ function CatergoryPreview({ dataOne }) {
                     {title.toUpperCase()}
                   </Text>
                 </h1>
-                <div className={classes["product-container"]}>
+                <div className="grid small:grid-cols-3 xxsmall:grid-cols-2 grid-cols-1 gap-x-3 gap-y-12 medium:grid-cols-4">
                   {dataOne[title].map((product) => (
                     <div key={product.id}>
                       <ProductCard
                         key={product.id}
                         product={product}
                         title={title}
-                        productstyle="w-[15vw]"
+                        productstyle="w-full"
+                        imagestyle="h-[300px]"
                       />
                     </div>
                   ))}

@@ -267,6 +267,7 @@ const CartComponent = () => {
                     title={item.make}
                     type="order-history"
                     productstyle="w-[200px]"
+                    imagestyle="h-[300px]"
                   />
                 </div>
               ))}
@@ -288,6 +289,7 @@ const CartComponent = () => {
                   product={item}
                   title={item.make}
                   productstyle="w-[200px]"
+                  imagestyle="h-[300px]"
                 />
               </div>
             ))}

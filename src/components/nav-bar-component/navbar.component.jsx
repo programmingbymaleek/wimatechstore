@@ -258,7 +258,7 @@ const Navbar = () => {
                     Home
                   </Text>
                 </Link>
-                <Link to={"/wimatechstore"}>
+                <Link to={"/wimatechstore/shop"}>
                   <Text
                     texttype="text-normal"
                     textstyles=" hover:text-blue-800 text-gray-700 font-medium"

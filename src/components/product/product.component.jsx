@@ -67,7 +67,7 @@ const Product = () => {
 
   return (
     <div>
-      <div className="flex flex-col w-full py-8 h-full px-16 pt-32 pb-16 mx-auto max-w-[1280px]">
+      <div className="flex flex-col w-full py-8 h-full px-6 large:px-16 pt-32 pb-16 mx-auto max-w-[1280px]">
         <Link to="/wimatechstore/shop">
           <Button
             buttontype="icon-button"
@@ -77,7 +77,7 @@ const Product = () => {
           </Button>
         </Link>
         <div className="w-full overflow-clip pt-8">
-          <div className="large:grid-cols-2 gap-8 grid w-full items-center">
+          <div className="grid-cols-2 gap-8 grid w-full items-center">
             <div className="w-9/12 mx-auto p-4 bg-white rounded-lg ">
               <img
                 className="w-full h-auto mx-auto"
@@ -124,10 +124,10 @@ const Product = () => {
               </div>
 
               <div className="medium:gap-4 gap-0 medium:items-end items-start justify-end flex medium:flex-row-reverse flex-col-reverse mt-6 w-full">
-                <div className="medium:gap-4 medium:items-center medium:flex">
+                <div className="medium:gap-4 medium:items-center medium:flex w-full">
                   <Button
                     buttontype="primary-button"
-                    buttonstyles="medium:mt-0 medium:w-max w-[100vw] font-medium px-5 py-2.5 rounded-lg justify-center flex mt-4 focus:ring-[4px] focus:ring-blue-300"
+                    buttonstyles="medium:mt-0 medium:w-max w-full font-medium px-5 py-2.5 rounded-lg justify-center flex mt-4 focus:ring-[4px] focus:ring-blue-300"
                     buttonFunc={() => addCartItem(productToView)}
                   >
                     <AddCartIcon className="w-5 h-5 -ms-2 me-2" />
@@ -156,7 +156,7 @@ const Product = () => {
               <div className="medium:grid-cols-2">
                 <p className="text-gray-900  font-medium text-base">Pickup</p>
 
-                <div className="gap-4 flex flex-col mt-2 medium:flex-row ">
+                <div className="gap-4 flex flex-col mt-2 xmedium:flex-row xmedium:pt-2 pt-4">
                   <div className="flex">
                     <div className="items-center h-5 flex">
                       <InputBox
@@ -252,6 +252,7 @@ const Product = () => {
                     product={item}
                     title={item.make}
                     productstyle="w-[200px]"
+                    imagestyle="h-[200px]"
                   />
                 </div>
               ))}

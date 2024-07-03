@@ -4,11 +4,17 @@ import Button from "../button-component/button.component";
 import { useSelector } from "react-redux";
 import CatergoryPreview from "../categoryPreview/categoryPreviewComponent";
 import { ReactComponent as CloseIcon } from "../../assets/icons/close.svg";
+import { ReactComponent as FilterIcon } from "../../assets/icons/filter.svg";
+import { ReactComponent as ArrowDownIcon } from "../../assets/icons/arrow_down.svg";
+import { Link } from "react-router-dom";
+import NavItem from "../nav-item-component/navitem.component";
+import InputBox from "../inputbox-component/inputbox.component";
 
 const Filter = () => {
   const products = useSelector((state) => state.products.products);
   const [selectedPriceRange, setSelectedPriceRange] = useState(null);
   const [filteredData, setFilteredData] = useState(products);
+  const [showFilter, setShowFilter] = useState(false);
 
   const categoryData = Object.keys(products);
   const objCategory = categoryData.reduce((acc, category) => {
@@ -107,12 +113,109 @@ const Filter = () => {
   const isEmpty = Object.keys(filteredData).length === 0;
 
   return (
-    <div className="flex flex-col w-full py-6 h-full pt-32 gap-8 px-16 pb-16 mx-auto max-w-[1280px] house">
-      <Text texttype="heading-md" textstyles="text-center xmedium:text-left">
-        Shop
-      </Text>
-      <div className="flex flex-row gap-14 pt-2 h-full">
-        <div className="w-[14rem] flex flex-col gap-10  h-[80vh] overflow-scroll">
+    <div className="flex flex-col w-full h-full pt-32 gap-8 large:px-16 px-8 pb-0 xsmall:pb-16 mx-auto max-w-[1280px] house">
+      <div className="flex flex-row w-full justify-between items-center">
+        <Text texttype="heading-md" textstyles="text-center xmedium:text-left">
+          Shop
+        </Text>
+        <Button
+          buttontype="icon-button"
+          buttonstyles="large:hidden flex w-fit items-center justify-center rounded-lg border bg-white px-3.5 py-2 text-xs xsmall:text-sm font-normal text-gray-900 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100"
+          buttonFunc={() => setShowFilter(!showFilter)}
+        >
+          <FilterIcon className="w-3 h-3 mr-3" />
+          Filters
+          <ArrowDownIcon className="w-3 h-3 ml-3" />
+        </Button>
+        {showFilter && (
+          <div className="w-[100vw] bg-black/50 z-20 fixed top-0 left-0 bottom-0 right-0 min-h-screen h-full  flex justify-start">
+            <div className="flex flex-col gap-2 items-start xsmall:w-[20rem] w-10/12  bg-white h-full  xsmall:px-8 px-4 xsmall:py-8 py-6 overflow-scroll">
+              <div className="w-full flex justify-end">
+                <CloseIcon
+                  className="w-5 h-5 cursor-pointer"
+                  onClick={() => setShowFilter(!showFilter)}
+                />
+              </div>
+              <div className="w-full">
+                <div className="flex flex-row justify-between border-b-2 border-blue-700 ">
+                  <Text
+                    texttype="text-normal"
+                    textstyles="uppercase text-gray-800 font-semibold pb-2.5 w-full block"
+                  >
+                    Categories
+                  </Text>
+                </div>
+                <div className="grid xxsmall:grid-cols-2 grid-cols-1 gap-3 pt-6">
+                  {categoryData.map((category) => (
+                    <div key={category} className="flex items-center">
+                      <input
+                        type="checkbox"
+                        id={category}
+                        name={category}
+                        checked={checkedItems[category] || false}
+                        onChange={handleChange}
+                        className="w-4 h-4 text-gray-900 bg-gray-100 border-gray-300 rounded "
+                      />
+                      <label
+                        htmlFor={category}
+                        className="ml-5 text-sm text-gray-900 capitalize"
+                      >
+                        <Text texttype="text-normal">{category}</Text>
+                      </label>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="w-full pt-5">
+                <div className="flex flex-row justify-between border-b-2 border-blue-700 ">
+                  <Text
+                    texttype="text-normal"
+                    textstyles="uppercase text-gray-800 font-semibold pb-2.5 w-full block"
+                  >
+                    Price
+                  </Text>
+                  {selectedPriceRange != null && (
+                    <Button
+                      buttontype="icon-button"
+                      buttonstyles="flex flex-row cursor-pointer"
+                      buttonFunc={clearPriceRange}
+                    >
+                      <CloseIcon className="w-4 h-4 text-red-800" />
+                      <Text
+                        texttype="text-sm"
+                        textstyles=" text-red-800 hover:underline "
+                      >
+                        Clear
+                      </Text>
+                    </Button>
+                  )}
+                </div>
+
+                <div className="grid xxsmall:grid-cols-2 grid-cols-1 gap-3 pt-6">
+                  {buttonData.map((range) => (
+                    <Button
+                      key={range}
+                      buttontype="icon-buttom"
+                      buttonstyles={` px-2 py-1.5 rounded-md  w-max border text-gray-600  font-medium ${
+                        selectedPriceRange === range
+                          ? "bg-blue-600 text-white border border-transparent"
+                          : " border-gray-300 bg-white "
+                      }`}
+                      buttonFunc={() => handlePriceRangeClick(range)}
+                    >
+                      <Text texttype="text-sm" textstyles="text-inherit">
+                        {range}
+                      </Text>
+                    </Button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+      <div className="flex flex-row gap-8 pt-2 h-full">
+        <div className="large:w-[13rem] hidden large:flex flex-col gap-10  h-[80vh] overflow-scroll">
           <div className="w-full">
             <div className="flex flex-row justify-between border-b-2 border-blue-700 ">
               <Text

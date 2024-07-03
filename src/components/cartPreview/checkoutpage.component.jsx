@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "../button-component/button.component";
 import Text from "../text-component/text.component";
 import BreadCrumb from "../breadcrumb-component/breadcrumb.component";
-import OrderSummary from "../order-summary-component/order-summary.component";
+import OrderSummary from "../order-summary-component/ordersummary.component";
 import SetDelivery from "../set-delivery-component/set-delivery.component";
 import SetPayment from "../set-payment-component/set-payment.component";
 import { useNavigate } from "react-router-dom";

@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addItemsTocart } from "../../reduxtoolkit/features/cart/cartSlice";
 
-function ProductCard({ product, title, productstyle, type }) {
+function ProductCard({ product, title, productstyle, type, imagestyle }) {
   const { addItemToCart } = useContext(ProductQuickViewContext);
   const { name, price, imageUrl, make, id } = product;
 
@@ -25,7 +25,7 @@ function ProductCard({ product, title, productstyle, type }) {
     <div
       className={` w-[200px] gap-2 h-fit flex flex-col items-center relative ${productstyle}`}
     >
-      <Link to={`${title}/${name}/${id}`} className="w-full h-[230px]">
+      <Link to={`${title}/${name}/${id}`} className={`w-full small:h-[230px] xxsmall:h-[200px] ${imagestyle}`}>
         <img
           src={imageUrl}
           alt={name}
