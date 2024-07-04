@@ -250,7 +250,7 @@ const Navbar = () => {
                     onClick={() => setShowMenu(false)}
                   />
                 </div>
-                <Link to={"/wimatechstore"}>
+                <Link to={"/wimatechstore"} onClick={() => setShowMenu(false)}>
                   <Text
                     texttype="text-normal"
                     textstyles=" hover:text-blue-800 text-gray-700 font-medium"
@@ -258,7 +258,10 @@ const Navbar = () => {
                     Home
                   </Text>
                 </Link>
-                <Link to={"/wimatechstore/shop"}>
+                <Link
+                  to={"/wimatechstore/shop"}
+                  onClick={() => setShowMenu(false)}
+                >
                   <Text
                     texttype="text-normal"
                     textstyles=" hover:text-blue-800 text-gray-700 font-medium"
@@ -266,15 +269,16 @@ const Navbar = () => {
                     Shop
                   </Text>
                 </Link>
-                <Link to={"/wimatechstore"}>
+
+                {/* <Link to={"/wimatechstore"}  onClick={() => setShowMenu(false)}>
                   <Text
                     texttype="text-normal"
                     textstyles=" hover:text-blue-800 text-gray-700 font-medium"
                   >
                     Categories
                   </Text>
-                </Link>
-                <Link to={"/wimatechstore"}>
+                </Link> */}
+                <Link to={"/wimatechstore"} onClick={() => setShowMenu(false)}>
                   <Text
                     texttype="text-normal"
                     textstyles=" hover:text-blue-800 text-gray-700 font-medium"
@@ -321,13 +325,19 @@ const Navbar = () => {
                       <WhiteSearchIcon className="w-5 h-5" />
                     </Button>
                   </div>
-                  <Button
-                    buttontype="secondary-button"
-                    buttonstyles="w-full py-2 px-4 focus:ring-[4px] focus:outline-none focus:ring-[#2a2a2f0d]"
-                    buttonFunc={() => setShowMenu(false)}
+                  <Link
+                    to={"/wimatechstore/cart"}
+                    onClick={() => setShowMenu(false)}
+                    className="w-full"
                   >
-                    Go to Cart
-                  </Button>
+                    {" "}
+                    <Button
+                      buttontype="secondary-button"
+                      buttonstyles="w-full py-2 px-4 focus:ring-[4px] focus:outline-none focus:ring-[#2a2a2f0d]"
+                    >
+                      Go to Cart
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>

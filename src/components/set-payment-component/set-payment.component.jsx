@@ -3,6 +3,7 @@ import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 import FormInput from "../form-input-component/form-input.component";
 import Text from "../text-component/text.component";
 import InputBox from "../inputbox-component/inputbox.component";
+import "../../index.css";
 
 const SetPayment = ({ onValidate }) => {
   const [selectedOption, setSelectedOption] = useState("");
@@ -147,7 +148,7 @@ const SetPayment = ({ onValidate }) => {
                 <div className="mt-4">
                   <FormInput
                     type="text"
-                    name="cardNumber"
+                    name="card Number"
                     placeholder="1234 5678 9012 3456"
                     labelstyle="capitalize font-medium mb-1 block"
                     inputstyle="block w-full rounded-[0.4rem] border p-2.5 py-3 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500"
@@ -160,7 +161,7 @@ const SetPayment = ({ onValidate }) => {
                 <div className="mt-4">
                   <FormInput
                     type="text"
-                    name="nameOnCard"
+                    name="Name On Card"
                     placeholder="Jane Doe"
                     labelstyle="capitalize font-medium mb-1 block"
                     inputstyle="block w-full rounded-[0.4rem] border p-2.5 py-3 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500"
@@ -173,7 +174,7 @@ const SetPayment = ({ onValidate }) => {
                 <div className="grid grid-cols-2 gap-4 mt-4">
                   <FormInput
                     type="text"
-                    name="expirationDate"
+                    name="Expiration Date"
                     placeholder="MM/YY"
                     labelstyle="capitalize font-medium mb-1 block"
                     inputstyle="block w-full rounded-[0.4rem] border p-2.5 py-3 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500"
@@ -198,24 +199,52 @@ const SetPayment = ({ onValidate }) => {
         )}
 
         {/* CardElement from Stripe */}
-        <div>
-          <CardElement
-            options={{
-              style: {
-                base: {
-                  fontSize: "16px",
-                  color: "#424770",
-                  "::placeholder": {
-                    color: "#aab7c4",
-                  },
-                },
-                invalid: {
-                  color: "#9e2146",
-                },
-              },
-            }}
-            onChange={handleCardChange}
-          />
+        <div className="rounded-lg border border-gray-200 bg-gray-50 p-4 ps-4 stripe-element">
+          <div className="flex items-start">
+            <div className="flex h-5 items-center">
+              <InputBox
+                inputstyles="text-primary-600 focus:ring-primary-500 text-blue-900 bg-white border-gray-100 rounded-full w-4 h-4 cursor-pointer"
+                type="radio"
+                name="payment-method"
+                id="paypal-2"
+                value="paypal"
+                onChange={handleOptionChange}
+              />
+            </div>
+
+            <div className="ms-4 text-sm flex flex-col w-full">
+              <label
+                htmlFor="paypal-2"
+                className="font-medium leading-none text-gray-900"
+              >
+                Pay with Stripe{" "}
+              </label>
+
+              <div className="bg-white px-6 mt-3 rounded-lg">
+                <CardElement
+                  options={{
+                    style: {
+                      base: {
+                        fontSize: "16px",
+                        color: "#424770",
+                        lineHeight: "3rem",
+                        fontSize: "13px",
+                        "::placeholder": {
+                          fontSize: "13px",
+                        },
+                      },
+
+                      invalid: {
+                        color: "#9e2146",
+                      },
+                    },
+                  }}
+                  onChange={handleCardChange}
+                  className="stripe-element"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

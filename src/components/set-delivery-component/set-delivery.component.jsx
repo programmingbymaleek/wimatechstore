@@ -74,70 +74,77 @@ const SetDelivery = ({ onValidate }) => {
             Delivery Details
           </Text>
           <div>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <FormInput
-                type="text"
-                name="name"
-                value={deliveryDetails.name || ""}
-                onChange={handleChange}
-                placeholder="Jane Doe"
-                labelstyle="capitalize font-medium mb-2 block"
-                inputstyle="block w-full rounded-[0.4rem] border p-2.5 py-3 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500"
-                required
-              />
-              {deliveryDetails.name === "" && (
-                <Text className="text-red-500">Name is required</Text>
-              )}
-
-              <FormInput
-                type="email"
-                name="email"
-                value={deliveryDetails.email || ""}
-                onChange={handleChange}
-                placeholder="name@example.com"
-                labelstyle="capitalize font-medium mb-2 block"
-                inputstyle="block w-full rounded-[0.4rem] border p-2.5 py-3 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500"
-                required
-              />
-              {deliveryDetails.email === "" && (
-                <Text texttype='text-sm' textstyles="text-red-500 italic">Email is required</Text>
-              )}
-
+            <div className="grid grid-cols-1 gap-4 small:grid-cols-2">
               <div>
-                <label
-                  htmlFor="phone"
-                  className="mb-2 block text-sm font-medium text-gray-900"
-                >
-                  Phone Number*
-                </label>
-                <input
+                <FormInput
                   type="text"
-                  id="phone"
+                  name="name"
+                  value={deliveryDetails.name || ""}
+                  onChange={handleChange}
+                  placeholder="Jane Doe"
+                  labelstyle="capitalize font-medium mb-2 block"
+                  inputstyle="block w-full rounded-[0.4rem] border p-2.5 py-3 xsmall:text-sm text-xs text-gray-900 focus:border-primary-500 focus:ring-primary-500"
+                  required
+                />
+                {deliveryDetails.name === "" && (
+                  <Text texttype="text-sm" textstyles="text-red-500 italic">
+                    Name is required
+                  </Text>
+                )}
+              </div>
+              <div>
+                <FormInput
+                  type="email"
+                  name="email"
+                  value={deliveryDetails.email || ""}
+                  onChange={handleChange}
+                  placeholder="name@example.com"
+                  labelstyle="capitalize font-medium mb-2 block"
+                  inputstyle="block w-full rounded-[0.4rem] border p-2.5 py-3 xsmall:text-sm text-xs text-gray-900 focus:border-primary-500 focus:ring-primary-500"
+                  required
+                />
+                {deliveryDetails.email === "" && (
+                  <Text texttype="text-sm" textstyles="text-red-500 italic">
+                    Email is required
+                  </Text>
+                )}
+              </div>
+              <div>
+                <FormInput
+                  type="tel"
                   name="phone"
                   value={deliveryDetails.phone || ""}
                   onChange={handleChange}
-                  className="block w-full rounded-[0.4rem] border bg-white p-2.5 py-3 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500"
                   placeholder="123-456-7890"
+                  labelstyle="capitalize font-medium mb-2 block"
+                  inputstyle="block w-full rounded-[0.4rem] border p-2.5 py-3 xsmall:text-sm text-xs text-gray-900 focus:border-primary-500 focus:ring-primary-500"
                   required
                 />
-                {deliveryDetails.phone === "" && (
-                  <Text texttype='text-sm' textstyles="text-red-500 italic">Phone number is required</Text>
+                <div>
+                  {deliveryDetails.phone === "" && (
+                    <Text texttype="text-sm" textstyles="text-red-500 italic">
+                      Phone number is required
+                    </Text>
+                  )}
+                </div>
+              </div>
+              <div>
+                <FormInput
+                  type="text"
+                  name="address"
+                  value={deliveryDetails.address || ""}
+                  onChange={handleChange}
+                  placeholder="123 Main St"
+                  labelstyle="capitalize font-medium mb-2 block"
+                  inputstyle="block w-full rounded-[0.4rem] border p-2.5 py-3 xsmall:text-sm text-xs text-gray-900 focus:border-primary-500 focus:ring-primary-500"
+                  required
+                />
+                {deliveryDetails.address === "" && (
+                  <Text texttype="text-sm" textstyles="text-red-500 italic">
+                    Address is required
+                  </Text>
                 )}
               </div>
-
-              <FormInput
-                type="text"
-                name="address"
-                value={deliveryDetails.address || ""}
-                onChange={handleChange}
-                placeholder="123 Main St"
-                labelstyle="capitalize font-medium mb-2 block"
-                inputstyle="block w-full rounded-[0.4rem] border p-2.5 py-3 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500"
-                required
-              />
-              {deliveryDetails.address === "" && (
-                <Text texttype='text-sm' textstyles="text-red-500 italic">Address is required</Text>
-              )}
             </div>
           </div>
         </div>

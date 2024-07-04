@@ -252,7 +252,7 @@ const Product = () => {
                     product={item}
                     title={item.make}
                     productstyle="w-[200px]"
-                    imagestyle="h-[200px]"
+                    imagestyle="200px"
                   />
                 </div>
               ))}
@@ -274,6 +274,7 @@ const Product = () => {
                   product={item}
                   title={item.make}
                   productstyle="w-[200px]"
+                  imagestyle="200px"
                 />
               </div>
             ))}

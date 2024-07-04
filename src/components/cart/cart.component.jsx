@@ -39,7 +39,7 @@ const CartComponent = () => {
 
   return (
     <div>
-      <div className="flex flex-col w-full py-6 h-full pt-32 gap-8 px-16 pb-16 mx-auto max-w-[1280px] house">
+      <div className="flex flex-col w-full py-6 h-full pt-32 gap-8 px-6 large:px-16 pb-16 mx-auto max-w-[1280px] house">
         <Text texttype="heading-md" textstyles="text-center xmedium:text-left">
           Shopping Cart
         </Text>
@@ -267,7 +267,7 @@ const CartComponent = () => {
                     title={item.make}
                     type="order-history"
                     productstyle="w-[200px]"
-                    imagestyle="h-[300px]"
+                    imagestyle="200px"
                   />
                 </div>
               ))}
@@ -289,7 +289,7 @@ const CartComponent = () => {
                   product={item}
                   title={item.make}
                   productstyle="w-[200px]"
-                  imagestyle="h-[300px]"
+                  imagestyle="200px"
                 />
               </div>
             ))}

@@ -28,3 +28,7 @@ code {
 :root {
   box-sizing: border-box;
 }
+.ElementsApp input {
+  background-color: white;
+  padding: 1rem 0.5rem;
+}

@@ -47,8 +47,8 @@ function Category() {
               />
             ))
           ) : (
-            <div style={{ height: "100vh", padding: "10rem" }}>
-              <p>No Products for this Category</p>
+            <div className="grid-cols-5 h-screen p-40">
+              <Text className>No Products for this Category</Text>
             </div>
           )}
         </div>

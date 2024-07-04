@@ -93,7 +93,7 @@ const CheckoutPage = () => {
 
   return (
     <div>
-      <div className="flex flex-col w-full py-6 h-full pt-32 gap-3 px-16 pb-16 mx-auto max-w-[1280px]">
+      <div className="flex flex-col w-full py-6 h-full pt-32 gap-3 px-6 large:px-16 pb-16 mx-auto max-w-[1280px]">
         <Text texttype="heading-md" textstyles="text-center xmedium:text-left">
           Shopping Cart
         </Text>
@@ -102,14 +102,14 @@ const CheckoutPage = () => {
             <BreadCrumb stage={stage} />
 
             <div className="mt-8 sm:mt-8 large:flex large:items-start large:gap-12 xl:gap-16">
-              <div className="min-w-0 flex-1 space-y-8">
+              <div className="min-w-0 flex-1 space-y-8 ">
                 {stage === 0 && <SetDelivery onValidate={setIsDeliveryValid} />}
                 {stage === 1 && <SetPayment onValidate={setIsPaymentValid} />}
                 {stage === 2 && <OrderSummary />}
-                <div className="medium:justify-between medium:items-center medium:flex gap-4 mt-1.5">
+                <div className="justify-between items-center flex gap-4 mt-1.5">
                   <Button
                     buttontype="secondary-button"
-                    buttonstyles="py-3 px-10 focus:ring-[4px] focus:outline-none focus:ring-[#2a2a2f0d]"
+                    buttonstyles="py-3 px-6 xxsmall:px-10 focus:ring-[4px] focus:outline-none focus:ring-[#2a2a2f0d]"
                     buttonFunc={handleBack}
                   >
                     Back
@@ -117,7 +117,7 @@ const CheckoutPage = () => {
                   {stage < 2 ? (
                     <Button
                       buttontype="primary-button"
-                      buttonstyles="medium:mt-0 py-3 px-10 flex mt-4 focus:ring-[4px] focus:ring-blue-300"
+                      buttonstyles="medium:mt-0 py-3 px-6 xxsmall:px-10 flex focus:ring-[4px] focus:ring-blue-300"
                       buttonFunc={handleContinue}
                     >
                       Continue
@@ -125,7 +125,7 @@ const CheckoutPage = () => {
                   ) : (
                     <Button
                       buttontype="primary-button"
-                      buttonstyles="medium:mt-0 py-3 px-10 flex mt-4 focus:ring-[4px] focus:ring-blue-300"
+                      buttonstyles="medium:mt-0 py-3 px-6 xxsmall:px-10 flex mt-4 focus:ring-[4px] focus:ring-blue-300"
                       buttonFunc={onOrderRequest}
                     >
                       Place Order

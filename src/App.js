@@ -24,6 +24,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { fetchOrderHistory } from "./reduxtoolkit/features/orderHistory/orderHistory";
 import Category from "./components/category/categoryComponent";
+import Profile from "./components/profile-page-component/profile-page.component";
 
 function App() {
   const dispatch = useDispatch();
@@ -86,7 +87,7 @@ function App() {
           <Route path="checkOut" element={<CheckoutWrapper />} />
           <Route path="errorpage" element={<ErrorPage />} />
           <Route path="category/:category" element={<Category />} />
-
+          <Route path="profile" element={<Profile />} />
         </Route>
       </Routes>
     </Elements>
