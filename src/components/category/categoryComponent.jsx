@@ -43,12 +43,12 @@ function Category() {
                 product={product_}
                 title={categoryName}
                 productstyle="w-full"
-                imagestyle='h-[300px]'
+                imagestyle="320px"
               />
             ))
           ) : (
             <div className="grid-cols-5 h-screen p-40">
-              <Text className>No Products for this Category</Text>
+              <Text texttype='text-primary' textstyles='w-full text-center text-gray-600'>No Products for this Category</Text>
             </div>
           )}
         </div>

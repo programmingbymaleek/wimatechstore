@@ -4,7 +4,7 @@ const Spinner = () => {
   return (
     <div
       role="status"
-      className="w-full h-[15rem] flex items-center justify-center"
+      className="w-full h-[15rem] pt-24 flex items-center justify-center"
     >
       <svg
         aria-hidden="true"

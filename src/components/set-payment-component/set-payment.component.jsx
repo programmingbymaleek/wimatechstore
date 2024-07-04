@@ -55,7 +55,7 @@ const SetPayment = ({ onValidate }) => {
 
   return (
     <div className="space-y-4">
-      <Text texttype="heading-base" textstyles="text-gray-700">
+      <Text texttype="text-xmd" textstyles="text-gray-900 font-semibold">
         Payment
       </Text>
 
@@ -78,7 +78,9 @@ const SetPayment = ({ onValidate }) => {
                 htmlFor="pay-on-delivery"
                 className="font-medium leading-none text-gray-900"
               >
-                Payment on delivery
+                <Text texttype="text-normal" textstyles="">
+                  Payment on delivery
+                </Text>
               </label>
               <Text texttype="text-sm" textstyles="mt-1 text-gray-500">
                 +$15 payment processing fee
@@ -105,7 +107,9 @@ const SetPayment = ({ onValidate }) => {
                 htmlFor="paypal-2"
                 className="font-medium leading-none text-gray-900"
               >
-                Paypal account
+                <Text texttype="text-normal" textstyles="">
+                  Paypal account
+                </Text>
               </label>
               <Text texttype="text-sm" textstyles="mt-1 text-gray-500">
                 Connect to your account
@@ -132,7 +136,9 @@ const SetPayment = ({ onValidate }) => {
                 htmlFor="credit-card"
                 className="font-medium leading-none text-gray-900"
               >
-                Credit Card
+                <Text texttype="text-normal" textstyles="">
+                  Credit Card
+                </Text>
               </label>
               <Text texttype="text-sm" textstyles="mt-1 text-gray-500">
                 Pay with your credit card
@@ -217,7 +223,9 @@ const SetPayment = ({ onValidate }) => {
                 htmlFor="paypal-2"
                 className="font-medium leading-none text-gray-900"
               >
-                Pay with Stripe{" "}
+                <Text texttype="text-normal" textstyles="">
+                  Pay with Stripe
+                </Text>
               </label>
 
               <div className="bg-white px-6 mt-3 rounded-lg">

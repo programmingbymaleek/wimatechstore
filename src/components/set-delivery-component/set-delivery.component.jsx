@@ -70,7 +70,7 @@ const SetDelivery = ({ onValidate }) => {
     <>
       {detailState && (
         <div className="space-y-4">
-          <Text texttype="heading-base" textstyles="text-gray-900">
+          <Text texttype="text-xmd" textstyles="text-gray-900 font-semibold">
             Delivery Details
           </Text>
           <div>

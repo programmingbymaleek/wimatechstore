@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Text from "../text-component/text.component";
 import { ReactComponent as BackIcon } from "../../assets/icons/back.svg";
 import { ReactComponent as AddCartIcon } from "../../assets/icons/cart_add.svg";
@@ -23,6 +23,7 @@ const Product = () => {
   const [productToView, setProductToView] = useState(null);
   const [count, setCount] = useState(0);
 
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const addCartItem = (productToView) => {
@@ -72,6 +73,7 @@ const Product = () => {
           <Button
             buttontype="icon-button"
             buttonstyles="text-white bg-white border border-gray-100 hover:bg-gray-100/50 rounded-lg text-sm p-2.5 w-max text-center inline-flex items-center me-2 focus:ring-[4px] focus:outline-none focus:ring-[#2a2a2f0d]"
+            buttonFunc={() => navigate(-1)}
           >
             <BackIcon className="w-5 h-5 hover:text-blue-200 text-gray-500" />
           </Button>

@@ -39,7 +39,7 @@ function CatergoryPreview({ dataOne }) {
                         product={product}
                         title={title}
                         productstyle="w-full"
-                        imagestyle="h-[300px]"
+                        imagestyle="330px"
                       />
                     </div>
                   ))}
