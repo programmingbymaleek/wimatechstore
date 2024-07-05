@@ -76,7 +76,7 @@ const LoginSection = () => {
         <FormInput
           type="password"
           name="password"
-          placeholder="....."
+          placeholder="••••••"
           value={password}
           onChange={onChangeHandler}
           required

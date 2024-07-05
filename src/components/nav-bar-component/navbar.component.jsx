@@ -9,6 +9,7 @@ import { ReactComponent as NewItemCartIcon } from "../../assets/icons/new_cart_i
 import { ReactComponent as MenuIcon } from "../../assets/icons/bars.svg";
 import { ReactComponent as CloseIcon } from "../../assets/icons/close.svg";
 import { ReactComponent as UserIcon } from "../../assets/icons/user.svg";
+
 import logo from "../../assets/images/globe-logo.png";
 
 import { useSelector } from "react-redux";
@@ -163,9 +164,12 @@ const Navbar = () => {
                   <>
                     {/* <span>{currentUser.displayName}</span> */}
                     <li>
-                      <a href="#" className="block px-4 py-2 hover:bg-gray-100">
+                      <Link
+                        to={"/wimatechstore/profile"}
+                        className="block px-4 py-2 hover:bg-gray-100"
+                      >
                         Profile
-                      </a>
+                      </Link>
                     </li>
                     <li>
                       <Link
@@ -234,12 +238,87 @@ const Navbar = () => {
             <img
               src={logo}
               alt="Certified Global Enterprise"
-              className="w-10 h-auto"
+              className="w-8 h-auto"
             />
-            <MenuIcon
-              className="w-5 h-5 cursor-pointer"
-              onClick={() => setShowMenu(true)}
-            />
+            <div className="flex flex-row items-center gap-3">
+              <div className="relative group">
+                <Button buttontype="icon-button" buttonstyles="bg-transparent">
+                  <UserIcon className="w-6 h-6 text-gray-400 hover:text-gray-500" />
+                </Button>
+                <div className="group-hover:block hidden -left-[140px] h-[30vh] pt-6 absolute">
+                  <DropDown>
+                    {currentUser ? (
+                      <>
+                        {/* <span>{currentUser.displayName}</span> */}
+                        <li>
+                          <Link
+                            to={"/wimatechstore/profile"}
+                            className="block px-4 py-2 hover:bg-gray-100"
+                          >
+                            Profile
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            to="/wimatechstore/cart"
+                            className="block px-4 py-2 hover:bg-gray-100"
+                          >
+                            Shopping Cart
+                          </Link>
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            className="block px-4 py-2 hover:bg-gray-100"
+                          >
+                            Order History
+                          </a>
+                        </li>
+                        <li>
+                          <button
+                            className=" px-4 py-2 hover:bg-gray-100 w-full border-0 flex justify-start "
+                            onClick={navigateToHome}
+                          >
+                            <Text texttype="text-normal">Sign Out</Text>
+                          </button>
+                        </li>
+                      </>
+                    ) : (
+                      <>
+                        <li>
+                          <Link
+                            to="/wimatechstore/cart"
+                            className="block px-4 py-2 hover:bg-gray-100"
+                          >
+                            Shopping Cart
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            to={"/wimatechstore/login"}
+                            className="block px-4 py-2 hover:bg-gray-100"
+                          >
+                            <Text texttype="text-normal">Login</Text>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            to={"/wimatechstore/signup"}
+                            className="block px-4 py-2 hover:bg-gray-100"
+                          >
+                            <Text texttype="text-normal">Register</Text>
+                          </Link>
+                        </li>
+                      </>
+                    )}
+                  </DropDown>
+                </div>
+              </div>
+              <MenuIcon
+                className="w-4.5 h-4.5 cursor-pointer"
+                onClick={() => setShowMenu(true)}
+              />
+            </div>
           </div>
           {showMenu && (
             <div className="w-[100vw] bg-black/50 z-20 absolute top-0 right-0 h-screen flex justify-end">
@@ -286,30 +365,7 @@ const Navbar = () => {
                     Contact Us
                   </Text>
                 </Link>
-                <div className="flex flex-col gap-8 items-start w-fit pt-5">
-                  {currentUser ? (
-                    <>
-                      <span>{currentUser.displayName}</span>
-                      <button onClick={navigateToHome}>
-                        <NavItem item="Logout" />
-                      </button>
-                    </>
-                  ) : (
-                    <div className="flex flex-col gap-6 ">
-                      <Link
-                        to={"/wimatechstore/login"}
-                        className="hover:text-blue-800 font-hover:text-blue-800 text-gray-700 font-medium"
-                      >
-                        <Text texttype="text-normal">Login</Text>
-                      </Link>
-                      <Link
-                        to={"/wimatechstore/signup"}
-                        className="hover:text-blue-800 font-hover:text-blue-800 text-gray-700 font-medium"
-                      >
-                        <Text texttype="text-normal">Register</Text>
-                      </Link>
-                    </div>
-                  )}
+                <div className="flex flex-col gap-8 items-start w-fit">
                   <div className="flex flex-row gap-1">
                     <Text textstyles="flex flex-row border border-gray-400 rounded-sm py-2 px-4 gap-2">
                       <InputBox
@@ -325,19 +381,6 @@ const Navbar = () => {
                       <WhiteSearchIcon className="w-5 h-5" />
                     </Button>
                   </div>
-                  <Link
-                    to={"/wimatechstore/cart"}
-                    onClick={() => setShowMenu(false)}
-                    className="w-full"
-                  >
-                    {" "}
-                    <Button
-                      buttontype="secondary-button"
-                      buttonstyles="w-full py-2 px-4 focus:ring-[4px] focus:outline-none focus:ring-[#2a2a2f0d]"
-                    >
-                      Go to Cart
-                    </Button>
-                  </Link>
                 </div>
               </div>
             </div>

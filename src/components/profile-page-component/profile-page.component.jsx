@@ -52,7 +52,6 @@ const Profile = ({ addAlert }) => {
                     name="username"
                     value={updateData.name}
                     onChange={handleUpdateChange}
-                    required
                     placeholder="jane smith"
                     labelstyle="capitalize font-medium"
                     inputstyle="w-full xsmall:px-6 xsmall:py-3 px-5 py-2.5 xsmall:mt-3 mt-2 xsmall:mb-5 mb-5"
@@ -65,7 +64,6 @@ const Profile = ({ addAlert }) => {
                   name="phone"
                   value={updateData.phone}
                   onChange={handleUpdateChange}
-                  required
                   placeholder="080-123-456-78"
                   pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
                   labelstyle="capitalize font-medium"
@@ -78,7 +76,6 @@ const Profile = ({ addAlert }) => {
                   name="email"
                   value={updateData.email}
                   onChange={handleUpdateChange}
-                  required
                   placeholder="example@gmail.com"
                   labelstyle="capitalize font-medium"
                   inputstyle="w-full xsmall:px-6 xsmall:py-3 px-5 py-2.5 xsmall:mt-3 mt-2 xsmall:mb-5 mb-5"
@@ -90,7 +87,6 @@ const Profile = ({ addAlert }) => {
                   name="password"
                   value={updateData.password}
                   onChange={handleUpdateChange}
-                  required
                   placeholder="••••••"
                   labelstyle="capitalize font-medium"
                   inputstyle="w-full xsmall:px-6 xsmall:py-3 px-5 py-2.5 xsmall:mt-3 mt-2 xsmall:mb-5 mb-5"
