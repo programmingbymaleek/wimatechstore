@@ -248,9 +248,9 @@ const Product = () => {
             </Text>
             <ScrollableSection scrollstyles="w-full gap-4 medium:gap-8 justify-between">
               {orders.map((item, index) => (
-                <div key={item.id}>
+                <div key={index}>
                   <ProductCard
-                    key={item.id}
+                    key={index}
                     product={item}
                     title={item.make}
                     productstyle="w-[200px]"
@@ -270,9 +270,9 @@ const Product = () => {
           </Text>
           <ScrollableSection scrollstyles="w-full gap-4 medium:gap-8 justify-between">
             {ShopProduct[2].items.map((item, index) => (
-              <div key={item.id}>
+              <div key={index}>
                 <ProductCard
-                  key={item.id}
+                  key={index}
                   product={item}
                   title={item.make}
                   productstyle="w-[200px]"
