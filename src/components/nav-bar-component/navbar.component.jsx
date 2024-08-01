@@ -75,7 +75,7 @@ const Navbar = () => {
             <img
               src={logo}
               alt="Certified Global Enterprise"
-              className="w-12 h-auto"
+              className="w-10 h-auto"
             />
           </div>
           <div className="flex flex-row gap-8 items-center">

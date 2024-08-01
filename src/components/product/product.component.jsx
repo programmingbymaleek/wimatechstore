@@ -79,7 +79,7 @@ const Product = () => {
           </Button>
         </Link>
         <div className="w-full overflow-clip pt-8">
-          <div className="grid-cols-2 gap-8 grid w-full items-center">
+          <div className="grid-cols-1 tablet:grid-cols-2 gap-8 grid w-full items-center">
             <div className="w-9/12 mx-auto p-4 bg-white rounded-lg ">
               <img
                 className="w-full h-auto mx-auto"
