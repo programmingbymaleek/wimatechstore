@@ -4,6 +4,9 @@
 /node_modules
 /.pnp
 .pnp.js
+/src/portfolio-page/node_modules
+/src/portfolio-page/.next
+
 
 # testing
 /coverage

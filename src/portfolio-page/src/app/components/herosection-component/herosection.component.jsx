@@ -6,8 +6,8 @@ export const HeroSectionComponent = () => {
       <div className="relative isolate ">
         <div className="mx-auto px-16  py-32  sm:py-32">
           <div className="text-center flex items-center flex-col">
-            <h1 className="font-bold uppercase tracking-tight text-white head-large leading-snug ">
-              Certified Global enterprise
+            <h1 className="font-semibold capitalize tracking-tight text-white head-large leading-snug ">
+              Empowering Business with Precision, Innovation, and Expertise
             </h1>
             <p className="mt-2 text-normal md:leading-8 leading-6 text-white max-w-2xl">
               At Certified Global Enterprise, we specialize in delivering

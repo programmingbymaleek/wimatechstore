@@ -7,11 +7,11 @@ export const FooterSection = () => {
     <footer className=" bg-[#F9F9F9]  w-full py-4">
       <div className="mx-auto max-w-7xl w-full px-12 ">
         <div className="flex md:justify-between pt-8 md:flex-row flex-col-reverse">
-          <div className="grid grid-cols-1 gap-8 sm:gap-6 md:grid-cols-3 flex-1">
+          <div className="grid grid-cols-1 gap-8 sm:gap-6 md:grid-cols-[1fr_auto_1fr] flex-1">
             <div>
-              <h2 className="mb-3 font-semibold text-gray-900 text-normal">
+              <p className="mb-3 font-semibold text-gray-900 text-large">
                 Company
-              </h2>
+              </p>
               <ul className="text-gray-600">
                 <li className="">
                   <a href="#" className="hover:underline text-normal">
@@ -20,27 +20,27 @@ export const FooterSection = () => {
                 </li>
                 <li>
                   <a href="#" className="hover:underline text-normal">
-                    Our Services
+                    Our Mission
                   </a>
                 </li>
                 <li>
                   <a href="#" className="hover:underline text-normal">
-                    Our Team
+                    Our Vision
                   </a>
                 </li>
                 <li>
                   <a href="#" className="hover:underline text-normal">
-                    Contact Us
+                    Our Values
                   </a>
                 </li>
               </ul>
             </div>
-            <div>
-              <h2 className="mb-3 font-semibold text-gray-900 text-normal">
+            <div className="pr-28 box-content">
+              <p className="mb-3 font-semibold text-gray-900 text-large">
                 Services
-              </h2>
+              </p>
               <ul className="text-gray-600 dark:text-gray-400">
-                <li className="">
+                <li className="mb-1">
                   <a
                     href="#"
                     className="hover:underline text-normal capitalize"
@@ -76,23 +76,23 @@ export const FooterSection = () => {
               </ul>
             </div>
             <div>
-              <h2 className="mb-3 font-semibold text-gray-900 text-normal">
-                Company
-              </h2>
+              <p className="mb-3 font-semibold text-gray-900 text-large">
+                Others
+              </p>
               <ul className="text-gray-600">
                 <li className="">
                   <a href="#" className="hover:underline text-normal">
-                    About Us
+                    About
                   </a>
                 </li>
                 <li>
                   <a href="#" className="hover:underline text-normal">
-                    Our Services
+                    Services
                   </a>
                 </li>
                 <li>
                   <a href="#" className="hover:underline text-normal">
-                    Our Team
+                    Team
                   </a>
                 </li>
                 <li>

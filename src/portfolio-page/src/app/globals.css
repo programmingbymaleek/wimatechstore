@@ -24,6 +24,7 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+  font-family: "GT-Planer", sans-serif;
 }
 
 @layer utilities {
@@ -32,12 +33,12 @@ body {
   }
 }
 
-/* text styling */
+/* font size */
 .head-large {
   font-size: 3rem;
 }
 .head-medium {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
 }
 .head-normal {
   font-size: 1.1rem;
@@ -46,25 +47,26 @@ body {
   font-size: 1rem;
 }
 
-.text-large {
+.text-larger {
   font-size: 0.95rem;
+}
+.text-large {
+  font-size: 0.9rem;
 }
 .text-normal {
   font-size: 0.85rem;
 }
 .text-medium {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
 }
 .text-small {
   font-size: 0.75rem;
 }
+.text-smaller {
+  font-size: 0.73rem;
+}
 .text-smallest {
   font-size: 0.7rem;
-}
-.backgroundDiv {
-  background: url(../../public/assets/images/bgImage.png);
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 @media screen and (max-width: 768px) {
@@ -90,6 +92,9 @@ body {
   }
   .text-small {
     font-size: 0.7rem;
+  }
+  .text-smaller {
+    font-size: 0.68rem;
   }
   .text-smallest {
     font-size: 0.65rem;

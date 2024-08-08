@@ -54,12 +54,12 @@ export const OurTeamSection = () => {
 
   return (
     <div className="bg-white px-12" id="ourteam">
-      <div className="mx-auto w-full py-16 sm:py-24 flex flex-col items-center">
-        <div className="mx-auto max-w-3xl lg:mx-0 pb-4">
-          <h2 className="head-medium tracking-tight font-bold text-gray-900 text-center">
+      <div className="mx-auto w-full py-16 sm:py-24 flex flex-col">
+        <div className="mx-auto max-w-2xl lg:mx-0 pb-4">
+          <p className="head-medium tracking-tight font-semibold text-gray-900">
             Meet Our Team
-          </h2>
-          <p className="mt-2 text-normal leading-6 text-gray-900 text-center">
+          </p>
+          <p className="mt-2 text-normal leading-6 text-gray-900">
             At Certified Global Enterprise, we pride ourselves on having a team
             of experienced and dedicated professionals committed to delivering
             exceptional service and innovative solutions. Our leadership is
@@ -83,9 +83,9 @@ export const OurTeamSection = () => {
               </div>
               <div className="mt-4 flex flex-col gap-2 w-80">
                 <div>
-                  <h3 className="text-normal text-gray-900 uppercase font-semibold">
+                  <p className="text-large text-gray-900 uppercase font-semibold">
                     {person.name}
-                  </h3>
+                  </p>
                   <p className="mt-1 text-small text-gray-600 font-semibold uppercase">
                     {person.role}
                   </p>
@@ -94,7 +94,7 @@ export const OurTeamSection = () => {
                   {person.background}
                 </div>
                 <div
-                  className="text-smallest hover:underline text-blue-600 cursor-pointer mt-2 uppercase"
+                  className="text-small hover:underline text-blue-600 cursor-pointer mt-2 uppercase"
                   onClick={() => viewMember(person.id)}
                 >
                   View Full Bio
@@ -106,9 +106,9 @@ export const OurTeamSection = () => {
       </div>
       {selectedPerson && (
         <div className="flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 bottom-0 z-50 justify-center items-center w-full md:inset-0 max-h-full bg-black/50">
-          <div className="relative p-4 w-full max-w-[50rem] max-h-full">
-            <div className="relative bg-white rounded-lg shadow dark:bg-gray-700 p-4 pb-8 pl-8">
-              <div className="group md:w-full xs:w-fit 2xs:w-max w-full mx-auto flex flex-row gap-x-6 justify-between items-start grid grid-cols-auto">
+          <div className="relative p-4 w-full max-w-[50rem] max-h-full h-full flex items-center justify-center">
+            <div className="relative bg-white rounded-lg shadow p-4 pb-8 pl-8 mb-4 h-full max-h-fit">
+              <div className="group md:w-full xs:w-fit 2xs:w-max w-full mx-auto gap-x-6 justify-between items-start grid grid-cols-auto h-full overflow-scroll">
                 <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md lg:aspect-none max-w-[18rem] h-full flex flex-col items-center gap-5 my-8 col-span-1 max-h-[18rem]">
                   <Image
                     alt={selectedPerson.imageAlt}
@@ -118,7 +118,7 @@ export const OurTeamSection = () => {
                   />
                 </div>
                 <div className="mt-1 flex flex-col gap-2 w-full col-span-1 h-max">
-                  <div className="w-full flex items-end justify-end h-[calc(100% - 3rem)]">
+                  <div className="w-full flex items-end justify-end h-5">
                     <Image
                       src={close}
                       className="h-full w-auto cursor-pointer"
@@ -128,34 +128,34 @@ export const OurTeamSection = () => {
                   </div>
                   <div className="w-full pr-4">
                     <div>
-                      <h3 className="head-small text-gray-900 uppercase font-semibold">
+                      <p className="head-small text-gray-900 uppercase font-semibold">
                         {selectedPerson.name}
-                      </h3>
-                      <p className="mt-1 text-small text-gray-900 font-semibold uppercase">
+                      </p>
+                      <p className="mt-1 text-medium text-gray-900 font-semibold uppercase">
                         {selectedPerson.role}
                       </p>
                     </div>
-                    <div className="w-full text-medium mt-1">
+                    <div className="w-full text-normal mt-1">
                       <br />
                       {selectedPerson.background}
                     </div>
-                    <div className="w-full text-medium mt-4">
-                      <span className="uppercase text-gray-800 font-semibold text-medium pb-3">
+                    <div className="w-full text-normal mt-5">
+                      <span className="uppercase text-gray-800 font-semibold text-normal pb-3">
                         Vision
                       </span>
                       <br />
-                      {selectedPerson.vision}
+                      <p className="pt-1">{selectedPerson.vision}</p>
                     </div>
-                    <div className="w-full text-medium my-4">
-                      <span className="uppercase text-gray-900 font-semibold text-medium mb-10">
+                    <div className="w-full text-normal my-5">
+                      <span className="uppercase text-gray-900 font-semibold text-normal mb-12">
                         Expertise
                       </span>
-                      <br className="pb-5" />
-                      {selectedPerson.expertise}
+                      <br className="py-5" />
+                      <p className="pt-1">{selectedPerson.expertise}</p>
                     </div>
                   </div>
                 </div>
-                <div className="w-full text-medium mt-2 col-span-2 flex flex-col justify-center">
+                <div className="w-full text-normal mt-8 col-span-2 flex flex-col justify-center">
                   <Image
                     src={quote}
                     className="h-7 w-auto cursor-pointer scale-x-[-1]"
