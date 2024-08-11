@@ -18,14 +18,14 @@ export const ServicesSection = () => {
   const services = [
     {
       id: 1,
-      title: "E-commerce Platform for Parts and Medical Devices",
+      title: "Comprehensive E-commerce Platform for Quality Parts and Products",
       description:
-        "Explore our e-commerce site for a wide range of parts and medical devices. We offer high-quality products that cater to diverse industry needs, backed by our commitment to quality and service excellence.",
+        "Our e-commerce platform offers a wide array of high-quality products designed to meet the diverse needs of our customers. Whether you're in the market for medical devices, electrical parts, or specialized components, our platform is your go-to source.",
       image: ecommerce,
     },
     {
       id: 2,
-      title: "IT support, setup and server installation",
+      title: "Networking and IT Support Setup",
       description:
         "We provide secure and reliable IT infrastructure, from initial setup to server installation, ensuring your business operates without technological hurdles.",
       image: support,
@@ -53,7 +53,7 @@ export const ServicesSection = () => {
     },
     {
       id: 6,
-      title: "Website, App Creation and Maintenance",
+      title: "Web and App Design, Development, and Maintenance",
       description:
         "End-to-End Development: We craft innovative websites and apps, providing continuous support and ensuring your digital presence aligns with your business goals.",
       image: website,
@@ -86,19 +86,20 @@ export const ServicesSection = () => {
           Services
         </p>
         <p className="mt-4 text-normal leading-6 text-gray-900">
-          Our expertise in sales of medical device, parts manufacturing ensures
-          precision, durability, and compliance with industry standards. We
-          supply a wide range of components that are crucial for the efficient
-          functioning of medical equipment.
+          At Certified Global Enterprise, we provide a comprehensive suite of
+          services designed to meet the diverse needs of our clients. From
+          advanced IT solutions and precise engineering services to expert
+          consultancy and a robust eCommerce platform, we are committed to
+          delivering excellence and driving success for your business.
         </p>
       </div>
       <div className="md:mt-12 mt-8 flex flex-col gap-8">
         <div className="flex flex-col gap-4 w-full">
           <p className="font-semibold text-larger capitalize">IT Support</p>
           <div className="md:gap-8 gap-6 grid grid-cols-3 w-full">
-            <Card service={services[1]} openModal={openModal} />
             <Card service={services[0]} openModal={openModal} />
             <Card service={services[5]} openModal={openModal} />
+            <Card service={services[1]} openModal={openModal} />
           </div>
         </div>
         <div className="flex flex-col gap-4 w-full">

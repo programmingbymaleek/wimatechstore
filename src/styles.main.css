@@ -648,6 +648,9 @@ video {
 .mt-10 {
   margin-top: 2.5rem;
 }
+.mt-12 {
+  margin-top: 3rem;
+}
 .mt-2 {
   margin-top: 0.5rem;
 }
@@ -665,9 +668,6 @@ video {
 }
 .mt-8 {
   margin-top: 2rem;
-}
-.mt-12 {
-  margin-top: 3rem;
 }
 .box-border {
   box-sizing: border-box;
@@ -2113,10 +2113,6 @@ code {
     display: flex;
   }
 
-  .tablet\:grid {
-    display: grid;
-  }
-
   .tablet\:hidden {
     display: none;
   }
@@ -2460,10 +2456,6 @@ code {
 
   .xmedium\:pt-2 {
     padding-top: 0.5rem;
-  }
-
-  .xmedium\:pt-48 {
-    padding-top: 12rem;
   }
 
   .xmedium\:pt-40 {

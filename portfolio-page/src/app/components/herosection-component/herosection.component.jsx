@@ -15,7 +15,9 @@ export const HeroSectionComponent = () => {
               needs of businesses across various industries. Our commitment to
               excellence, integrity, and customer satisfaction drives us to
               provide unparalleled services that enhance operational efficiency
-              and ensure compliance.
+              and ensure compliance. Our comprehensive services in IT Solutions,
+              Engineering Services, and Safety Consultancy are designed to drive
+              your success and empower the growth of your business.
             </p>
           </div>
         </div>

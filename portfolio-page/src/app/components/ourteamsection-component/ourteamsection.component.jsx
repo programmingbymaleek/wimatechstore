@@ -18,13 +18,9 @@ export const OurTeamSection = () => {
       imageAlt: "Maliki Wisdom",
       role: "Co-CEO",
       background:
-        "With a passion for IT innovation and over 6 years of experience in technology management, Wisdom Maliki has been a driving force behind Certified Global Enterprise's technological advancements. His expertise lies in integrating cutting-edge technologies to enhance business operations and deliver exceptional client solutions",
+        "Wisdom Maliki is the visionary behind Certified Global Enterprise. With over 6 years of experience in technology management and a strong background in both IT and engineering, Wisdom has been instrumental in driving innovation and setting new industry standards. He began his career in 2013, earning a bachelors degree in Computer Science in 2017, and has since played key roles in major projects, including the implementation of advanced Electronic Fuel Monitoring Systems (EFMS) for offshore rigs and vessels. Before founding Certified Global Enterprise, Wisdom worked as a Senior Software Engineer at Alps SS&C, where he developed and optimized software solutions that significantly improved operational efficiency. His leadership and technical expertise ensure that Certified Global Enterprise delivers cutting-edge solutions tailored to meet the unique needs of its clients.",
       expertise:
         "IT innovation, technology integration, digital transformation and  client relations",
-      vision:
-        "Wisdom is committed to harnessing the power of technology to drive business innovation and transform industries. He envisions a future where technology empowers businesses to operate at their highest potential.",
-      message:
-        "At Certified Global Enterprise, we are dedicated to pushing the boundaries of what's possible with technology. Our mission is to deliver innovative solutions that not only meet but exceed our clients' expectations. I am excited to lead our team in exploring new frontiers of IT innovation that bring tangible value to businesses.",
     },
     {
       id: 2,

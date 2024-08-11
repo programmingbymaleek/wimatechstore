@@ -21,9 +21,16 @@ export const AboutSection = () => {
             <div className="mt-6 text-normal leading-6 text-gray-900">
               <div className="">
                 At Certified Global Enterprise, we pride ourselves on our
-                commitment to transparency and excellence, with a team of
+                commitment to transparency and excellence. With a team of
                 experienced professionals, we are committed to innovation,
-                quality, and customer satisfaction.
+                quality, and customer satisfaction. We pride ourselves on
+                delivering tailor-made solutions that are not only efficient but
+                also cost-effective. Whether you need{" "}
+                <b>advanced IT Solutions,</b>
+                <b> precise Engineering Services</b>,{" "}
+                <b>comprehensive Safety Consultancy,</b> or{" "}
+                <b>high-quality products through our eCommerce store</b>, we
+                have the expertise to support your business journey.
               </div>
               <div>
                 <p className="uppercase text-gray-900 font-semibold text-normal pt-5 pb-1.5">
@@ -31,7 +38,7 @@ export const AboutSection = () => {
                 </p>
                 <p>
                   Our mission is to create handshake with our customers by
-                  revolutionizing the IT and engineering domain with cutting
+                  revolutionizing the IT and Engineering domain with cutting
                   edge technological solutions that prioritize, affordability,
                   reliability and customer satisfaction.
                 </p>
@@ -42,9 +49,7 @@ export const AboutSection = () => {
                 </p>
                 <p>
                   Our vision is to be the paramount global provider of IT and
-                  engineering solutions tailored to meet our customers needs. ,
-                  devices and services renowned for our customer innovation,
-                  reliability and customer centricity
+                  Engineering solutions tailored to meet our customers needs.
                 </p>
               </div>
 
