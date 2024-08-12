@@ -3,7 +3,7 @@ import React from "react";
 export const ContactUsSection = () => {
   return (
     <div
-      className="grid grid-cols-1 md:grid-cols-12 gap-x-12 md:gap-y-8 gap-y-0 px-12 pt-8 pb-24"
+      className="grid grid-cols-1 md:grid-cols-12 gap-x-12 md:gap-y-8 gap-y-0 px-12 pt-8 pb-24 w-full mx-auto max-w-7xl"
       id="contactus"
     >
       <div className=" col-span-6">

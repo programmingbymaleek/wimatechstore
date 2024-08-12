@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const Card = ({ service, openModal }) => {
@@ -17,12 +18,12 @@ const Card = ({ service, openModal }) => {
         <p className="mt-1 text-normal md:leading-5 leading-6 text-gray-900 text-left line-clamp-3">
           {service.description}
         </p>
-        <p
+        <Link
           className="mt-2 text-medium md:leading-5 leading-6 text-blue-500 hover:underline cursor-pointer"
-          onClick={() => openModal(service.id)}
+          href={{ pathname: "/service", query: { id: `${service.id}` } }}
         >
           Read More
-        </p>
+        </Link>
       </div>
     </div>
   );

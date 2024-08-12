@@ -5,21 +5,21 @@ import { OurTeamSection } from "@/app/components/ourteamsection-component/ourtea
 import { ServicesSection } from "@/app/components/servicessection-component/servicessection.component";
 
 import BackgroundImageShuffler from "./components/backgroundimageshuffler-component/background-image-shuffler.component";
-
+import { NavBarComponent } from "./components/navbar-component/navbar.component";
+import { HeroSectionComponent } from "./components/herosection-component/herosection.component";
 
 export default function Home() {
-
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
-      <BackgroundImageShuffler/>
+    <div className="flex min-h-screen flex-col items-center justify-between">
+      <BackgroundImageShuffler>
+        <NavBarComponent />
+        <HeroSectionComponent />
+      </BackgroundImageShuffler>
       <div className="w-full mx-auto max-w-7xl">
         <AboutSection />
         <ServicesSection />
         <OurTeamSection />
-        <ContactUsSection />
       </div>
-
-      <FooterSection />
-    </main>
+    </div>
   );
 }

@@ -15,8 +15,11 @@
 }
 
 /* font size */
-.head-large {
+.head-larger {
   font-size: 3rem;
+}
+.head-large {
+  font-size: 2.3rem;
 }
 .head-medium {
   font-size: 1.4rem;
@@ -25,29 +28,29 @@
   font-size: 1.1rem;
 }
 .head-small {
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 .text-larger {
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 .text-large {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
 .text-normal {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
 }
 .text-medium {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
 }
 .text-small {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
 }
 .text-smaller {
-  font-size: 0.73rem;
+  font-size: 0.75rem;
 }
 .text-smallest {
-  font-size: 0.7rem;
+  font-size: 0.73rem;
 }
 
 @media screen and (max-width: 768px) {
@@ -69,16 +72,16 @@
     font-size: 0.85rem;
   }
   .text-medium {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
   }
   .text-small {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
   }
   .text-smaller {
-    font-size: 0.68rem;
+    font-size: 0.7rem;
   }
   .text-smallest {
-    font-size: 0.65rem;
+    font-size: 0.68rem;
   }
 }
 

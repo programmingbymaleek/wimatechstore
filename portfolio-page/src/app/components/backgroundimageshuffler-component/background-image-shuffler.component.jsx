@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { NavBarComponent } from "../navbar-component/navbar.component";
 import { HeroSectionComponent } from "../herosection-component/herosection.component";
 
-const BackgroundImageShuffler = () => {
+const BackgroundImageShuffler = ({ children }) => {
   const images = [
     "/assets/images/bgImage.jpg",
     "/assets/images/bgImage.png",
@@ -35,10 +35,7 @@ const BackgroundImageShuffler = () => {
         backgroundPosition: "center",
       }}
     >
-      <div className="bg-gray-900/60">
-        <NavBarComponent />
-        <HeroSectionComponent />
-      </div>
+      <div className="bg-gray-900/60">{children}</div>
     </div>
   );
 };

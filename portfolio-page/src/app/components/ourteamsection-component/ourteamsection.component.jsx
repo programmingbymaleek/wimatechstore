@@ -49,7 +49,7 @@ export const OurTeamSection = () => {
   const selectedPerson = persons.find((p) => p.id === person);
 
   return (
-    <div className="bg-white px-12" id="ourteam">
+    <div className="bg-white px-12" id="team">
       <div className="mx-auto w-full py-16 sm:py-24 flex flex-col">
         <div className="mx-auto max-w-2xl lg:mx-0 pb-4">
           <p className="head-medium tracking-tight font-semibold text-gray-900">
@@ -103,8 +103,8 @@ export const OurTeamSection = () => {
       {selectedPerson && (
         <div className="flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 bottom-0 z-50 justify-center items-center w-full md:inset-0 max-h-full bg-black/50">
           <div className="relative p-4 w-full max-w-[50rem] max-h-full h-full flex items-center justify-center">
-            <div className="relative bg-white rounded-lg shadow p-4 pb-8 pl-8 mb-4 h-full max-h-fit">
-              <div className="group md:w-full xs:w-fit 2xs:w-max w-full mx-auto gap-x-6 justify-between items-start grid grid-cols-auto h-full overflow-scroll">
+            <div className="relative bg-white rounded-lg shadow p-4 pb-8 pl-8 mb-4 h-fit max-h-fit">
+              <div className="group md:w-full xs:w-fit 2xs:w-max w-full mx-auto gap-x-6 justify-between items-start grid grid-cols-[auto_1fr] h-fit overflow-scroll">
                 <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md lg:aspect-none max-w-[18rem] h-full flex flex-col items-center gap-5 my-8 col-span-1 max-h-[18rem]">
                   <Image
                     alt={selectedPerson.imageAlt}
@@ -113,7 +113,7 @@ export const OurTeamSection = () => {
                     onClick={closeMember}
                   />
                 </div>
-                <div className="mt-1 flex flex-col gap-2 w-full col-span-1 h-max">
+                <div className="mt-1 flex flex-col gap-2 w-full col-span-1 h-full">
                   <div className="w-full flex items-end justify-end h-5">
                     <Image
                       src={close}
@@ -122,7 +122,7 @@ export const OurTeamSection = () => {
                       onClick={closeMember}
                     />
                   </div>
-                  <div className="w-full pr-4">
+                  <div className="w-full pr-4 h-full">
                     <div>
                       <p className="head-small text-gray-900 uppercase font-semibold">
                         {selectedPerson.name}
@@ -135,7 +135,7 @@ export const OurTeamSection = () => {
                       <br />
                       {selectedPerson.background}
                     </div>
-                    <div className="w-full text-normal mt-5">
+                    {/* <div className="w-full text-normal mt-5">
                       <span className="uppercase text-gray-800 font-semibold text-normal pb-3">
                         Vision
                       </span>
@@ -148,10 +148,10 @@ export const OurTeamSection = () => {
                       </span>
                       <br className="py-5" />
                       <p className="pt-1">{selectedPerson.expertise}</p>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
-                <div className="w-full text-normal mt-8 col-span-2 flex flex-col justify-center">
+                {/* <div className="w-full text-normal mt-8 col-span-2 flex flex-col justify-center">
                   <Image
                     src={quote}
                     className="h-7 w-auto cursor-pointer scale-x-[-1]"
@@ -165,7 +165,7 @@ export const OurTeamSection = () => {
                     className="h-7 w-auto cursor-pointer"
                     alt="quote icon"
                   />
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

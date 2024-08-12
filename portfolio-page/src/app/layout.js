@@ -1,5 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import { ContactUsSection } from "./components/contactussection-component/contactussection.component";
+import { FooterSection } from "./components/footersection-component/footersection.component";
 
 const gtPlanar = localFont({
   src: [
@@ -54,7 +56,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={gtPlanar.className}>{children}</body>
+      <body className={gtPlanar.className}>
+        <main>
+          {children}
+          <div>
+            <ContactUsSection />
+            <FooterSection />
+          </div>
+        </main>
+      </body>
     </html>
   );
 }
