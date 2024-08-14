@@ -1,7 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import { ContactUsSection } from "./components/contactussection-component/contactussection.component";
-import { FooterSection } from "./components/footersection-component/footersection.component";
+import { ContactUsSection } from "../components/contactussection-component/contactussection.component";
+import { FooterSection } from "../components/footersection-component/footersection.component";
 
 const gtPlanar = localFont({
   src: [

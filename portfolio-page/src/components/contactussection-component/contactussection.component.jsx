@@ -3,7 +3,7 @@ import React from "react";
 export const ContactUsSection = () => {
   return (
     <div
-      className="grid grid-cols-1 md:grid-cols-12 gap-x-12 md:gap-y-8 gap-y-0 px-12 pt-8 pb-24 w-full mx-auto max-w-7xl"
+      className="grid grid-cols-1 md:grid-cols-12 gap-x-12 md:gap-y-8 gap-y-0 md:px-12 px-8 pt-8 pb-24 w-full mx-auto max-w-7xl"
       id="contactus"
     >
       <div className=" col-span-6">
@@ -111,7 +111,7 @@ export const ContactUsSection = () => {
                   type="text"
                   autoComplete="given-name"
                   placeholder="Name"
-                  className="sm:leading-5 border-gray-200 border text-gray-900 px-3 py-2.5 rounded-[.2rem] w-full block placeholder:text-gray-400/60 text-small font-light"
+                  className="sm:leading-5 border-gray-400/80 border text-gray-900 px-3 py-2.5 rounded-[.2rem] w-full block placeholder:text-gray-600 focus:border-blue-700 focus:border-2 outline-none text-small font-light"
                 />
               </div>
             </div>
@@ -123,7 +123,7 @@ export const ContactUsSection = () => {
                   type="email"
                   autoComplete="email"
                   placeholder="Email"
-                  className="sm:leading-5 border-gray-200 border text-gray-900 px-3 py-2.5 rounded-[.2rem] w-full block placeholder:text-gray-400/60 text-small font-light"
+                  className="sm:leading-5 border-gray-400/80 border text-gray-900 px-3 py-2.5 rounded-[.2rem] w-full block placeholder:text-gray-600 focus:border-blue-700 focus:border-2 outline-none text-small font-light"
                 />
               </div>
             </div>
@@ -134,7 +134,7 @@ export const ContactUsSection = () => {
                   name="message"
                   placeholder="Message"
                   rows="10"
-                  className="sm:leading-5 border-gray-200 border text-gray-900 px-3 py-2.5 rounded-[.2rem] w-full block placeholder:text-gray-400/60 text-small font-light"
+                  className="sm:leading-5 border-gray-400/80 border text-gray-900 px-3 py-2.5 rounded-[.2rem] w-full block placeholder:text-gray-600 focus:border-blue-700 focus:border-2 outline-none text-small font-light"
                 ></textarea>
               </div>
             </div>

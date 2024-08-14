@@ -1,13 +1,13 @@
 import React from "react";
-import Header from "../components/header.component";
-import ServiceWrapper from "../components/servicewrapper.component";
+import Header from "../../../components/header-component/header.component";
+import ServiceWrapper from "../../../components/servicewrapper-component/servicewrapper.component";
 import ecommerceImage from "../../../../public/assets/images/ecommerce.png";
 
-const EcommerceService = () => {
+const Ecommerce = () => {
   return (
     <>
       <Header>
-        <div className="py-28 text-center flex items-center flex-col">
+        <div className="py-24 text-center flex items-center md:px-12 px-8 flex-col">
           <h1 className="font-semibold capitalize tracking-tight text-white head-large leading-snug max-w-3xl">
             Comprehensive E-commerce Platform for Quality Parts and Products
           </h1>
@@ -121,4 +121,4 @@ const EcommerceService = () => {
   );
 };
 
-export default EcommerceService;
+export default Ecommerce;

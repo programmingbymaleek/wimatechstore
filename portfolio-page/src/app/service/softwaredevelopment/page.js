@@ -1,13 +1,13 @@
 import React from "react";
-import Header from "../components/header.component";
-import ServiceWrapper from "../components/servicewrapper.component";
+import Header from "../../../components/header-component/header.component";
+import ServiceWrapper from "../../../components/servicewrapper-component/servicewrapper.component";
 import websiteImage from "../../../../public/assets/images/website.jpeg";
 
-const WebDesignService = () => {
+const SoftwareDevelopment = () => {
   return (
     <>
       <Header>
-        <div className="py-28 text-center flex items-center flex-col">
+        <div className="py-24 md:px-12 px-8 text-center flex items-center flex-col">
           <p className="font-semibold capitalize tracking-tight text-white head-large leading-snug max-w-3xl">
             Web and App Design, Development, and Maintenance
           </p>
@@ -138,4 +138,4 @@ const WebDesignService = () => {
   );
 };
 
-export default WebDesignService;
+export default SoftwareDevelopment;

@@ -1,20 +1,21 @@
 import React from "react";
-import image1 from "../../../../public/assets/images/bgImage.jpg";
+import image1 from "../../../public/assets/images/bgImage.jpg";
 import Image from "next/image";
-import verificationImage from "../../../../public/assets/images/verification.png";
-import maintenanceImage from "../../../../public/assets/images/maintenance.jpeg";
-import inspectionImage from "../../../../public/assets/images/inspection.webp";
-import installationImage from "../../../../public/assets/images/installation.webp";
+import verificationImage from "../../../public/assets/images/verification.png";
+import maintenanceImage from "../../../public/assets/images/maintenance.jpeg";
+import inspectionImage from "../../../public/assets/images/inspection.webp";
+import installationImage from "../../../public/assets/images/installation.webp";
+import Link from "next/link";
 
 export const AboutSection = () => {
   return (
     <div
-      className="relative isolate overflow-hidden bg-white py-24 sm:py-32 w-full px-12"
+      className=" overflow-hidden bg-white py-24 sm:py-32 w-full md:px-12 px-8"
       id="aboutus"
     >
       <div className=" grid grid-cols-12 w-full">
-        <div className="mx-auto max-w-3xl lg:mx-0 col-span-7 ">
-          <div className="w-11/12">
+        <div className="mx-auto max-w-3xl lg:mx-0 mlg:col-span-7 col-span-12">
+          <div className="mlg:w-11/12 w-full">
             <p className="head-medium tracking-tight font-semibold text-gray-900">
               About
             </p>
@@ -26,11 +27,35 @@ export const AboutSection = () => {
                 quality, and customer satisfaction. We pride ourselves on
                 delivering tailor-made solutions that are not only efficient but
                 also cost-effective. Whether you need{" "}
-                <b>advanced IT Solutions,</b>
-                <b> precise Engineering Services</b>,{" "}
-                <b>comprehensive Safety Consultancy,</b> or{" "}
-                <b>high-quality products through our eCommerce store</b>, we
-                have the expertise to support your business journey.
+                <a
+                  href="#it-solutions"
+                  className=" italic hover:underline hover:text-blue-800"
+                >
+                  advanced IT Solutions
+                </a>
+                ,
+                <a
+                  href="#engineering"
+                  className=" italic hover:underline hover:text-blue-800"
+                >
+                  {" "}
+                  precise Engineering Services
+                </a>
+                ,{" "}
+                <a
+                  href="#consultancy"
+                  className=" italic hover:underline hover:text-blue-800"
+                >
+                  comprehensive Safety Consultancy,
+                </a>{" "}
+                or{" "}
+                <a
+                  href="#store"
+                  className=" italic hover:underline hover:text-blue-800"
+                >
+                  high-quality products through our eCommerce store
+                </a>
+                , we have the expertise to support your business journey.
               </div>
               <div>
                 <p className="uppercase text-gray-900 font-semibold text-normal pt-5 pb-1.5">
@@ -84,7 +109,7 @@ export const AboutSection = () => {
             </div>
           </div>
         </div>
-        <div className="col-span-5">
+        <div className="mlg:col-span-5 col-span-12 mt-8 mlg:mt-0">
           <Image
             src={verificationImage}
             height={760}

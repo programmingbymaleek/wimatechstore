@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const Card = ({ service, openModal }) => {
+const Card = ({ service, customLinks }) => {
   return (
     <div className="flex flex-col gap-6 md:items-center items-start w-full">
       <Image
@@ -15,14 +15,13 @@ const Card = ({ service, openModal }) => {
         <p className="text-normal capitalize font-medium line-clamp-1">
           {service.title}
         </p>
-        <p className="mt-1 text-normal md:leading-5 leading-6 text-gray-900 text-left line-clamp-3">
-          {service.description}
-        </p>
         <Link
-          className="mt-2 text-medium md:leading-5 leading-6 text-blue-500 hover:underline cursor-pointer"
-          href={{ pathname: "/service", query: { id: `${service.id}` } }}
+          className="mt-2 text-medium md:leading-5 leading-6 cursor-pointer"
+          href={`service/${customLinks}`}
         >
-          Read More
+          <p className="mt-1 text-normal md:leading-5 leading-6 text-gray-900 hover:text-blue-700 hover:underline text-left line-clamp-3 transition-all">
+            {service.description}
+          </p>
         </Link>
       </div>
     </div>

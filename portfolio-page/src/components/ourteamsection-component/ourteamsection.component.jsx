@@ -1,12 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
-import teammate1 from "../../../../public/assets/images/teammate1.png";
-import teammate2 from "../../../../public/assets/images/placeholder.png";
+import teammate1 from "../../../public/assets/images/teammate1.png";
+import teammate2 from "../../../public/assets/images/placeholder.png";
 
 import Image from "next/image";
-import close from "../../../../public/assets/icons/close.svg";
-import quote from "../../../../public/assets/icons/quote.svg";
+import close from "../../assets/icons/close.svg";
 
 export const OurTeamSection = () => {
   const [person, setPerson] = useState(null); // Using `null` for no person selected
@@ -49,9 +48,9 @@ export const OurTeamSection = () => {
   const selectedPerson = persons.find((p) => p.id === person);
 
   return (
-    <div className="bg-white px-12" id="team">
+    <div className="bg-white md:px-12 px-8" id="team">
       <div className="mx-auto w-full py-16 sm:py-24 flex flex-col">
-        <div className="mx-auto max-w-2xl lg:mx-0 pb-4">
+        <div className=" max-w-2xl mx-0 pb-4">
           <p className="head-medium tracking-tight font-semibold text-gray-900">
             Meet Our Team
           </p>
@@ -64,11 +63,11 @@ export const OurTeamSection = () => {
           </p>
         </div>
 
-        <div className="mt-10 md:grid md:gap-10 gap-6 md:flex-row grid xs:grid-cols-2 grid-cols-1 items-center md:justify-center md:w-fit w-full">
+        <div className="mt-10 md:grid md:gap-10 gap-6 md:flex-row grid mlg:grid-cols-2 grid-cols-1 items-center md:justify-center md:w-fit w-full">
           {persons.map((person) => (
             <div
               key={person.id}
-              className="group md:w-full xs:w-fit 2xs:w-max w-full mx-auto flex flex-row gap-4 items-center"
+              className="group md:w-full xs:w-fit  w-full mx-auto flex flex-row gap-4 items-center"
             >
               <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none max-w-44 h-44">
                 <Image
@@ -77,7 +76,7 @@ export const OurTeamSection = () => {
                   className="h-full w-full object-cover object-top lg:h-full lg:w-full"
                 />
               </div>
-              <div className="mt-4 flex flex-col gap-2 w-80">
+              <div className="mt-4 flex flex-col gap-2 flex-1">
                 <div>
                   <p className="text-large text-gray-900 uppercase font-semibold">
                     {person.name}
@@ -135,37 +134,8 @@ export const OurTeamSection = () => {
                       <br />
                       {selectedPerson.background}
                     </div>
-                    {/* <div className="w-full text-normal mt-5">
-                      <span className="uppercase text-gray-800 font-semibold text-normal pb-3">
-                        Vision
-                      </span>
-                      <br />
-                      <p className="pt-1">{selectedPerson.vision}</p>
-                    </div>
-                    <div className="w-full text-normal my-5">
-                      <span className="uppercase text-gray-900 font-semibold text-normal mb-12">
-                        Expertise
-                      </span>
-                      <br className="py-5" />
-                      <p className="pt-1">{selectedPerson.expertise}</p>
-                    </div> */}
                   </div>
                 </div>
-                {/* <div className="w-full text-normal mt-8 col-span-2 flex flex-col justify-center">
-                  <Image
-                    src={quote}
-                    className="h-7 w-auto cursor-pointer scale-x-[-1]"
-                    alt="quote icon"
-                  />
-                  <blockquote className="pr-6 pl-3 py-4 text-center">
-                    {selectedPerson.message}
-                  </blockquote>
-                  <Image
-                    src={quote}
-                    className="h-7 w-auto cursor-pointer"
-                    alt="quote icon"
-                  />
-                </div> */}
               </div>
             </div>
           </div>

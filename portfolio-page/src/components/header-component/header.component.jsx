@@ -1,5 +1,5 @@
-import BackgroundImageShuffler from "@/app/components/backgroundimageshuffler-component/background-image-shuffler.component";
-import { NavBarComponent } from "@/app/components/navbar-component/navbar.component";
+import BackgroundImageShuffler from "@/components/backgroundimageshuffler-component/background-image-shuffler.component";
+import { NavBarComponent } from "@/components/navbar-component/navbar.component";
 import React from "react";
 
 const Header = ({ children }) => {
