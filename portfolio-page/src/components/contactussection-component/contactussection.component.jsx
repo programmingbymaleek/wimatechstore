@@ -114,6 +114,7 @@ export const ContactUsSection = () => {
                   type="text"
                   autoComplete="given-name"
                   placeholder="Name"
+                  pattern="[A-Za-z\s\-']+"
                   className="sm:leading-5 border-gray-400/80 border text-gray-900 px-3.5 py-3.5 rounded-[.2rem] w-full block placeholder:text-gray-600 focus:border-blue-700 focus:border-2 outline-none text-small font-light"
                 />
               </div>
@@ -131,12 +132,38 @@ export const ContactUsSection = () => {
               </div>
             </div>
             <div className=" sm:col-span-2">
+              <div>
+                <input
+                  id="company-name"
+                  name="company-name"
+                  type="text"
+                  autoComplete="company"
+                  placeholder="Company name"
+                  className="sm:leading-5 border-gray-400/80 border text-gray-900 px-3.5 py-3.5 rounded-[.2rem] w-full block placeholder:text-gray-600 focus:border-blue-700 focus:border-2 outline-none text-small font-light"
+                />
+              </div>
+            </div>
+            {/* <div className=" sm:col-span-2">
+              <div className="md:mt-2.5">
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  autoComplete="phone"
+                  placeholder="Phone number"
+                  pattern="\+?[0-9\s\-]+"
+                  className="sm:leading-5 border-gray-400/80 border text-gray-900 px-3.5 py-3.5 rounded-[.2rem] w-full block placeholder:text-gray-600 focus:border-blue-700 focus:border-2 outline-none text-small font-light"
+                />
+              </div>
+            </div> */}
+            <div className=" sm:col-span-2">
               <div className="mt:2.5">
                 <textarea
                   id="message"
                   name="message"
                   placeholder="Message"
                   rows="10"
+                  pattern="[A-Za-z0-9\s]+"
                   className="sm:leading-5 border-gray-400/80 border text-gray-900 px-3.5 py-3.5 rounded-[.2rem] w-full block placeholder:text-gray-600 focus:border-blue-700 focus:border-2 outline-none text-small font-light"
                 ></textarea>
               </div>

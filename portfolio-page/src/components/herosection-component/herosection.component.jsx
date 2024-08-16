@@ -8,7 +8,7 @@ export const HeroSectionComponent = () => {
         <p className="font-semibold capitalize tracking-tight text-white head-larger leading-snug max-w-5xl">
           Empowering Business with Precision, Innovation, and Expertise
         </p>
-        <p className="mt-2 text-normal md:leading-8 leading-6 text-white max-w-4xl">
+        <p className="mt-2 text-seminormal md:leading-8 leading-6 text-white max-w-4xl">
           At Certified Global Enterprise, we specialize in delivering
           cutting-edge technological solutions tailored to meet the diverse
           needs of businesses across various industries. Our commitment to

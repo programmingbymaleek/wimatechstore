@@ -8,7 +8,7 @@ const Ecommerce = () => {
     <>
       <Header>
         <div className="py-24 text-center flex items-center md:px-12 px-8 flex-col">
-          <h1 className="font-semibold capitalize tracking-tight text-white head-large leading-snug max-w-3xl">
+          <h1 className="font-semibold capitalize tracking-tight text-white head-large leading-snug max-w-5xl">
             Comprehensive E-commerce Platform for Quality Parts and Products
           </h1>
           <a href="#">
@@ -25,7 +25,7 @@ const Ecommerce = () => {
         <div className="mx-auto max-w-3xl lg:mx-0 col-span-7 ">
           <div className="w-11/12">
             <div className="mt-6 text-normal leading-6 text-gray-900">
-              <div className="italic">
+              <div className="italic text-seminormal font-medium">
                 At Certified Global Enterprise, our e-commerce platform offers a
                 wide array of high-quality products designed to meet the diverse
                 needs of our customers. Whether you're in the market for medical

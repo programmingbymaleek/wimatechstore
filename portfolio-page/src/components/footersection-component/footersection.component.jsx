@@ -44,43 +44,49 @@ export const FooterSection = () => {
               <p className="mb-3 font-semibold text-gray-900 text-large">
                 Services
               </p>
-              <ul className="text-gray-600 text-medium">
-                <li className="mb-1">
-                  <a href="#" className="hover:underline capitalize">
-                    Comprehensive E-commerce Platform <br /> for Quality Parts
-                    and Products
-                  </a>
+              <ul className="text-gray-600 text-medium gap-4">
+                <li className="mb-3">
+                  <p className="flex flex-col gap-1">
+                    <p className="font-semibold">IT Support</p>
+                    <a
+                      href="#"
+                      className="hover:underline capitalize leading-5"
+                    >
+                      Comprehensive E-commerce Platform <br /> for Quality Parts
+                      and Products
+                    </a>
+                    <a
+                      href="#"
+                      className="hover:underline capitalize leading-5"
+                    >
+                      Web and App Design, Development, <br /> and Maintenance
+                    </a>
+                    <a href="#" className="hover:underline capitalize">
+                      Networking and IT Support Setup
+                    </a>
+                  </p>
+                </li>
+                <li className="mb-3">
+                  <p className="flex flex-col gap-1">
+                    <p className="font-semibold">Engineering</p>
+                    <a href="#" className="hover:underline capitalize">
+                      verification and validation
+                    </a>
+                    <a href="#" className="hover:underline capitalize">
+                      calibration
+                    </a>
+                    <a href="#" className="hover:underline capitalize">
+                      Medical device parts
+                    </a>
+                  </p>
                 </li>
                 <li className="mb-1">
-                  <a href="#" className="hover:underline capitalize">
-                    Web and App Design, Development, <br /> and Maintenance
-                  </a>
-                </li>
-                <li className="mb-1">
-                  <a href="#" className="hover:underline capitalize">
-                    Networking and IT Support Setup
-                  </a>
-                </li>
-                <li className="mb-1">
-                  <a href="#" className="hover:underline capitalize">
-                    verification and validation
-                  </a>
-                </li>
-
-                <li className="mb-1">
-                  <a href="#" className="hover:underline capitalize">
-                    calibration
-                  </a>
-                </li>
-                <li className="mb-1">
-                  <a href="#" className="hover:underline capitalize leading-3">
-                    Medical device parts
-                  </a>
-                </li>
-                <li className="mb-1">
-                  <a href="#" className="hover:underline capitalize">
-                    Product inspection
-                  </a>
+                  <p className="flex flex-col gap-1">
+                    <p className="font-semibold">Consultancy</p>
+                    <a href="#" className="hover:underline capitalize">
+                      Product inspection
+                    </a>
+                  </p>
                 </li>
               </ul>
             </div>

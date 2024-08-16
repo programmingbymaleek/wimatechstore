@@ -37,6 +37,9 @@
 .text-large {
   font-size: 1.05rem;
 }
+.text-seminormal {
+  font-size: 1.2rem;
+}
 .text-normal {
   font-size: 1rem;
 }
