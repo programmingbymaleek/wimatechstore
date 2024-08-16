@@ -29,14 +29,14 @@ export const AboutSection = () => {
                 also cost-effective. Whether you need{" "}
                 <a
                   href="#it-solutions"
-                  className=" italic hover:underline hover:text-blue-800"
+                  className=" italic hover:underline text-blue-700"
                 >
                   advanced IT Solutions
                 </a>
                 ,
                 <a
                   href="#engineering"
-                  className=" italic hover:underline hover:text-blue-800"
+                  className=" italic hover:underline text-blue-700"
                 >
                   {" "}
                   precise Engineering Services
@@ -44,14 +44,14 @@ export const AboutSection = () => {
                 ,{" "}
                 <a
                   href="#consultancy"
-                  className=" italic hover:underline hover:text-blue-800"
+                  className=" italic hover:underline text-blue-700"
                 >
                   comprehensive Safety Consultancy,
                 </a>{" "}
                 or{" "}
                 <a
                   href="#store"
-                  className=" italic hover:underline hover:text-blue-800"
+                  className=" italic hover:underline text-blue-700"
                 >
                   high-quality products through our eCommerce store
                 </a>

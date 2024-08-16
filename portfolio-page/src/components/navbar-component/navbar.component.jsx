@@ -45,8 +45,8 @@ export const NavBarComponent = () => {
             <Link href="/" className="h-full flex flex-row gap-3 items-center">
               <span className="sr-only">Your Company</span>
               <Image src={logo} className="h-full w-[2.1rem]" alt="Logo" />
-              <p className="capitalize text-smaller font-semibold text-blue-900 w-24 leading-[0.9rem] mt-1">
-                Certified Global Enterprise
+              <p className="capitalize text-smaller font-semibold text-blue-900 w-32 leading-[0.9rem] mt-1">
+                Certified Global <br /> Enterprise
               </p>
             </Link>
             <Image
@@ -84,8 +84,8 @@ export const NavBarComponent = () => {
               }`}
             >
               <Image src={logo} className="h-full w-[2.1rem]" alt="Logo" />
-              <p className="capitalize text-smaller font-semibold text-blue-900 w-24 leading-[0.9rem] mt-1">
-                Certified Global Enterprise
+              <p className="capitalize text-smaller font-semibold text-blue-900 w-32 leading-[0.9rem] mt-1">
+                Certified Global <br /> Enterprise
               </p>
             </Link>
             <div
@@ -95,37 +95,37 @@ export const NavBarComponent = () => {
             >
               <Link
                 href="/"
-                className="block py-2 text-normal font-medium leading-6 hover:font-semibold"
+                className="block py-2 text-medium font-medium leading-6 hover:font-semibold"
               >
                 Home
               </Link>
               <Link
                 href="#"
-                className="block py-2 text-normal font-medium leading-6 hover:font-semibold"
+                className="block py-2 text-medium font-medium leading-6 hover:font-semibold"
               >
                 Store
               </Link>
               <Link
                 href="/#aboutus"
-                className="block py-2 text-normal font-medium leading-6 hover:font-semibold"
+                className="block py-2 text-medium font-medium leading-6 hover:font-semibold"
               >
                 About
               </Link>
               <Link
                 href="/#services"
-                className="block py-2 text-normal font-medium leading-6 hover:font-semibold"
+                className="block py-2 text-medium font-medium leading-6 hover:font-semibold"
               >
                 Services
               </Link>
               <Link
                 href="/#team"
-                className="block py-2 text-normal font-medium leading-6 hover:font-semibold"
+                className="block py-2 text-medium font-medium leading-6 hover:font-semibold"
               >
                 Team
               </Link>
               <Link
                 href="/#contactus"
-                className="block py-2 text-normal font-medium leading-6 hover:font-semibold"
+                className="block py-2 text-medium font-medium leading-6 hover:font-semibold"
               >
                 Contact Us
               </Link>

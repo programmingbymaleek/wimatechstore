@@ -12,9 +12,7 @@ const Card = ({ service, customLinks }) => {
         alt="dummy-image"
       />
       <div className="w-full">
-        <p className="text-normal capitalize font-medium line-clamp-1">
-          {service.title}
-        </p>
+        <p className="text-normal capitalize font-medium">{service.title}</p>
         <Link
           className="mt-2 text-medium md:leading-5 leading-6 cursor-pointer"
           href={`service/${customLinks}`}

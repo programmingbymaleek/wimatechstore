@@ -10,31 +10,31 @@ export const FooterSection = () => {
           <div className="grid xs:grid-cols-2 grid-cols-1 lmd:flex lmd:flex-row lmd:flex-wrap lmd:justify-between gap-x-32 lmd:gap-y-2 gap-y-20 mlg:gap-20 xlg:gap-8 flex-1">
             <div className="mb-6 md:mb-0 w-fit">
               <a href="#" className="flex items-center">
-                <Image src={logo} className="mr-3 h-auto w-28" alt="Logo" />
+                <Image src={logo} className="mr-3 h-auto w-32" alt="Logo" />
               </a>
             </div>
             <div>
-              <p className="mb-3 font-semibold text-gray-900 text-large">
+              <p className="mb-3 font-medium text-gray-900 text-large">
                 Company
               </p>
-              <ul className="text-gray-600">
+              <ul className="text-gray-600 flex flex-col gap-1 text-medium">
                 <li className="">
-                  <a href="#" className="hover:underline text-normal">
+                  <a href="#" className="hover:underline">
                     About Us
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:underline text-normal">
+                  <a href="#" className="hover:underline ">
                     Our Mission
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:underline text-normal">
+                  <a href="#" className="hover:underline ">
                     Our Vision
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:underline text-normal">
+                  <a href="#" className="hover:underline">
                     Our Values
                   </a>
                 </li>
@@ -44,62 +44,41 @@ export const FooterSection = () => {
               <p className="mb-3 font-semibold text-gray-900 text-large">
                 Services
               </p>
-              <ul className="text-gray-600 dark:text-gray-400">
+              <ul className="text-gray-600 text-medium">
                 <li className="mb-1">
-                  <a
-                    href="#"
-                    className="hover:underline text-normal capitalize"
-                  >
+                  <a href="#" className="hover:underline capitalize">
                     Comprehensive E-commerce Platform <br /> for Quality Parts
                     and Products
                   </a>
                 </li>
                 <li className="mb-1">
-                  <a
-                    href="#"
-                    className="hover:underline text-normal capitalize"
-                  >
+                  <a href="#" className="hover:underline capitalize">
                     Web and App Design, Development, <br /> and Maintenance
                   </a>
                 </li>
                 <li className="mb-1">
-                  <a
-                    href="#"
-                    className="hover:underline text-normal capitalize"
-                  >
+                  <a href="#" className="hover:underline capitalize">
                     Networking and IT Support Setup
                   </a>
                 </li>
                 <li className="mb-1">
-                  <a
-                    href="#"
-                    className="hover:underline text-normal capitalize"
-                  >
+                  <a href="#" className="hover:underline capitalize">
                     verification and validation
                   </a>
                 </li>
 
                 <li className="mb-1">
-                  <a
-                    href="#"
-                    className="hover:underline text-normal capitalize"
-                  >
+                  <a href="#" className="hover:underline capitalize">
                     calibration
                   </a>
                 </li>
                 <li className="mb-1">
-                  <a
-                    href="#"
-                    className="hover:underline text-normal capitalize leading-3"
-                  >
+                  <a href="#" className="hover:underline capitalize leading-3">
                     Medical device parts
                   </a>
                 </li>
                 <li className="mb-1">
-                  <a
-                    href="#"
-                    className="hover:underline text-normal capitalize"
-                  >
+                  <a href="#" className="hover:underline capitalize">
                     Product inspection
                   </a>
                 </li>
