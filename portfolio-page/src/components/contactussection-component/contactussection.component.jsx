@@ -93,8 +93,11 @@ export const ContactUsSection = () => {
               </svg>
             </p>
             <p>
-              <a href="mailto:hello@example.com" className="leading-6">
-                hello@example.com
+              <a
+                href="mailto:info@certifiedglobalenterprise.com"
+                className="leading-6"
+              >
+                info@certifiedglobalenterprise.com
               </a>
             </p>
           </div>
