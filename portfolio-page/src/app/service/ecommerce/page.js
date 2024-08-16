@@ -25,7 +25,7 @@ const Ecommerce = () => {
         <div className="mx-auto max-w-3xl lg:mx-0 col-span-7 ">
           <div className="w-11/12">
             <div className="mt-6 text-normal leading-6 text-gray-900">
-              <div className="italic text-seminormal font-medium">
+              <div className="italic text-seminormal font-medium leading-7 tracking-[0.02em]">
                 At Certified Global Enterprise, our e-commerce platform offers a
                 wide array of high-quality products designed to meet the diverse
                 needs of our customers. Whether you're in the market for medical

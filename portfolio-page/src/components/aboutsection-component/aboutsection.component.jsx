@@ -20,7 +20,7 @@ export const AboutSection = () => {
               About
             </p>
             <div className="mt-6 text-normal leading-6 text-gray-900">
-              <div className="text-seminormal font-medium">
+              <div className="text-seminormal font-medium leading-7 tracking-[0.02em]">
                 At Certified Global Enterprise, we pride ourselves on our
                 commitment to transparency and excellence. With a team of
                 experienced professionals, we are committed to innovation,
