@@ -44,10 +44,10 @@ export const FooterSection = () => {
               <p className="mb-3 font-semibold text-gray-900 text-large">
                 Services
               </p>
-              <ul className="text-gray-600 text-medium gap-4">
-                <li className="mb-3">
+              <div className="text-gray-600 text-medium gap-4">
+                <div className="mb-3">
                   <p className="flex flex-col gap-1">
-                    <p className="font-semibold">IT Support</p>
+                    <span className="font-semibold">IT Support</span>
                     <a
                       href="#"
                       className="hover:underline capitalize leading-5"
@@ -65,10 +65,10 @@ export const FooterSection = () => {
                       Networking and IT Support Setup
                     </a>
                   </p>
-                </li>
-                <li className="mb-3">
+                </div>
+                <div className="mb-3">
                   <p className="flex flex-col gap-1">
-                    <p className="font-semibold">Engineering</p>
+                    <span className="font-semibold">Engineering</span>
                     <a href="#" className="hover:underline capitalize">
                       verification and validation
                     </a>
@@ -79,16 +79,16 @@ export const FooterSection = () => {
                       Medical device parts
                     </a>
                   </p>
-                </li>
-                <li className="mb-1">
+                </div>
+                <div className="mb-1">
                   <p className="flex flex-col gap-1">
-                    <p className="font-semibold">Consultancy</p>
+                    <span className="font-semibold">Consultancy</span>
                     <a href="#" className="hover:underline capitalize">
                       Product inspection
                     </a>
                   </p>
-                </li>
-              </ul>
+                </div>
+              </div>
             </div>
             <div>
               <p className="mb-3 font-semibold text-gray-900 text-large">
