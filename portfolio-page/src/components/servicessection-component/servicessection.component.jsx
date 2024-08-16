@@ -83,7 +83,7 @@ export const ServicesSection = () => {
       <div className="md:mt-12 mt-8 flex flex-col gap-8">
         <div className="flex flex-col gap-4 w-full" id="it-solutions">
           <p className="font-semibold text-larger capitalize">IT Support</p>
-          <div className="md:gap-8 gap-6 grid mlg:grid-cols-3 xs:grid-cols-2 grid-cols-1 w-full">
+          <div className="md:gap-8 gap-8 grid mlg:grid-cols-3 xs:grid-cols-2 grid-cols-1 w-full">
             <Card service={services[0]} customLinks={"ecommerce"} />
             <Card service={services[5]} customLinks={"softwaredevelopment"} />
             <Card service={services[1]} customLinks={"networking"} />

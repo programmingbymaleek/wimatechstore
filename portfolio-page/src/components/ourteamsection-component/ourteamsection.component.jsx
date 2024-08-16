@@ -101,10 +101,10 @@ export const OurTeamSection = () => {
       </div>
       {selectedPerson && (
         <div className="flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 bottom-0 z-50 justify-center items-center w-full md:inset-0 max-h-full bg-black/50">
-          <div className="relative p-4 w-full max-w-[50rem] max-h-full h-full flex items-center justify-center">
+          <div className="relative p-4 w-full max-w-[65rem] max-h-full h-full flex items-center justify-center">
             <div className="relative bg-white rounded-lg shadow p-4 pb-8 pl-8 mb-4 h-fit max-h-fit">
               <div className="group md:w-full xs:w-fit 2xs:w-max w-full mx-auto gap-x-6 justify-between items-start grid grid-cols-[auto_1fr] h-fit overflow-scroll">
-                <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md lg:aspect-none max-w-[18rem] h-full flex flex-col items-center gap-5 my-8 col-span-1 max-h-[18rem]">
+                <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md lg:aspect-none max-w-[18rem] h-full flex flex-col items-center gap-5 my-8 col-span-1 max-h-[20rem]">
                   <Image
                     alt={selectedPerson.imageAlt}
                     src={selectedPerson.imageSrc}
