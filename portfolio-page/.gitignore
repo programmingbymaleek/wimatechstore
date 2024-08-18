@@ -4,8 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
-/portfolio-page/node_modules
-/portfolio-page/.next
+/node_modules
+/.next
 
 
 # testing

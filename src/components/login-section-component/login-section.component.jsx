@@ -51,7 +51,7 @@ const LoginSection = () => {
     <AuthContainer>
       {" "}
       <form
-        className="flex flex-col xmedium:w-[40%] small:w-[28rem] xxsmall:w-11/12 w-full xmedium:pb-0 py-8 h-full pt-24"
+        className="flex flex-col xmedium:w-[40%] small:w-[28rem] xxsmall:w-11/12 w-full xmedium:pb-0 py-8 h-full pt-24 xmedium:pt-40"
         onSubmit={submitFormHandler}
       >
         <Text texttype="heading-md" textstyles="text-center xmedium:text-left">

@@ -75,7 +75,7 @@ const Navbar = () => {
             <img
               src={logo}
               alt="Certified Global Enterprise"
-              className="w-12 h-auto"
+              className="w-10 h-auto"
             />
           </div>
           <div className="flex flex-row gap-8 items-center">
@@ -130,6 +130,7 @@ const Navbar = () => {
           </div>
         </div>
         <div className="flex flex-row gap-6 items-center w-fit">
+          {currentUser && <span>{currentUser.displayName}</span>}
           {showSearch ? (
             <Text textstyles="flex flex-row border border-gray-300 rounded-lg py-2 px-4 gap-2">
               <SearchIcon className="w-5 h-5" />
@@ -162,7 +163,6 @@ const Navbar = () => {
               <DropDown>
                 {currentUser ? (
                   <>
-                    {/* <span>{currentUser.displayName}</span> */}
                     <li>
                       <Link
                         to={"/wimatechstore/profile"}
@@ -249,7 +249,7 @@ const Navbar = () => {
                   <DropDown>
                     {currentUser ? (
                       <>
-                        {/* <span>{currentUser.displayName}</span> */}
+                        <span>{currentUser.displayName}</span>
                         <li>
                           <Link
                             to={"/wimatechstore/profile"}

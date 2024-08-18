@@ -259,10 +259,10 @@ const CartComponent = () => {
               Order History
             </Text>
             <ScrollableSection scrollstyles="gap-4 medium:gap-8 justify-between overflow-clip">
-              {orders.map((item) => (
-                <div key={item.id} className="w-[220px]">
+              {orders.map((item, index) => (
+                <div key={index} className="w-[220px]">
                   <ProductCard
-                    key={item.id}
+                    key={index}
                     product={item}
                     title={item.make}
                     type="order-history"
@@ -282,10 +282,10 @@ const CartComponent = () => {
             Related Products
           </Text>
           <ScrollableSection scrollstyles="gap-4 medium:gap-8 justify-between">
-            {ShopProduct[2].items.map((item) => (
-              <div key={item.id}>
+            {ShopProduct[2].items.map((item, index) => (
+              <div key={index}>
                 <ProductCard
-                  key={item.id}
+                  key={index}
                   product={item}
                   title={item.make}
                   productstyle="w-[200px]"
