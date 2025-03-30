@@ -22,3 +22,5 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+portfolio-page/.next
+portfolio-page/node_modules
