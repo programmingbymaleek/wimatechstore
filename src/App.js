@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
+import { getAllProducts, getTopTenlatestProducts } from "./restapi";
 import LandingPage from "./components/landing-page-component/landingpage.component";
 import LoginSection from "./components/login-section-component/login-section.component";
 import SignupSection from "./components/signup-section-component/signup-section.component";
@@ -34,6 +35,8 @@ function App() {
 
   // Fetching shoe collections from Firebase
   useEffect(() => {
+    getAllProducts();
+    getTopTenlatestProducts();
     const getShoeGroups = async () => {
       const groupMaps = await getCategoriesAndDocumentFromFireBase();
       dispatch(setProducts(groupMaps));
