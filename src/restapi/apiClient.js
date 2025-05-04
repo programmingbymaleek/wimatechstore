@@ -74,7 +74,7 @@ api.interceptors.response.use(
         const { token, refreshToken: newRefreshToken } = response.data;
         //save the new token and refresh token
         localStorage.setItem("token", token);
-        localStorage.setItem("refresh_token", refreshToken);
+        localStorage.setItem("refresh_token", newRefreshToken);
 
         //retry the original request with the new token
         originalRequest.headers.Authorization = token;
