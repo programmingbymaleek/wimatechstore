@@ -23,14 +23,6 @@ export const getTopTenlatestProducts = async () => {
 
 //sign up users with credentials. email, username password and confirm password.
 
-//sample data for userInformation.
-// {
-//   "emailAddress": "test@gmail.com",
-//     "userName": "test123",
-//     "passsword": "test123",
-//     "confirmPassword":"test123"
-// }
-
 export const createNewUser = async (userInformation) => {
   try {
     const response = await api.post("/auth/register", userInformation);
