@@ -6,14 +6,16 @@ import LoginSection from "./components/login-section-component/login-section.com
 import SignupSection from "./components/signup-section-component/signup-section.component";
 import Navigation from "./components/navigation-section-component/navigation.component";
 import { setCurrentUser } from "./reduxtoolkit/features/user/userSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Shop from "./components/shop/shopComponent";
 import CheckoutWrapper from "./components/checkoutWrapper/checkoutWrapper";
 import {
   addCollectionAndDocuments,
   getCategoriesAndDocumentFromFireBase,
 } from "./utilis/firebase.utils";
-import { setProducts } from "./reduxtoolkit/features/products/productSlice";
+// import { setProducts } from "./reduxtoolkit/features/products/productSlice";
+import { fetchAllProducts } from "./reduxtoolkit/features/products/productSlice";
+
 import {
   createUserDocumentFromAuth,
   onAuthStateChangedListener,
@@ -28,20 +30,17 @@ import Category from "./components/category/categoryComponent";
 import Profile from "./components/profile-page-component/profile-page.component";
 
 function App() {
+  const { products } = useSelector((state) => state.products);
   const dispatch = useDispatch();
+  console.log("this is the product");
+  console.log(products);
 
   // Initialize Stripe with your publishable API key
   const stripePromise = loadStripe("your_stripe_publishable_key_here");
 
-  // Fetching shoe collections from Firebase
+  // Fetching data collections
   useEffect(() => {
-    getAllProducts();
-    getTopTenlatestProducts();
-    const getShoeGroups = async () => {
-      const groupMaps = await getCategoriesAndDocumentFromFireBase();
-      dispatch(setProducts(groupMaps));
-    };
-    getShoeGroups();
+    dispatch(fetchAllProducts());
   }, [dispatch]);
 
   //fetch userOrderHistor

@@ -1,6 +1,7 @@
 import axios from "axios";
 export const api = axios.create({
-  baseURL: "https://restapieccommerce.onrender.com",
+  // baseURL: "https://restapieccommerce.onrender.com",
+  baseURL: "http://localhost:8080/",
   headers: {
     "Content-Type": "application/json",
   },
