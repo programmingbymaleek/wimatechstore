@@ -6,13 +6,10 @@ import Text from "../text-component/text.component";
 import TextSlideshowContainer from "../text-slideshow-container/text-slideshow-container.component";
 import { signInWithGooglePopUp } from "../../utilis/firebase.utils";
 import google_logo from "../../assets/images/google_logo.png";
-import {
-  createAuthUserWithEmailAndPassword,
-  createUserDocumentFromAuth,
-} from "../../utilis/firebase.utils";
 import { useState } from "react";
-import { async } from "@firebase/util";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { registerUser } from "../../reduxtoolkit/features/user/userSlice";
 
 const SignupSection = () => {
   const signUpWithGoogle = async () => {
@@ -29,8 +26,11 @@ const SignupSection = () => {
     confirmPassword: "",
   };
 
+  const dispatch = useDispatch();
+
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
+  const { error, setError } = useState("");
 
   const onChangeHandler = (event) => {
     const { name, value } = event.target;
@@ -39,21 +39,47 @@ const SignupSection = () => {
 
   const submitFormHandler = async (event) => {
     event.preventDefault();
-    if (password === confirmPassword) {
-      try {
-        const user = await createAuthUserWithEmailAndPassword(
-          email,
-          password,
-          displayName
-        );
-        if (user) {
-          createUserDocumentFromAuth(user);
-        }
-      } catch (error) {
-        console.log(error);
-      }
+    // Basic field presence check
+    if (!displayName || !email || !password || !confirmPassword) {
+      setError("All fields are required.");
+      return;
+    }
+    // Email format check
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+
+    // Password match check
+    if (password !== confirmPassword) {
+      setError("Passwords do not match.");
+      return;
+    }
+
+    // Password strength check
+    const strongPasswordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/;
+    if (!strongPasswordRegex.test(password)) {
+      setError(
+        "Password must be at least 8 characters long and include at least one uppercase letter, one number, and one special character."
+      );
+      return;
+    }
+
+    // If all checks pass, proceed with signup logic
+    try {
+      const userData = {
+        emailAddress: email,
+        userName: displayName,
+        password: password,
+        confirmPassword: confirmPassword,
+      };
+      dispatch(registerUser(userData)); //registers users and return user data with a token
+    } catch (error) {
+      console.error("User creation error:", error);
     }
   };
+
   return (
     <AuthContainer>
       {" "}
@@ -72,7 +98,7 @@ const SignupSection = () => {
         </Text>
         <FormInput
           type="displayName"
-          name="display Name"
+          name="displayName"
           placeholder="Enter your username"
           labelstyle="capitalize font-medium"
           inputstyle="w-full xsmall:px-6 xsmall:py-3 px-5 py-2.5 xsmall:mt-3 mt-2 xsmall:mb-5 mb-5"

@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
-import { getAllProducts, getTopTenlatestProducts } from "./restapi";
 import LandingPage from "./components/landing-page-component/landingpage.component";
 import LoginSection from "./components/login-section-component/login-section.component";
 import SignupSection from "./components/signup-section-component/signup-section.component";
@@ -9,18 +8,7 @@ import { setCurrentUser } from "./reduxtoolkit/features/user/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Shop from "./components/shop/shopComponent";
 import CheckoutWrapper from "./components/checkoutWrapper/checkoutWrapper";
-import {
-  addCollectionAndDocuments,
-  getCategoriesAndDocumentFromFireBase,
-} from "./utilis/firebase.utils";
-// import { setProducts } from "./reduxtoolkit/features/products/productSlice";
 import { fetchAllProducts } from "./reduxtoolkit/features/products/productSlice";
-
-import {
-  createUserDocumentFromAuth,
-  onAuthStateChangedListener,
-  getUserDocumentFromFireBase,
-} from "./utilis/firebase.utils";
 import CartComponent from "./components/cart/cart.component";
 import ErrorPage from "./components/error-page-component/error-page.component";
 import { Elements } from "@stripe/react-stripe-js";
@@ -44,38 +32,35 @@ function App() {
   }, [dispatch]);
 
   //fetch userOrderHistor
-  const fetchUserData = async (uid) => {
-    try {
-      const userData = await getUserDocumentFromFireBase(uid);
-      return userData ? userData : null;
-    } catch (error) {
-      console.error("Error fetching user data:", error);
-      return null;
-    }
-  };
+  // const fetchUserData = async (uid) => {
+  //   try {
+  //     const userData = await getUserDocumentFromFireBase(uid);
+  //     return userData ? userData : null;
+  //   } catch (error) {
+  //     console.error("Error fetching user data:", error);
+  //     return null;
+  //   }
+  // };
   useEffect(() => {
-    const unSubscribe = onAuthStateChangedListener(async (user) => {
-      if (user) {
-        const dataUser = await createUserDocumentFromAuth(user);
-        const userId = dataUser.id;
-        const userData = await fetchUserData(user.uid);
-        if (userData) {
-          const { displayName, email } = userData;
-          dispatch(setCurrentUser({ displayName, email, userId }));
+    // const unSubscribe = onAuthStateChangedListener(async (user) => {
+    //   if (user) {
+    //     const dataUser = await createUserDocumentFromAuth(user);
+    //     const userId = dataUser.id;
+    //     const userData = await fetchUserData(user.uid);
+    //     if (userData) {
+    //       const { displayName, email } = userData;
+    //       // dispatch(setCurrentUser({ displayName, email, userId }));
+    //       //fetch userOrderHistory
+    //       // dispatch(fetchOrderHistory(userId));
+    //     }
+    //   } else {
+    //     // dispatch(setCurrentUser(null));
+    //   }
+  });
 
-          //fetch userOrderHistory
-          dispatch(fetchOrderHistory(userId));
-        }
-      } else {
-        dispatch(setCurrentUser(null));
-      }
-    });
-
-    // Cleanup subscription on unmount
-    return () => {
-      unSubscribe();
-    };
-  }, [dispatch]);
+  // // Cleanup subscription on unmount
+  // return () => {
+  //   unSubscribe();
 
   return (
     <Elements stripe={stripePromise}>
