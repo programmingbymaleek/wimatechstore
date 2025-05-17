@@ -1,18 +1,20 @@
 import axios from "axios";
+import store from "../reduxtoolkit/appStore/store";
+import { logout } from "../reduxtoolkit/features/user/userSlice";
+import { refreshToken } from "../reduxtoolkit/features/user/userSlice";
 export const api = axios.create({
   // baseURL: "https://restapieccommerce.onrender.com",
   baseURL: "http://localhost:8080/",
-  headers: {
-    "Content-Type": "application/json",
-  },
+  withCredentials: true,
 });
 
 //Requeset interceptor to add token to headers.
 api.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem("token");
+    const state = store.getState();
+    const token = state.auth.token;
     if (token) {
-      config.headers.Authorization = token; //use stored token
+      config.headers.Authorization = `Bearer ${token}`; //use stored token
     }
     return config;
   },
@@ -61,31 +63,33 @@ api.interceptors.request.use(
 // User is redirected to /login.
 
 //Response interceptor to handle token expiration and refresh
+// Handle token refresh on 401 responses
 api.interceptors.response.use(
-  (response) => response, //If successful, do nothing
-  //if error like 401 then run this callback
+  (res) => res,
   async (error) => {
     const originalRequest = error.config;
-    //check if the error is due to token expiration (401 unauthorized)
-    if (error.response.data === 401 && !originalRequest._retry) {
-      originalRequest._retry = true;
-      const refreshToken = localStorage.getItem("refresh_token");
-      try {
-        const response = await axios.post("/refresh-token", { refreshToken });
-        const { token, refreshToken: newRefreshToken } = response.data;
-        //save the new token and refresh token
-        localStorage.setItem("token", token);
-        localStorage.setItem("refresh_token", newRefreshToken);
 
-        //retry the original request with the new token
-        originalRequest.headers.Authorization = token;
-        return axios(originalRequest);
-      } catch (error) {
-        console.log("Token refreh failed, logging out");
-        //Handle failed refresh
-        window.localStorage.href = "/login";
+    if (error.response?.status === 401 && !originalRequest._retry) {
+      originalRequest._retry = true;
+      try {
+        const resultAction = await store.dispatch(refreshToken());
+
+        if (refreshToken.fulfilled.match(resultAction)) {
+          const newToken = resultAction.payload.token;
+          originalRequest.headers.Authorization = `Bearer ${newToken}`;
+          return api(originalRequest);
+        } else {
+          store.dispatch(logout());
+          return Promise.reject(resultAction.payload || "Refresh failed");
+        }
+      } catch (refreshError) {
+        store.dispatch(logout());
+        return Promise.reject(refreshError);
       }
     }
+
     return Promise.reject(error);
   }
 );
+
+export default api;

@@ -18,6 +18,7 @@ import Category from "./components/category/categoryComponent";
 import Profile from "./components/profile-page-component/profile-page.component";
 
 function App() {
+  // console.log(localStorage.getItem("refresh_token"));
   const { products } = useSelector((state) => state.products);
   const dispatch = useDispatch();
   console.log("this is the product");
