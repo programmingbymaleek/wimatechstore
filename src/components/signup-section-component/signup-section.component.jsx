@@ -27,6 +27,8 @@ const SignupSection = () => {
   };
 
   const dispatch = useDispatch();
+  const value = useSelector((state) => state.user);
+  console.log(value);
 
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;

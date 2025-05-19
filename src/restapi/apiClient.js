@@ -1,26 +1,20 @@
 import axios from "axios";
-import store from "../reduxtoolkit/appStore/store";
-import { logout } from "../reduxtoolkit/features/user/userSlice";
-import { refreshToken } from "../reduxtoolkit/features/user/userSlice";
+
 export const api = axios.create({
-  // baseURL: "https://restapieccommerce.onrender.com",
   baseURL: "http://localhost:8080/",
-  withCredentials: true,
+  withCredentials: true, // IMPORTANT! Send cookies with every request
 });
 
 //Requeset interceptor to add token to headers.
 api.interceptors.request.use(
   (config) => {
-    const state = store.getState();
-    const token = state.auth.token;
+    const token = localStorage.getItem("token"); // your access token storage
     if (token) {
-      config.headers.Authorization = `Bearer ${token}`; //use stored token
+      config.headers.Authorization = `Bearer ${token}`;
     }
     return config;
   },
-  (error) => {
-    return Promise.reject(error);
-  }
+  (error) => Promise.reject(error)
 );
 
 // 🔄 Here's how the next flow works called (Response interceptor to handle token expiration and refresh):
@@ -65,26 +59,24 @@ api.interceptors.request.use(
 //Response interceptor to handle token expiration and refresh
 // Handle token refresh on 401 responses
 api.interceptors.response.use(
-  (res) => res,
+  (response) => response,
   async (error) => {
     const originalRequest = error.config;
 
     if (error.response?.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
       try {
-        const resultAction = await store.dispatch(refreshToken());
-
-        if (refreshToken.fulfilled.match(resultAction)) {
-          const newToken = resultAction.payload.token;
-          originalRequest.headers.Authorization = `Bearer ${newToken}`;
-          return api(originalRequest);
-        } else {
-          store.dispatch(logout());
-          return Promise.reject(resultAction.payload || "Refresh failed");
-        }
-      } catch (refreshError) {
-        store.dispatch(logout());
-        return Promise.reject(refreshError);
+        const res = await api.post("/auth/refresh-token"); // no body, cookie sent automatically
+        const newToken = res.data.token;
+        localStorage.setItem("token", newToken);
+        originalRequest.headers.Authorization = `Bearer ${newToken}`;
+        return api(originalRequest); // retry original request
+      } catch (err) {
+        // Refresh token invalid or expired
+        // Perform logout or redirect to login
+        localStorage.removeItem("token");
+        // Optionally dispatch logout redux action here
+        return Promise.reject(err);
       }
     }
 

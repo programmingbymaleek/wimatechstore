@@ -33,21 +33,6 @@ export const loginUser = createAsyncThunk(
   }
 );
 
-export const refreshToken = createAsyncThunk(
-  "user/refreshToken",
-  async (_, thunkApi) => {
-    try {
-      // Adjust endpoint & options as needed
-      const response = await api.post("/auth/refresh-token", null, {
-        withCredentials: true, // send cookies if refresh token is stored there
-      });
-      return response.data; // Expected { user, token }
-    } catch (error) {
-      return thunkApi.rejectWithValue(error.response?.data || error.message);
-    }
-  }
-);
-
 export const userSlice = createSlice({
   name: "user",
   initialState,
@@ -56,7 +41,10 @@ export const userSlice = createSlice({
       state.user = null;
       state.isAuthenticated = false;
       state.token = null;
-      localStorage.removeItem("token");
+    },
+    setToken: (state, action) => {
+      state.token = action.payload;
+      state.isAuthenticated = true;
     },
   },
   extraReducers: (builder) => {
@@ -71,7 +59,6 @@ export const userSlice = createSlice({
       state.user = user;
       state.token = token;
       state.isAuthenticated = true;
-      localStorage.setItem("token", token);
     });
     builder.addCase(registerUser.rejected, (state, action) => {
       state.error = action.payload || "Registration failed";
@@ -89,35 +76,13 @@ export const userSlice = createSlice({
       state.user = user;
       state.token = token;
       state.isAuthenticated = true;
-      localStorage.setItem("token", token);
     });
     builder.addCase(loginUser.rejected, (state, action) => {
       state.error = action.payload || "Login failed";
       state.loading = false;
     });
-
-    // Refresh Token
-    builder.addCase(refreshToken.pending, (state) => {
-      state.loading = true;
-      state.error = "";
-    });
-    builder.addCase(refreshToken.fulfilled, (state, action) => {
-      const { user, token } = action.payload;
-      state.loading = false;
-      state.user = user;
-      state.token = token;
-      state.isAuthenticated = true;
-      localStorage.setItem("token", token);
-    });
-    builder.addCase(refreshToken.rejected, (state) => {
-      state.loading = false;
-      state.user = null;
-      state.token = null;
-      state.isAuthenticated = false;
-      localStorage.removeItem("token");
-    });
   },
 });
 
-export const { logout } = userSlice.actions;
+export const { logout, setToken } = userSlice.actions;
 export const userReducer = userSlice.reducer;
