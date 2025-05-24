@@ -9,7 +9,7 @@ import google_logo from "../../assets/images/google_logo.png";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { registerUser } from "../../reduxtoolkit/features/user/userSlice";
+import { registerUser } from "../../reduxtoolkit/features/auth/authSlice";
 
 const SignupSection = () => {
   const signUpWithGoogle = async () => {

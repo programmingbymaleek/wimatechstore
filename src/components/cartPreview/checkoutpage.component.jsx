@@ -4,7 +4,7 @@ import Text from "../text-component/text.component";
 import BreadCrumb from "../breadcrumb-component/breadcrumb.component";
 import OrderSummary from "../order-summary-component/ordersummary.component";
 import SetDelivery from "../set-delivery-component/set-delivery.component";
-import SetPayment from "../set-payment-component/set-payment.component";
+// import SetPayment from "../set-payment-component/set-payment.component";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { addCompletedOrders } from "../../utilis/firebase.utils";
@@ -104,7 +104,7 @@ const CheckoutPage = () => {
             <div className="mt-8 sm:mt-8 large:flex large:items-start large:gap-12 xl:gap-16">
               <div className="min-w-0 flex-1 space-y-8 ">
                 {stage === 0 && <SetDelivery onValidate={setIsDeliveryValid} />}
-                {stage === 1 && <SetPayment onValidate={setIsPaymentValid} />}
+                {/* {stage === 1 && <SetPayment onValidate={setIsPaymentValid} />} */}
                 {stage === 2 && <OrderSummary />}
                 <div className="justify-between items-center flex gap-4 mt-1.5">
                   <Button

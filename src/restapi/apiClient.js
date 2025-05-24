@@ -1,4 +1,5 @@
 import axios from "axios";
+import { setToken, getToken, clearToken } from "./tokenService";
 
 export const api = axios.create({
   baseURL: "http://localhost:8080/",
@@ -8,7 +9,7 @@ export const api = axios.create({
 //Requeset interceptor to add token to headers.
 api.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem("token"); // your access token storage
+    const token = getToken();
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
@@ -62,20 +63,29 @@ api.interceptors.response.use(
   (response) => response,
   async (error) => {
     const originalRequest = error.config;
-
-    if (error.response?.status === 401 && !originalRequest._retry) {
+    // Prevent infinite loop
+    if (
+      error.response?.status === 401 &&
+      !originalRequest._retry &&
+      !originalRequest.url.includes("/auth/refresh-token")
+    ) {
       originalRequest._retry = true;
       try {
-        const res = await api.post("/auth/refresh-token"); // no body, cookie sent automatically
-        const newToken = res.data.token;
-        localStorage.setItem("token", newToken);
-        originalRequest.headers.Authorization = `Bearer ${newToken}`;
-        return api(originalRequest); // retry original request
+        const res = await api.post(
+          "/auth/refresh-token",
+          {},
+          { withCredentials: true }
+        );
+
+        const { token } = res.data;
+        setToken(token);
+
+        api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+        originalRequest.headers["Authorization"] = `Bearer ${token}`;
+
+        return api(originalRequest); // Retry original request
       } catch (err) {
-        // Refresh token invalid or expired
-        // Perform logout or redirect to login
-        localStorage.removeItem("token");
-        // Optionally dispatch logout redux action here
+        clearToken();
         return Promise.reject(err);
       }
     }

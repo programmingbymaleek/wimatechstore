@@ -10,55 +10,58 @@ import CheckoutWrapper from "./components/checkoutWrapper/checkoutWrapper";
 import { fetchAllProducts } from "./reduxtoolkit/features/products/productSlice";
 import CartComponent from "./components/cart/cart.component";
 import ErrorPage from "./components/error-page-component/error-page.component";
-import { Elements } from "@stripe/react-stripe-js";
-import { loadStripe } from "@stripe/stripe-js";
+import {
+  clearAccessToken,
+  setAccessToken,
+} from "./reduxtoolkit/features/auth/authSlice";
+import { setUser, clearUser } from "./reduxtoolkit/features/user/userSlice";
+// import { Elements } from "@stripe/react-stripe-js";
+// import { loadStripe } from "@stripe/stripe-js";
 import Category from "./components/category/categoryComponent";
 import Profile from "./components/profile-page-component/profile-page.component";
-import { setToken, logout } from "./reduxtoolkit/features/user/userSlice";
+import { setToken, getToken } from "./restapi/tokenService";
 import api from "./restapi/apiClient";
 
 function App() {
   // console.log(localStorage.getItem("refresh_token"));
   const { products } = useSelector((state) => state.products);
-  const { token } = useSelector((state) => state.user);
+
+  const { user } = useSelector((state) => state.user);
+  console.log("this is the user");
+  console.log(user);
   const dispatch = useDispatch();
-  console.log("From Local Storage: ", localStorage.getItem("token"));
-  console.log("From redux", token);
+
+  localStorage.removeItem("token");
 
   // Initialize Stripe with your publishable API key
-  const stripePromise = loadStripe("your_stripe_publishable_key_here");
+  // const stripePromise = loadStripe("your_stripe_publishable_key_here");
 
+  console.log("This is the token: " + getToken());
   // Fetching data collections
   useEffect(() => {
     dispatch(fetchAllProducts());
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   const tryRefresh = async () => {
-  //     try {
-  //       const res = await api.post(
-  //         "/auth/refresh-token",
-  //         {},
-  //         { withCredentials: true }
-  //       );
-  //       console.log("this is the responds:", res);
-  //       dispatch(setToken(res.data.token));
-  //     } catch (err) {
-  //       console.log("Error page..");
-  //       console.warn("Refresh failed. Logging out.");
-  //       dispatch(logout());
-  //     }
-  //   };
-  //   if (!token && !sessionStorage.getItem("triedRefresh")) {
-  //     console.log("here!............");
-  //     sessionStorage.setItem("triedRefresh", "true");
-  //     tryRefresh();
-  //     console.log("here!............");
-  //   }
-  // }, []);
+  useEffect(() => {
+    const bootstrapAuth = async () => {
+      try {
+        const res = await api.post("/auth/refresh-token");
+        const { token, user } = res.data;
+        setToken(token); // in-memory from tokenServices
+        dispatch(setUser(user));
+        dispatch(setAccessToken(token));
+      } catch (err) {
+        dispatch(clearUser());
+        dispatch(clearAccessToken());
+      }
+    };
+
+    bootstrapAuth();
+  }, []);
 
   return (
-    <Elements stripe={stripePromise}>
+    // <Elements stripe={stripePromise}>
+    <>
       <Routes>
         <Route path="/wimatechstore" element={<Navigation />}>
           <Route index element={<LandingPage />} />
@@ -72,7 +75,7 @@ function App() {
           <Route path="profile" element={<Profile />} />
         </Route>
       </Routes>
-    </Elements>
+    </>
   );
 }
 
